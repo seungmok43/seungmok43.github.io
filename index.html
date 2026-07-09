@@ -1,0 +1,358 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="이승목 목사가 클로드로 지어 공개한 결과물 17편의 전체 관문 — 대사전·강해·구도자 진입·다음 세대·북클럽·목양.">
+<meta name="robots" content="noindex, nofollow">
+<meta property="og:title" content="말씀의 서고 — 공개 결과물 총람">
+<meta property="og:description" content="강해·구도자 진입·다음 세대·북클럽·목양 17편을 한자리에.">
+<meta property="og:type" content="website">
+<title>말씀의 서고 — 공개 결과물 총람</title>
+<style>
+  :root{
+    --bg:#edeae1; --surface:#f6f3ec; --raise:#fbf9f3;
+    --ink:#211f1b; --muted:#6d685d; --faint:#948e81;
+    --line:#d8d2c5; --line-soft:#e5e0d4;
+    --garnet:#8c2f39; --garnet-soft:#a94b52;
+    --brass:#8f7124; --live:#4f7c56; --protect:#9a7b3f;
+    --sans:"Apple SD Gothic Neo","Pretendard","Malgun Gothic",system-ui,-apple-system,"Segoe UI",sans-serif;
+    --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+    --sh:0 1px 0 rgba(140,47,57,.04);
+  }
+  @media (prefers-color-scheme:dark){
+    :root{
+      --bg:#171613; --surface:#201e1b; --raise:#262320;
+      --ink:#ece7db; --muted:#a49d8e; --faint:#7d766a;
+      --line:#322e28; --line-soft:#2a2723;
+      --garnet:#d1787d; --garnet-soft:#e29ea3;
+      --brass:#c6a860; --live:#7bab82; --protect:#cBA05e;
+      --brass:#c6a860; --protect:#c9a862;
+    }
+  }
+  :root[data-theme="light"]{
+    --bg:#edeae1; --surface:#f6f3ec; --raise:#fbf9f3;
+    --ink:#211f1b; --muted:#6d685d; --faint:#948e81;
+    --line:#d8d2c5; --line-soft:#e5e0d4;
+    --garnet:#8c2f39; --garnet-soft:#a94b52; --brass:#8f7124;
+    --live:#4f7c56; --protect:#9a7b3f;
+  }
+  :root[data-theme="dark"]{
+    --bg:#171613; --surface:#201e1b; --raise:#262320;
+    --ink:#ece7db; --muted:#a49d8e; --faint:#7d766a;
+    --line:#322e28; --line-soft:#2a2723;
+    --garnet:#d1787d; --garnet-soft:#e29ea3; --brass:#c6a860;
+    --live:#7bab82; --protect:#c9a862;
+  }
+
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);
+    -webkit-font-smoothing:antialiased;line-height:1.6;
+    background-image:radial-gradient(circle at 12% -8%,rgba(140,47,57,.05),transparent 42%);}
+  .wrap{max-width:940px;margin:0 auto;padding:clamp(1.4rem,5vw,4.2rem) clamp(1.15rem,5vw,2.4rem) 4rem}
+  a{color:inherit;text-decoration:none}
+  ::selection{background:rgba(140,47,57,.16)}
+
+  /* ---- masthead ---- */
+  .mast{border-bottom:1.5px solid var(--ink);padding-bottom:1.5rem;margin-bottom:.4rem}
+  .eyebrow{font-family:var(--serif);font-style:italic;color:var(--garnet);
+    font-size:.95rem;letter-spacing:.02em;margin:0 0 .9rem;display:flex;align-items:center;gap:.7rem}
+  .eyebrow::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,var(--line),transparent)}
+  .mast h1{font-size:clamp(2.1rem,7vw,3.4rem);line-height:1.04;letter-spacing:-.02em;
+    font-weight:800;margin:0;text-wrap:balance}
+  .mast .sub{color:var(--muted);font-size:clamp(.98rem,2.4vw,1.1rem);margin:.85rem 0 0;max-width:60ch}
+  .mast .sub b{color:var(--ink);font-weight:700}
+
+  /* ---- kpi strip ---- */
+  .strip{display:flex;flex-wrap:wrap;gap:0;margin:1.6rem 0 0;
+    border:1px solid var(--line);border-radius:11px;background:var(--surface);overflow:hidden}
+  .kpi{flex:1 1 130px;padding:.9rem 1.1rem;border-right:1px solid var(--line-soft)}
+  .kpi:last-child{border-right:0}
+  .kpi .n{font-family:var(--serif);font-size:1.65rem;font-weight:700;letter-spacing:-.01em;
+    font-variant-numeric:tabular-nums;line-height:1}
+  .kpi .n .u{font-size:.9rem;color:var(--muted);font-style:italic;margin-left:.15rem}
+  .kpi .l{font-size:.76rem;color:var(--faint);margin-top:.4rem;letter-spacing:.04em;text-transform:uppercase}
+  .dotlive{color:var(--live)} .dotprot{color:var(--protect)}
+
+  /* ---- section ---- */
+  .sec{margin-top:2.9rem}
+  .sec-h{display:flex;align-items:baseline;gap:.85rem;margin:0 0 .3rem;
+    padding-bottom:.55rem;border-bottom:1px solid var(--line)}
+  .sec-h .rn{font-family:var(--serif);font-style:italic;color:var(--brass);
+    font-size:1.05rem;font-weight:700;min-width:1.4rem}
+  .sec-h h2{font-size:1.16rem;font-weight:800;letter-spacing:-.01em;margin:0;flex:1}
+  .sec-h .tag{font-family:var(--serif);font-style:italic;color:var(--faint);font-size:.86rem}
+  .sec-h .ct{font-size:.8rem;color:var(--faint);font-variant-numeric:tabular-nums}
+
+  /* ---- entry (register row) ---- */
+  .entry{display:grid;grid-template-columns:auto 1fr auto;align-items:baseline;
+    gap:.55rem 1rem;padding:.95rem .55rem .95rem .35rem;
+    border-bottom:1px solid var(--line-soft);position:relative;transition:background .18s ease}
+  .entry:hover{background:var(--surface)}
+  .entry:focus-visible{outline:2px solid var(--garnet);outline-offset:2px;border-radius:6px}
+  .dot{grid-row:1;width:8px;height:8px;border-radius:50%;background:var(--live);
+    margin-top:.55rem;box-shadow:0 0 0 3px color-mix(in srgb,var(--live) 18%,transparent);flex:none}
+  .dot.prot{background:var(--protect);box-shadow:0 0 0 3px color-mix(in srgb,var(--protect) 20%,transparent)}
+  .main{grid-column:2;min-width:0}
+  .ttl{font-size:1.06rem;font-weight:700;letter-spacing:-.01em;line-height:1.3;
+    display:inline;background-image:linear-gradient(var(--garnet),var(--garnet));
+    background-size:0% 1.5px;background-position:0 1.15em;background-repeat:no-repeat;
+    transition:background-size .25s ease}
+  .entry:hover .ttl,.entry:focus-visible .ttl{background-size:100% 1.5px;color:var(--garnet)}
+  .desc{color:var(--muted);font-size:.9rem;margin:.22rem 0 .34rem;max-width:64ch}
+  .url{font-family:var(--serif);font-style:italic;font-size:.84rem;color:var(--brass);
+    word-break:break-all}
+  .url .arrow{font-style:normal;opacity:0;margin-left:.3rem;transition:opacity .2s,transform .2s;display:inline-block}
+  .entry:hover .url .arrow,.entry:focus-visible .url .arrow{opacity:1;transform:translateX(2px)}
+  .aside{grid-column:3;grid-row:1/span 3;text-align:right;display:flex;flex-direction:column;
+    align-items:flex-end;gap:.45rem;padding-left:.4rem}
+  .chip{font-size:.68rem;letter-spacing:.06em;text-transform:uppercase;font-weight:700;
+    padding:.2rem .5rem;border-radius:999px;white-space:nowrap;
+    color:var(--live);background:color-mix(in srgb,var(--live) 12%,transparent);
+    border:1px solid color-mix(in srgb,var(--live) 30%,transparent)}
+  .chip.prot{color:var(--protect);background:color-mix(in srgb,var(--protect) 13%,transparent);
+    border-color:color-mix(in srgb,var(--protect) 32%,transparent)}
+  .chip.own{color:var(--garnet);background:color-mix(in srgb,var(--garnet) 11%,transparent);
+    border-color:color-mix(in srgb,var(--garnet) 28%,transparent)}
+  .date{font-family:var(--serif);font-style:italic;font-size:.8rem;color:var(--faint);
+    font-variant-numeric:tabular-nums;white-space:nowrap}
+
+  /* ---- footer ---- */
+  .foot{margin-top:3.2rem;padding-top:1.3rem;border-top:1.5px solid var(--ink);
+    color:var(--faint);font-size:.84rem;display:flex;flex-wrap:wrap;gap:.4rem 1.4rem;align-items:baseline}
+  .foot b{color:var(--muted);font-weight:600}
+  .foot .serif{font-family:var(--serif);font-style:italic}
+
+  @media(max-width:560px){
+    .entry{grid-template-columns:auto 1fr;gap:.4rem .7rem}
+    .aside{grid-column:2;grid-row:auto;align-items:flex-start;flex-direction:row;
+      text-align:left;padding-left:0;margin-top:.15rem}
+    .kpi{flex-basis:calc(50% - .5px)}
+    .kpi:nth-child(2){border-right:0}
+  }
+  @media(prefers-reduced-motion:no-preference){
+    .entry{opacity:0;transform:translateY(9px);animation:rise .5s cubic-bezier(.2,.7,.3,1) forwards}
+    .sec:nth-child(2) .entry{animation-delay:.02s}
+  }
+  @keyframes rise{to{opacity:1;transform:none}}
+</style>
+
+<div class="wrap">
+  <header class="mast">
+    <p class="eyebrow">Collected Works · 이승목 · 2026</p>
+    <h1>말씀의 서고</h1>
+    <p class="sub">클로드로 지어 공개한 <b>17편</b>의 결과물 — 대사전·강해·구도자 진입·다음 세대·북클럽·목양을 한자리에. 아래 제목을 누르면 새 탭에서 열립니다. <b>2026-07-09 전수 실측</b>으로 전부 살아 있음(HTTP 200)을 확인했습니다.</p>
+
+    <div class="strip">
+      <div class="kpi"><div class="n">17<span class="u">편</span></div><div class="l">공개 결과물</div></div>
+      <div class="kpi"><div class="n dotlive">16</div><div class="l">누구나 열람</div></div>
+      <div class="kpi"><div class="n dotprot">1</div><div class="l">접근코드 보호</div></div>
+      <div class="kpi"><div class="n">5</div><div class="l">분류</div></div>
+      <div class="kpi"><div class="n"><span class="serif" style="font-family:var(--serif);font-style:italic">1</span></div><div class="l">전용 도메인</div></div>
+    </div>
+  </header>
+
+  <!-- I -->
+  <section class="sec">
+    <div class="sec-h"><span class="rn">Ⅰ</span><h2>강해와 설교</h2><span class="tag">preaching &amp; exposition</span><span class="ct">7</span></div>
+
+    <a class="entry" href="https://seungmok43.github.io/mom-theology-dossier/" target="_blank" rel="noopener">
+      <span class="dot"></span>
+      <div class="main">
+        <span class="ttl">몸의 신학 — 기독교 세계관 대사전</span>
+        <p class="desc">흙에서 영광까지, 몸을 관통하는 개혁주의 세계관 대사전. 모든 강해·에세이의 母자산.</p>
+        <div class="url">seungmok43.github.io/mom-theology-dossier<span class="arrow">↗</span></div>
+      </div>
+      <div class="aside"><span class="chip">Live</span><span class="date">07·01</span></div>
+    </a>
+
+    <a class="entry" href="https://seungmok43.github.io/mom-sermon-series/" target="_blank" rel="noopener">
+      <span class="dot"></span>
+      <div class="main">
+        <span class="ttl">몸으로 드리는 예배 — 12주 강해 시리즈</span>
+        <p class="desc">대사전을 주일 강해로 옮긴 12편 연속 설교. 시대진단→본문→그리스도→적용.</p>
+        <div class="url">seungmok43.github.io/mom-sermon-series<span class="arrow">↗</span></div>
+      </div>
+      <div class="aside"><span class="chip">Live</span><span class="date">07·03</span></div>
+    </a>
+
+    <a class="entry" href="https://seungmok43.github.io/sermon-library-44044404/" target="_blank" rel="noopener">
+      <span class="dot"></span>
+      <div class="main">
+        <span class="ttl">이승목 목사 설교집 — 시리즈 강해 모음</span>
+        <p class="desc">전체 설교 31편(5시리즈+단편)의 목차와 전문을 담은 설교 아카이브.</p>
+        <div class="url">seungmok43.github.io/sermon-library-44044404<span class="arrow">↗</span></div>
+      </div>
+      <div class="aside"><span class="chip">Live</span><span class="date">07·06</span></div>
+    </a>
+
+    <a class="entry" href="https://seungmok43.github.io/psalm-morning-sermons/" target="_blank" rel="noopener">
+      <span class="dot"></span>
+      <div class="main">
+        <span class="ttl">감정에 이름을 — 시편 새벽설교</span>
+        <p class="desc">시편 14·15·16편 「이미 받은 자」 시리즈. 평일 새벽 강단의 위로.</p>
+        <div class="url">seungmok43.github.io/psalm-morning-sermons<span class="arrow">↗</span></div>
+      </div>
+      <div class="aside"><span class="chip">Live</span><span class="date">07·07</span></div>
+    </a>
+
+    <a class="entry" href="https://seungmok43.github.io/psalm-morning-sermons/ecclesiastes-series.html" target="_blank" rel="noopener">
+      <span class="dot"></span>
+      <div class="main">
+        <span class="ttl">꼰대의 가르침 — 전도서 새벽설교 (35편)</span>
+        <p class="desc">전도서 1~12장 전체를 훑는 35편 연속 새벽 강해. 장별 필터·검색 지원.</p>
+        <div class="url">seungmok43.github.io/psalm-morning-sermons/ecclesiastes-series.html<span class="arrow">↗</span></div>
+      </div>
+      <div class="aside"><span class="chip">Live</span><span class="date">07·08</span></div>
+    </a>
+
+    <a class="entry" href="https://seungmok43.github.io/lords-prayer-7c1f7c1f/" target="_blank" rel="noopener">
+      <span class="dot"></span>
+      <div class="main">
+        <span class="ttl">주기도문 강해 5부작 설교집</span>
+        <p class="desc">주님이 가르치신 기도를 다섯 편으로 나눈 연속 강해.</p>
+        <div class="url">seungmok43.github.io/lords-prayer-7c1f7c1f<span class="arrow">↗</span></div>
+      </div>
+      <div class="aside"><span class="chip">Live</span><span class="date">07·05</span></div>
+    </a>
+
+    <a class="entry" href="http://wintheday.kr/" target="_blank" rel="noopener">
+      <span class="dot"></span>
+      <div class="main">
+        <span class="ttl">Win the Day — 아침을 말씀으로 이기라</span>
+        <p class="desc">하루를 말씀으로 시작하는 데일리 묵상. 유일한 전용 도메인.</p>
+        <div class="url">wintheday.kr<span class="arrow">↗</span></div>
+      </div>
+      <div class="aside"><span class="chip own">Domain</span><span class="date">07·01</span></div>
+    </a>
+  </section>
+
+  <!-- II -->
+  <section class="sec">
+    <div class="sec-h"><span class="rn">Ⅱ</span><h2>구도자를 위한 진입</h2><span class="tag">for the seeker</span><span class="ct">2</span></div>
+
+    <a class="entry" href="https://seungmok43.github.io/gospel-for-life/" target="_blank" rel="noopener">
+      <span class="dot"></span>
+      <div class="main">
+        <span class="ttl">삶의 질문에 답하는 기독교</span>
+        <p class="desc">번아웃·노화·질병·죽음·AI 시대 — 증상 언어로 진입해 복음으로 착지하는 브릿지 에세이 9편.</p>
+        <div class="url">seungmok43.github.io/gospel-for-life<span class="arrow">↗</span></div>
+      </div>
+      <div class="aside"><span class="chip">Live</span><span class="date">07·04</span></div>
+    </a>
+
+    <a class="entry" href="https://seungmok43.github.io/denominations-d6777b9e/" target="_blank" rel="noopener">
+      <span class="dot"></span>
+      <div class="main">
+        <span class="ttl">한 눈에 보는 기독교 8개 교단 비교</span>
+        <p class="desc">역사와 교리로 정리한 8개 교단 비교표. 처음 교회를 살피는 이를 위한 지도.</p>
+        <div class="url">seungmok43.github.io/denominations-d6777b9e<span class="arrow">↗</span></div>
+      </div>
+      <div class="aside"><span class="chip">Live</span><span class="date">07·04</span></div>
+    </a>
+  </section>
+
+  <!-- III -->
+  <section class="sec">
+    <div class="sec-h"><span class="rn">Ⅲ</span><h2>다음 세대</h2><span class="tag">next generation</span><span class="ct">2</span></div>
+
+    <a class="entry" href="https://seungmok43.github.io/narnia-worldview/" target="_blank" rel="noopener">
+      <span class="dot"></span>
+      <div class="main">
+        <span class="ttl">나니아로 심는 세계관 — 기독교 학부모 안내</span>
+        <p class="desc">C.S. 루이스 나니아 7권을 통해 자녀와 창조·타락·구속·종말을 나누는 부모 가이드.</p>
+        <div class="url">seungmok43.github.io/narnia-worldview<span class="arrow">↗</span></div>
+      </div>
+      <div class="aside"><span class="chip">Live</span><span class="date">07·04</span></div>
+    </a>
+
+    <a class="entry" href="https://seungmok43.github.io/kkumkkudap-3cc771e6/" target="_blank" rel="noopener">
+      <span class="dot"></span>
+      <div class="main">
+        <span class="ttl">꿈꾸는 교리문답 [꿈·꾸·답] — 20일 잠자리 교리문답</span>
+        <p class="desc">아이와 스무 밤 동안 나누는 교리문답 웹툰·동화 쇼케이스.</p>
+        <div class="url">seungmok43.github.io/kkumkkudap-3cc771e6<span class="arrow">↗</span></div>
+      </div>
+      <div class="aside"><span class="chip">Live</span><span class="date">07·08</span></div>
+    </a>
+  </section>
+
+  <!-- IV -->
+  <section class="sec">
+    <div class="sec-h"><span class="rn">Ⅳ</span><h2>함께 읽기 · 북클럽</h2><span class="tag">reading together</span><span class="ct">2</span></div>
+
+    <a class="entry" href="https://seungmok43.github.io/bookclub-b0895c60/" target="_blank" rel="noopener">
+      <span class="dot"></span>
+      <div class="main">
+        <span class="ttl">BooKLove · 책으로 삶을 읽다</span>
+        <p class="desc">두 모임(수 오전·금 저녁)의 북클럽 허브. 정리본·회차 아카이브.</p>
+        <div class="url">seungmok43.github.io/bookclub-b0895c60<span class="arrow">↗</span></div>
+      </div>
+      <div class="aside"><span class="chip">Live</span><span class="date">07·08</span></div>
+    </a>
+
+    <a class="entry" href="https://seungmok43.github.io/mom-bookclub-35f31688/" target="_blank" rel="noopener">
+      <span class="dot"></span>
+      <div class="main">
+        <span class="ttl">『그리스도인의 몸 사용법』 북클럽 · 서문~4장</span>
+        <p class="desc">몸 사용법 정독 모임의 장별 정리본(BooKLove 허브로도 통합됨).</p>
+        <div class="url">seungmok43.github.io/mom-bookclub-35f31688<span class="arrow">↗</span></div>
+      </div>
+      <div class="aside"><span class="chip">Live</span><span class="date">07·01</span></div>
+    </a>
+  </section>
+
+  <!-- V -->
+  <section class="sec">
+    <div class="sec-h"><span class="rn">Ⅴ</span><h2>교구 · 목양</h2><span class="tag">parish &amp; care</span><span class="ct">4</span></div>
+
+    <a class="entry" href="https://seungmok43.github.io/gongwa34-yangyuk-7a17fa62/" target="_blank" rel="noopener">
+      <span class="dot prot"></span>
+      <div class="main">
+        <span class="ttl">34교구 양육현황 (보호됨)</span>
+        <p class="desc">필수양육·큐티·파노라마 미이수 대시보드. 접근코드로 보호되는 목양 자료.</p>
+        <div class="url">seungmok43.github.io/gongwa34-yangyuk-7a17fa62<span class="arrow">↗</span></div>
+      </div>
+      <div class="aside"><span class="chip prot">접근코드</span><span class="date">07·08</span></div>
+    </a>
+
+    <a class="entry" href="https://seungmok43.github.io/curriculum-map-4db49506/" target="_blank" rel="noopener">
+      <span class="dot"></span>
+      <div class="main">
+        <span class="ttl">삶이 있는 신앙 — 커리큘럼 재편 구조도</span>
+        <p class="desc">양육 커리큘럼 재편의 전체 구조를 한 화면에 담은 지도.</p>
+        <div class="url">seungmok43.github.io/curriculum-map-4db49506<span class="arrow">↗</span></div>
+      </div>
+      <div class="aside"><span class="chip">Live</span><span class="date">07·07</span></div>
+    </a>
+
+    <a class="entry" href="https://seungmok43.github.io/lecture-archive-c5379fe0/" target="_blank" rel="noopener">
+      <span class="dot"></span>
+      <div class="main">
+        <span class="ttl">기록서재 — 강의 아카이브</span>
+        <p class="desc">세계관·토기세·기도학교 등 강의노트 15편 공개 아카이브.</p>
+        <div class="url">seungmok43.github.io/lecture-archive-c5379fe0<span class="arrow">↗</span></div>
+      </div>
+      <div class="aside"><span class="chip">Live</span><span class="date">07·07</span></div>
+    </a>
+
+    <a class="entry" href="https://seungmok43.github.io/sarangbang-intro/" target="_blank" rel="noopener">
+      <span class="dot"></span>
+      <div class="main">
+        <span class="ttl">수영로교회 사랑방</span>
+        <p class="desc">사랑방(소그룹)을 처음 오는 이에게 소개하는 안내 페이지.</p>
+        <div class="url">seungmok43.github.io/sarangbang-intro<span class="arrow">↗</span></div>
+      </div>
+      <div class="aside"><span class="chip">Live</span><span class="date">06·27</span></div>
+    </a>
+  </section>
+
+  <footer class="foot">
+    <span><b>전수 실측</b> 2026-07-09 · 17편 전부 <b>HTTP 200</b></span>
+    <span class="serif">GitHub Pages · seungmok43</span>
+    <span>보호 1건은 접근코드 필요</span>
+  </footer>
+</div>
+
+</html>
