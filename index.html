@@ -1,20 +1,27 @@
 <!doctype html><html lang="ko"><head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="robots" content="noindex,nofollow">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="말씀의 서고">
+<meta name="theme-color" content="#8C2F39">
+<link rel="apple-touch-icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxODAgMTgwIj48cmVjdCB3aWR0aD0iMTgwIiBoZWlnaHQ9IjE4MCIgcng9IjQwIiBmaWxsPSIjMkMzQTM0Ii8+PHJlY3QgeD0iNDIiIHk9IjQ0IiB3aWR0aD0iMjciIGhlaWdodD0iOTIiIHJ4PSI0IiBmaWxsPSIjRjNFRUU0Ii8+PHJlY3QgeD0iNzYiIHk9IjUyIiB3aWR0aD0iMjciIGhlaWdodD0iODQiIHJ4PSI0IiBmaWxsPSIjRDlBNDQxIi8+PHJlY3QgeD0iMTEwIiB5PSI0NCIgd2lkdGg9IjI3IiBoZWlnaHQ9IjkyIiByeD0iNCIgZmlsbD0iI0YzRUVFNCIgb3BhY2l0eT0iLjcyIi8+PC9zdmc+">
+<link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxODAgMTgwIj48cmVjdCB3aWR0aD0iMTgwIiBoZWlnaHQ9IjE4MCIgcng9IjQwIiBmaWxsPSIjMkMzQTM0Ii8+PHJlY3QgeD0iNDIiIHk9IjQ0IiB3aWR0aD0iMjciIGhlaWdodD0iOTIiIHJ4PSI0IiBmaWxsPSIjRjNFRUU0Ii8+PHJlY3QgeD0iNzYiIHk9IjUyIiB3aWR0aD0iMjciIGhlaWdodD0iODQiIHJ4PSI0IiBmaWxsPSIjRDlBNDQxIi8+PHJlY3QgeD0iMTEwIiB5PSI0NCIgd2lkdGg9IjI3IiBoZWlnaHQ9IjkyIiByeD0iNCIgZmlsbD0iI0YzRUVFNCIgb3BhY2l0eT0iLjcyIi8+PC9zdmc+">
 <title>말씀의 서고</title>
 <style>
 :root{--bg:#EDEAE1;--card:#FBF9F3;--ink:#211F1B;--mute:#6D685D;--line:#D8D2C5;--garnet:#8C2F39;--ok:#3F6B4E}
 @media(prefers-color-scheme:dark){:root{--bg:#14161A;--card:#1B1E24;--ink:#E9E6DF;--mute:#98A1AE;--line:#2A2F38;--garnet:#CC7A7A;--ok:#7FBF9A}}
 *{box-sizing:border-box;margin:0;padding:0}
-body{background:var(--bg);color:var(--ink);line-height:1.7;min-height:100vh;padding:0 20px 70px;
+body{background:var(--bg);color:var(--ink);line-height:1.7;min-height:100vh;
+ padding:env(safe-area-inset-top) 20px 70px;
  font-family:'Apple SD Gothic Neo',-apple-system,system-ui,'Malgun Gothic',sans-serif}
 .wrap{width:100%;max-width:720px;margin:0 auto}
-header{text-align:center;padding:58px 0 26px}
+header{text-align:center;padding:52px 0 22px}
 .eyebrow{font-size:11px;letter-spacing:.28em;color:var(--garnet);font-weight:800}
-h1{font-family:AppleMyungjo,'Nanum Myeongjo',Georgia,serif;font-size:clamp(2rem,6vw,2.8rem);margin:14px 0 8px}
-.sub{color:var(--mute);font-size:.92rem}
-.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px 22px;margin-bottom:11px}
-.card p.d{font-size:.88rem;color:var(--mute);margin-bottom:13px}
+h1{font-family:AppleMyungjo,'Nanum Myeongjo',Georgia,serif;font-size:clamp(1.9rem,6vw,2.7rem);margin:12px 0 6px}
+.sub{color:var(--mute);font-size:.9rem}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px;margin-bottom:11px}
+.card p.d{font-size:.87rem;color:var(--mute);margin-bottom:13px}
 .row{display:flex;gap:8px}
 input{flex:1;min-width:0;padding:12px 14px;border:1px solid var(--line);border-radius:9px;
  background:var(--bg);color:var(--ink);font-size:1rem;font-family:inherit}
@@ -24,27 +31,42 @@ button{padding:12px 20px;border:none;border-radius:9px;background:var(--garnet);
 button.ghost{background:transparent;color:var(--ink);border:1px solid var(--line);font-weight:600}
 button:disabled{opacity:.45;cursor:default}
 .big{width:100%;padding:15px;font-size:1.02rem}
-#msg{margin-top:11px;font-size:.86rem;min-height:1.2em;color:var(--garnet)}
-#msg.ok{color:var(--ok)}
-#out{display:none}
+#msg{margin-top:11px;font-size:.85rem;min-height:1.2em;color:var(--garnet)}
+#app{display:none}
+/* 탭 */
+.tabs{display:flex;gap:6px;background:var(--card);border:1px solid var(--line);
+ border-radius:11px;padding:5px;margin-bottom:12px;position:sticky;top:8px;z-index:5}
+.tabs button{flex:1;background:transparent;color:var(--mute);font-weight:700;padding:10px;border-radius:8px;font-size:.92rem}
+.tabs button.on{background:var(--garnet);color:#fff}
+.pane{display:none}.pane.on{display:block}
+/* 결과물 */
 .grp{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:17px 20px;margin-bottom:11px}
-.grp h2{font-size:.76rem;letter-spacing:.14em;color:var(--garnet);font-weight:800;margin-bottom:9px}
-.grp a{display:block;color:var(--ink);text-decoration:none;padding:9px 0;border-bottom:1px solid var(--line);font-size:.97rem}
-.grp a:last-child{border-bottom:none} .grp a:hover{color:var(--garnet)}
-footer{margin-top:24px;text-align:center;font-size:.75rem;color:var(--mute);line-height:1.8}
+.grp h2{font-size:.75rem;letter-spacing:.14em;color:var(--garnet);font-weight:800;margin-bottom:9px}
+.grp a{display:block;color:var(--ink);text-decoration:none;padding:9px 0;border-bottom:1px solid var(--line);font-size:.96rem}
+.grp a:last-child{border-bottom:none}.grp a:hover{color:var(--garnet)}
+/* 현황 */
+.tally{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.tally div{flex:1;min-width:96px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:13px 15px}
+.tally b{display:block;font-size:1.4rem;font-weight:800;font-variant-numeric:tabular-nums}
+.tally span{font-size:.72rem;color:var(--mute)}
+.sbar{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:17px 20px}
+.st{margin-bottom:11px}
+.st .l{display:flex;justify-content:space-between;font-size:.88rem;margin-bottom:4px}
+.st .l i{font-style:normal;color:var(--mute);font-size:.78rem;font-variant-numeric:tabular-nums}
+.st .b{height:7px;background:var(--line);border-radius:4px;overflow:hidden}
+.st .b s{display:block;height:100%;border-radius:4px}
+footer{margin-top:22px;text-align:center;font-size:.74rem;color:var(--mute);line-height:1.8}
 .hide{display:none}
 </style></head><body><div class="wrap">
 <header><div class="eyebrow">SEUNGMOK LEE</div><h1>말씀의 서고</h1>
-<p class="sub">목록은 암호화되어 있습니다.</p></header>
+<p class="sub" id="hsub">잠겨 있습니다</p></header>
 
 <div id="gate">
   <div class="card hide" id="faceCard">
     <button class="big" id="faceBtn">🔓 Face ID · Touch ID 로 열기</button>
-    <p class="d" style="margin:11px 0 0;text-align:center">이 기기에 등록되어 있습니다</p>
   </div>
-
   <div class="card">
-    <p class="d">비밀번호로 여시면, 이 기기에 <b>Face ID를 등록</b>할 수 있습니다. 그 뒤로는 비밀번호가 필요 없습니다.</p>
+    <p class="d">비밀번호로 여시면 이 기기에 <b>Face ID를 등록</b>할 수 있습니다.</p>
     <form class="row" id="f">
       <input id="pw" type="password" placeholder="비밀번호" autocomplete="current-password">
       <button id="go" type="submit">열기</button>
@@ -53,118 +75,105 @@ footer{margin-top:24px;text-align:center;font-size:.75rem;color:var(--mute);line
   </div>
 </div>
 
-<div id="out"></div>
-
-<div class="card hide" id="regCard">
-  <button class="big ghost" id="regBtn">＋ 이 기기에 Face ID 등록하기</button>
-  <p class="d" style="margin:11px 0 0;text-align:center">다음부터 비밀번호 없이 열립니다</p>
+<div id="app">
+  <div class="tabs">
+    <button id="t1" class="on">결과물</button>
+    <button id="t2">현황</button>
+  </div>
+  <div id="p1" class="pane on"></div>
+  <div id="p2" class="pane"></div>
+  <div class="card hide" id="regCard" style="margin-top:12px">
+    <button class="big ghost" id="regBtn">＋ 이 기기에 Face ID 등록하기</button>
+  </div>
 </div>
 
-<footer>검색에 노출되지 않습니다. 비밀번호 또는 등록된 기기로만 열립니다.<br>
-등록 정보는 이 기기에만 저장되며 외부로 전송되지 않습니다.</footer>
+<footer>검색에 노출되지 않습니다 · 등록 정보는 이 기기에만 저장됩니다</footer>
 </div>
 <script>
-const B = {"ct": "nBVGnZQPPrKs76wAFHClkdOA1fF/4jhaZxv/TcYqulaRhkdKAY4TXn9ZACQarkQ2pMk5h3knBh1NphbrXHJaPlQJmuEco03L8qeYBc8sjvjam+IIdafgUmKGje3+QzXooZe0w8PmIP2CWOmZswG7I8ggm0tyNLKNsdT9ZfF9QFLawaUt7ZEbhUt+4KNust8m+pOnSqjrlm6lc4HCHG0ognGk5MQLrDbt7BrU7hzJdKvyUoUQ2oyGXqHhJkd3n/K7yiS89bAD3dR5Y8fzjZ+kKY8hejzxz0kqRe0SGjzP7Z4qom5vVOmy9WElizndFi0xG7ySgY4pKNuI5u0oww1x24TJ710BsmlpQ4FHHly752Jn/HdkNSqgF9gvUEIwGRcTvZFdcd+Aq4JrE2dm9c4J3JSi6Rz4+RQg1n3WL9UwMXvB4Rxb08bPCVErkaixGzQbOW2RgrHVh818POhuka+ysvVaB3xn4UOVM3y/1vZz0CMRjO/jBSf9y8w0+rXCobREHYBQ1eNxinQvSsqB3O0dYUQGHO35yT4ji89+Fc9U9OqqEws6so3iwmT/qCUYXmo7IHmi9tDTXbnLS5iDdXWVayIF3MY+EjPP8tsDJFCeH93ja3Jlz/N1icteB3/z5FAUu1ujRLKNm/O+T1gEqWNxdEbHBJyUf4JOO4k9YnNYA1bcONxWmrrRO7baO8lnDQEYlt1rL/qaJnYU1rpQSBqjJlIvmlB39TOZBBaOud+knKe4JqcIqdJPzKuiOiwzOLmV7rDGfHrEO2FnHi7+BmU+k3r7Q5aIrakDDrMy1gF/a1weE7tv0OPgTA60EMAMciffu5CIC+yz2I2TsugDU6IU0uF/pWrvgOKy+S6Dsan+a7AFI0LpY+V0EQi7VQbhNChPgBGS1oPnIUF+j5uMyV7WFdEH6iLqeH4Mfga8IUSVBgTfW+FZznAAz1uxnjpE1AlWXbPhvXGXLgU94FYd0WLDQ8GgagP6G0Vw4v+c7Oxt8QwhLntmPe1rcRMnWduUIHfcPawXpwQNjRSMqSQsFNWTzZgr29EpbierSNO7lYXrTzPXqegG9me97sEL25GIieRNipi3WIPACEyPz+mg90y/Y63k/ddtuRetKEDj0DLidHyhZn6gTPqynW7c0w4fS2CwrnuxLCGXsmDpdY3RniQS0f1xAkQK4fNkpvUhflsWa8PFMTcMNnSVCrkBzN5/D6EnqRo2Aw1elS9fLyTHbC0OT3FWEhFdoidjL4daFOYGTKGBA6kiRkcaMGxD0+Wri9EGoSZS0jbVnGJX5chnOFnigbfr9444jkfajxAJINi2AFBayl+IQnVzOCCxyj+9jSFZqnkRe7h0iUUk2FoUu4NM5ByaMBfSFX20LjPb0RwLVo7NFmX55Ky5bOoeS0Gsci9sTYrqSzv1EmEyTs5bbX9KdSYuM/i3+XvkRpjGYNgDoKsRzWNznXlHM8hzL6A07IrNV7urFV3AO4kJLAkYalP1emV2CPVSY+xpX/pDtLcwAPTgevjkk2zKZM/RGoV8ZdvpWAyUGU2PC1KIPDRkFXwv2zzefmORzpunGmEuLvmkp6OTBdX6HiDjpKfmgG8hQ8cLotPcXrfjBxZ4ybd4DRXUGCI/zttejeC3S1TFKW8DANBTAzUUEcAEoOUWiHITpQ7NxTC/1pChOG9jSJ53k/oO1DG0rOmJ98n/l9PtyOcWCOy2f+ZJIvdzEe5Z2O7p3yBO7rn3LiV4JWYWrFCZ+8iFlJ7WQQUbpF+sow21ofibSIC9EtJIEonErSazAW3xOoTIFOvebALMttK3adXSrG5tp2HrddHAf5/WjP2GSPWv9KGgbop3UQV7b4Zx/UcC5q7z71Q4qalT8S6IuyabMBv6nFP0+MMJDTyXJxgFKiolXD27qnfC2OW3KnO9TvlGC21QOLdCIHxX+I6b4VEyNJaqiORO/9Frj1FvGMG4NqlbBqGdTJa8EVkHCySE/MHj7Cz5BK+xMkHBc7bmD5tEnmUoHYgUtmfGxGeiT3zOgo9wsGYqsCr8abZSIbfqENY/5PaEJ3mMgEuK8vY/Ycmv1Txxw36C3YKXUoSH+ZL9lV+kR/VhDThH3/uAjgGSsxFXtAuU3lXhtM4LQJskxpcYbJKnqD1v9PzpyV0MeA0hp3nlsYumhHO47A/U2/6EMvg7e29Trp8FcwC2caLoTc6UCFv8HClJdU0ph5oMkSGip75S4uOp58OU2ZQPi0l1/ogNJW/xGiIF5Lb0RB9sDaoReuWheJHagCDJ6oof1altVtTg+jCXvnhJhcJhTeX8xOlqjeWEp2aN3PzjtUAwEXtwGiTi5qunADUvfOdQVXrwhTlKLjbTKH7wYLGt6EQVFaf5smPm10wFmnZsrDpsUpbyZST668XiSSszrdBbPhtdaxqfleeFthYXPMMcpU/0ST8AJ1Zi1GViXkXu1mfgGtInU9qyvgND7Y+IbDSuJIXh0LkHXcSXrMssy2ReJXPvTtb5k6ILBQbCqqlS4gEQ7XkWdlACGwqYWx46x4irLkQDvVnjshZnFwiSP8zKvsvXNtJKDCgV7E1L9aqtb8dJ2sjTbCML00mKJVpuFFH6wH8MLncfLS6tWd/P4E7jjYu2YgpIUREzZ9A8aJB0Hgu0ZR1O2chNh1/5+FVq0NVwEta1/rK47+QVoBIsmuyttMx9tpRbUU/tf/Z/1Vu7soCJ9CJf179aF+SNpTDMmzWaWQw+tgh9Qav2ENYdOB7H3UcULevsR1/MD+vLjLAFWKqmn0peb//Ao/pk755DlFzA5gh9TdAyN/379xvlq8W1LIoG/k7yGZT7reQdqIzlVbp1N8yDOXjdKwFiK3/gbiunC6XT/M9aPqlAtFJK7np+OiienFP8b2Q4R20lykPzJEBOxyQvQNJPr3hXmt9G1Szzh2yZCb4YNkSYMmdNBnonP9MV6+4kCudIRv0rZFTEzgJ/RdrjMQdqLis7JKmTW+F6I4WNBoX/rypiDJhrvXxVKkgKdROysncF2Cg8SavZNeFAQuKEf1Js4xn0Ftx84xYw6OfXCG2vCpKF7CIkiSC6uxaS89oYlYD8l7eH6D0lWycxqxVPWxlqeLNom5F6RfculuVjcdlSZ4mIRZyO2b2xLSzunhjNqZpHh+NmvXakAfJTbwgkVk4GsNFi+gFtH7lfR2VOZ4JYG77a1uAL/EXKEO6aLl7redKOVHk+sZ0CeHFLXQOHCsa1Ea4pTudSkOxfCfCZqdX42xc73lYvI3Sm45eU2qIW5OnmoiSlrpx71KqNAn9kxYYluLdft5hGPXu4844Nz6tcm3Q/LXwQvIQSfANPFsXsBtv4jkmd2I3mxC+/rJAP4Po30VrMRMqZwojP2/30tvn6NOzGtMkQUpFI9Ou/HcJaIEoKdszXcg7J3LHUPTuKxeYXsV0pQ8kHD1gyqtKyFPDS3ZdbcQ0iSH7NcEm45ViPo/tnIBS8mSoGLHrvsuaPVk5e8jBdefWpvPCyvpsKrTYXMn8wd6VwTyHRhzJgXYm4uWR/Rw8HIrJ6FGqU2VMtiT767EvFFAJ1Z2BnU2QEXe2plAwFGfNJbUJ/0JtRsUU54cxQUfRzhnxIUDHNQyGlAMqZgIqgS46z7V37cm6aVbzAqwtCB0qzxHVBMCaQzxW56vub7cLrL/egIocf6A3VAI7iK6JrJ08txjaGTWhORJDfmgocwfOfXrNOIJEOeRnmG7XlDEq5Ohbhd4dBmGZM9qjl9V0kIxp3wzGcC1PtisFJ2xjqHyKIAIqlBxozvSnkIm3ytXq2/RNDDyUg5dNwtC5ich9gHJX0A5MyVKHB78sybc0KINazO8Oi0fpXbf6aGoel39JgnOxLSDuQHwrK+2tltSH+xW+4BrvRE+fYqVZnBW8FMuAEYFPCvC4L1px0DbqKbn8va8CFznrb8jsvNEc/U7dhcS+rKL+4uwAvA4GDg3qORRV/enSfjiCBPRXju2+mKnQTSvyLVUYcA5OsmiL06mevxjh+PxE8e3Dz+qvFbO12mmj6WODfC8Tvm0y3ZCXQtcDs2vdPliGsLrE6s54640hIvWj2VWOZ5EC8qWz14oi8MLeHEa+HR+kZqY4pOJhuhjjqBOx0WZSeu9axZeld8cXXsZt7CtSqtz/Bs4Ia1Yh6fUdZ37o=", "iv": "DbQq2oDxynmrKL+9", "pw": {"salt": "SJ1lK6q16ivukEZX42k4Qw==", "iv": "bI7BP2m9salKdbN8", "wrapped": "DXnN2k+3k5T+N5eRjLILEFmRbtcCkS6eBmDU3cUN3bwIprA9OLEkxb2i3WQbGRDC", "iter": 310000}, "prfSalt": "CVeIT9C7AfL73Gg8TLiTZNq5bYquGdmaspMLUKgi4w0="};
-const KEY = 'seogo_faceid_v1';
-const dec = new TextDecoder(), enc = new TextEncoder();
-const fromB64 = s => Uint8Array.from(atob(s), c => c.charCodeAt(0));
-const toB64 = b => btoa(String.fromCharCode(...new Uint8Array(b)));
-const $ = id => document.getElementById(id);
-let MASTER = null;
+const B = {"ct": "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", "iv": "FdKjjpK5r+HEvnnT", "pw": {"salt": "gv4h920gpTvj3KCvqTBTqQ==", "iv": "OCb8d6KwvStN2a9V", "wrapped": "Ccad41BAIPG5gpkp5cqJSZ82JUco96u7XXxWcpjlhuZPINzCNLI75494titQK6Vs", "iter": 310000}, "prfSalt": "UfvWJamotNjixBuiRgeBy3DDQ6qjUCqRX5uoXUdoKO4="}, KEY='seogo_faceid_v1';
+const enc=new TextEncoder(), dec=new TextDecoder();
+const fromB64=s=>Uint8Array.from(atob(s),c=>c.charCodeAt(0));
+const toB64=b=>btoa(String.fromCharCode(...new Uint8Array(b)));
+const $=id=>document.getElementById(id);
+let MASTER=null;
+const say=t=>$('msg').textContent=t;
+const impK=r=>crypto.subtle.importKey('raw',r,'AES-GCM',false,['encrypt','decrypt']);
 
-function say(t, ok){ const m=$('msg'); m.textContent=t; m.className = ok?'ok':''; }
-
-async function importK(raw){ return crypto.subtle.importKey('raw', raw, 'AES-GCM', false, ['encrypt','decrypt']); }
-
-async function unwrapWithPassword(pw){
-  const base = await crypto.subtle.importKey('raw', enc.encode(pw), 'PBKDF2', false, ['deriveKey']);
-  const kek = await crypto.subtle.deriveKey(
-    {name:'PBKDF2', salt:fromB64(B.pw.salt), iterations:B.pw.iter, hash:'SHA-256'},
-    base, {name:'AES-GCM', length:256}, false, ['decrypt']);
-  return new Uint8Array(await crypto.subtle.decrypt({name:'AES-GCM', iv:fromB64(B.pw.iv)}, kek, fromB64(B.pw.wrapped)));
+async function unwrapPw(pw){
+  const base=await crypto.subtle.importKey('raw',enc.encode(pw),'PBKDF2',false,['deriveKey']);
+  const kek=await crypto.subtle.deriveKey({name:'PBKDF2',salt:fromB64(B.pw.salt),iterations:B.pw.iter,hash:'SHA-256'},
+    base,{name:'AES-GCM',length:256},false,['decrypt']);
+  return new Uint8Array(await crypto.subtle.decrypt({name:'AES-GCM',iv:fromB64(B.pw.iv)},kek,fromB64(B.pw.wrapped)));
 }
-
-async function revealWith(masterRaw){
-  const k = await importK(masterRaw);
-  const pt = await crypto.subtle.decrypt({name:'AES-GCM', iv:fromB64(B.iv)}, k, fromB64(B.ct));
-  MASTER = masterRaw;
-  const groups = JSON.parse(dec.decode(pt));
-  $('gate').style.display='none';
-  const out = $('out'); out.style.display='block';
-  out.innerHTML = groups.map(g => `<div class="grp"><h2>${g.g}</h2>` +
-    g.items.map(i => `<a href="${i.u}">${i.t}</a>`).join('') + `</div>`).join('');
-  if (!localStorage.getItem(KEY) && window.PublicKeyCredential) $('regCard').classList.remove('hide');
+function paint(d){
+  $('p1').innerHTML = d.links.map(g=>`<div class="grp"><h2>${g.g}</h2>`+
+    g.items.map(i=>`<a href="${i.u}">${i.t}</a>`).join('')+`</div>`).join('');
+  const s=d.stats, mx=Math.max(...s.rows.map(r=>r.n));
+  $('p2').innerHTML =
+    `<div class="tally">
+       <div><b>${s.tot.toLocaleString()}</b><span>전체 산출물</span></div>
+       <div><b>${s.d7.toLocaleString()}</b><span>최근 7일</span></div>
+       <div><b>${s.d1.toLocaleString()}</b><span>오늘</span></div>
+     </div>
+     <div class="sbar">` +
+    s.rows.map(r=>`<div class="st"><div class="l"><span>${r.g}</span>
+      <i>${r.n.toLocaleString()}건 · ${r.ago===0?'오늘':r.ago+'일 전'}</i></div>
+      <div class="b"><s style="width:${(r.n/mx*100).toFixed(1)}%;background:${r.c}"></s></div></div>`).join('') +
+    `<p style="font-size:.74rem;color:var(--mute);margin-top:10px">집계 ${s.gen}</p></div>`;
 }
-
-/* ── 비밀번호 ── */
-$('f').addEventListener('submit', async e => {
-  e.preventDefault(); $('go').disabled = true; say('여는 중…');
-  try { await revealWith(await unwrapWithPassword($('pw').value)); }
-  catch { say('비밀번호가 맞지 않습니다.'); $('go').disabled=false; $('pw').select(); }
-});
-
-/* ── PRF 로 감싸는 키 얻기 ── */
-async function prfSecret(credId){
-  const opts = {
-    challenge: crypto.getRandomValues(new Uint8Array(32)),
-    userVerification: 'required',
-    extensions: { prf: { eval: { first: fromB64(B.prfSalt) } } }
-  };
-  if (credId) opts.allowCredentials = [{ id: fromB64(credId), type: 'public-key' }];
-  const a = await navigator.credentials.get({ publicKey: opts });
-  const r = a.getClientExtensionResults();
-  if (!r.prf || !r.prf.results || !r.prf.results.first) throw new Error('PRF 미지원');
-  return { secret: new Uint8Array(r.prf.results.first), id: toB64(a.rawId) };
+function reveal(d){
+  $('gate').style.display='none'; $('app').style.display='block';
+  $('hsub').textContent='결과물과 현황을 한 화면에서';
+  paint(d);
+  if(!localStorage.getItem(KEY)&&window.PublicKeyCredential) $('regCard').classList.remove('hide');
 }
-async function kekFromPrf(secret){
-  const base = await crypto.subtle.importKey('raw', secret, 'HKDF', false, ['deriveKey']);
-  return crypto.subtle.deriveKey(
-    {name:'HKDF', hash:'SHA-256', salt:new Uint8Array(0), info:enc.encode('seogo-prf')},
-    base, {name:'AES-GCM', length:256}, false, ['encrypt','decrypt']);
+async function openWith(raw){
+  const pt=await crypto.subtle.decrypt({name:'AES-GCM',iv:fromB64(B.iv)},await impK(raw),fromB64(B.ct));
+  MASTER=raw; reveal(JSON.parse(dec.decode(pt)));
 }
+$('t1').onclick=()=>{$('t1').className='on';$('t2').className='';$('p1').className='pane on';$('p2').className='pane';};
+$('t2').onclick=()=>{$('t2').className='on';$('t1').className='';$('p2').className='pane on';$('p1').className='pane';};
 
-/* ── 등록 ── */
-$('regBtn').addEventListener('click', async () => {
-  $('regBtn').disabled = true; $('regBtn').textContent = '등록 중…';
-  try {
-    const cred = await navigator.credentials.create({ publicKey: {
-      challenge: crypto.getRandomValues(new Uint8Array(32)),
-      rp: { name: '말씀의 서고' },
-      user: { id: crypto.getRandomValues(new Uint8Array(16)), name: '서고', displayName: '말씀의 서고' },
-      pubKeyCredParams: [{alg:-7,type:'public-key'},{alg:-257,type:'public-key'}],
-      authenticatorSelection: { residentKey:'required', userVerification:'required' },
-      extensions: { prf: {} }
-    }});
-    const id = toB64(cred.rawId);
-    const { secret } = await prfSecret(id);                 // 생성 직후 한 번 더 인증해 PRF 값을 얻는다
-    const kek = await kekFromPrf(secret);
-    const iv = crypto.getRandomValues(new Uint8Array(12));
-    const wrapped = await crypto.subtle.encrypt({name:'AES-GCM', iv}, kek, MASTER);
-    localStorage.setItem(KEY, JSON.stringify({ id, iv: toB64(iv), wrapped: toB64(wrapped) }));
-    $('regCard').innerHTML = '<p class="d" style="text-align:center;margin:0;color:var(--ok)">✓ 이 기기에 등록되었습니다. 다음부터 Face ID로 열립니다.</p>';
-  } catch (e) {
-    $('regBtn').disabled = false;
-    $('regBtn').textContent = '＋ 이 기기에 Face ID 등록하기';
-    alert('등록하지 못했습니다. 이 브라우저가 패스키 키 유도(PRF)를 지원하지 않을 수 있습니다.\n\n' + (e && e.message ? e.message : ''));
-  }
-});
+$('f').addEventListener('submit',async e=>{e.preventDefault();$('go').disabled=true;say('여는 중…');
+  try{ await openWith(await unwrapPw($('pw').value)); }
+  catch{ say('비밀번호가 맞지 않습니다.'); $('go').disabled=false; $('pw').select(); }});
 
-/* ── Face ID 로 열기 ── */
-$('faceBtn').addEventListener('click', async () => {
-  const st = JSON.parse(localStorage.getItem(KEY));
-  $('faceBtn').disabled = true; $('faceBtn').textContent = '확인 중…';
-  try {
-    const { secret } = await prfSecret(st.id);
-    const kek = await kekFromPrf(secret);
-    const raw = new Uint8Array(await crypto.subtle.decrypt(
-      {name:'AES-GCM', iv:fromB64(st.iv)}, kek, fromB64(st.wrapped)));
-    await revealWith(raw);
-  } catch {
-    $('faceBtn').disabled = false;
-    $('faceBtn').textContent = '🔓 Face ID · Touch ID 로 열기';
-    say('기기 인증에 실패했습니다. 비밀번호로 열어 주십시오.');
-  }
-});
+async function prfSecret(id){
+  const o={challenge:crypto.getRandomValues(new Uint8Array(32)),userVerification:'required',
+    extensions:{prf:{eval:{first:fromB64(B.prfSalt)}}}};
+  if(id) o.allowCredentials=[{id:fromB64(id),type:'public-key'}];
+  const a=await navigator.credentials.get({publicKey:o});
+  const r=a.getClientExtensionResults();
+  if(!r.prf?.results?.first) throw new Error('PRF 미지원');
+  return {secret:new Uint8Array(r.prf.results.first), id:toB64(a.rawId)};
+}
+const kekPrf=async s=>crypto.subtle.deriveKey(
+  {name:'HKDF',hash:'SHA-256',salt:new Uint8Array(0),info:enc.encode('seogo-prf')},
+  await crypto.subtle.importKey('raw',s,'HKDF',false,['deriveKey']),
+  {name:'AES-GCM',length:256},false,['encrypt','decrypt']);
 
-if (localStorage.getItem(KEY)) $('faceCard').classList.remove('hide');
+$('regBtn').onclick=async()=>{$('regBtn').disabled=true;$('regBtn').textContent='등록 중…';
+  try{
+    const c=await navigator.credentials.create({publicKey:{
+      challenge:crypto.getRandomValues(new Uint8Array(32)),rp:{name:'말씀의 서고'},
+      user:{id:crypto.getRandomValues(new Uint8Array(16)),name:'서고',displayName:'말씀의 서고'},
+      pubKeyCredParams:[{alg:-7,type:'public-key'},{alg:-257,type:'public-key'}],
+      authenticatorSelection:{residentKey:'required',userVerification:'required'},
+      extensions:{prf:{}}}});
+    const id=toB64(c.rawId); const {secret}=await prfSecret(id);
+    const kek=await kekPrf(secret); const iv=crypto.getRandomValues(new Uint8Array(12));
+    localStorage.setItem(KEY,JSON.stringify({id,iv:toB64(iv),
+      wrapped:toB64(await crypto.subtle.encrypt({name:'AES-GCM',iv},kek,MASTER))}));
+    $('regCard').innerHTML='<p class="d" style="text-align:center;margin:0;color:var(--ok)">✓ 등록되었습니다. 다음부터 Face ID로 열립니다.</p>';
+  }catch(e){$('regBtn').disabled=false;$('regBtn').textContent='＋ 이 기기에 Face ID 등록하기';
+    alert('등록하지 못했습니다.\n'+(e?.message||''));}};
+
+$('faceBtn').onclick=async()=>{const st=JSON.parse(localStorage.getItem(KEY));
+  $('faceBtn').disabled=true;$('faceBtn').textContent='확인 중…';
+  try{ const {secret}=await prfSecret(st.id); const kek=await kekPrf(secret);
+    await openWith(new Uint8Array(await crypto.subtle.decrypt({name:'AES-GCM',iv:fromB64(st.iv)},kek,fromB64(st.wrapped))));
+  }catch{ $('faceBtn').disabled=false;$('faceBtn').textContent='🔓 Face ID · Touch ID 로 열기';
+    say('기기 인증에 실패했습니다. 비밀번호로 열어 주십시오.'); }};
+
+if(localStorage.getItem(KEY)) $('faceCard').classList.remove('hide');
 </script></body></html>
