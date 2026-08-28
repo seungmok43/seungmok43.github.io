@@ -2,288 +2,214 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="robots" content="noindex,nofollow">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="세계관·신학">
+<meta name="apple-mobile-web-app-title" content="타임라인 열람">
 <meta name="theme-color" content="#2C3A34">
 <link rel="apple-touch-icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxODAgMTgwIj48cmVjdCB3aWR0aD0iMTgwIiBoZWlnaHQ9IjE4MCIgcng9IjQwIiBmaWxsPSIjMkMzQTM0Ii8+PHJlY3QgeD0iODYiIHk9IjM0IiB3aWR0aD0iOCIgaGVpZ2h0PSIxMTIiIHJ4PSI0IiBmaWxsPSIjRjNFRUU0IiBvcGFjaXR5PSIuNTUiLz48Y2lyY2xlIGN4PSI5MCIgY3k9IjU2IiByPSIxNSIgZmlsbD0iI0YzRUVFNCIvPjxjaXJjbGUgY3g9IjkwIiBjeT0iOTgiIHI9IjE1IiBmaWxsPSIjRDlBNDQxIi8+PGNpcmNsZSBjeD0iOTAiIGN5PSIxNDAiIHI9IjEyIiBmaWxsPSIjRjNFRUU0IiBvcGFjaXR5PSIuNzIiLz48L3N2Zz4=">
 <link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxODAgMTgwIj48cmVjdCB3aWR0aD0iMTgwIiBoZWlnaHQ9IjE4MCIgcng9IjQwIiBmaWxsPSIjMkMzQTM0Ii8+PHJlY3QgeD0iODYiIHk9IjM0IiB3aWR0aD0iOCIgaGVpZ2h0PSIxMTIiIHJ4PSI0IiBmaWxsPSIjRjNFRUU0IiBvcGFjaXR5PSIuNTUiLz48Y2lyY2xlIGN4PSI5MCIgY3k9IjU2IiByPSIxNSIgZmlsbD0iI0YzRUVFNCIvPjxjaXJjbGUgY3g9IjkwIiBjeT0iOTgiIHI9IjE1IiBmaWxsPSIjRDlBNDQxIi8+PGNpcmNsZSBjeD0iOTAiIGN5PSIxNDAiIHI9IjEyIiBmaWxsPSIjRjNFRUU0IiBvcGFjaXR5PSIuNzIiLz48L3N2Zz4=">
 </head><body>
-<title>세계관·신학 타임라인</title>
+<div style="max-width:1180px;margin:0 auto;padding:14px 40px 0;font-size:13px"><a href="../" style="color:#6b48c8;text-decoration:none;font-weight:700">← 모바일판(홈 화면 앱)</a></div>
+<title>세계관·신학 타임라인 · 열람판</title>
 <style>
 :root{
-  --bg:#f2f3f5; --surf:#ffffff; --surf-2:#f8f9fa;
-  --ink:#1b1d21; --ink-2:#5a5f68; --ink-3:#8d939c;
-  --line:#e2e5ea; --rail:#d8dce2;
-  --shadow:0 1px 3px rgba(20,24,32,.10);
-  --shadow-lg:0 8px 28px rgba(20,24,32,.16);
+  --bg:#eef0f3; --surf:#ffffff; --surf-2:#f6f7f9;
+  --ink:#191c21; --ink-2:#565c66; --ink-3:#8b919b;
+  --line:#e0e4e9; --rail:#d5dae1;
+  --shadow:0 1px 3px rgba(18,22,30,.09);
+  --shadow-lg:0 10px 32px rgba(18,22,30,.14);
   --tint:.10;
 }
 @media (prefers-color-scheme:dark){
   :root:not([data-theme="light"]){
-    --bg:#121417; --surf:#1b1e23; --surf-2:#22262c;
-    --ink:#eceef2; --ink-2:#a8aeb8; --ink-3:#767d88;
-    --line:#2b3038; --rail:#333942;
-    --shadow:0 1px 3px rgba(0,0,0,.5);
-    --shadow-lg:0 8px 28px rgba(0,0,0,.6);
+    --bg:#101215; --surf:#191c21; --surf-2:#20242a;
+    --ink:#edeff3; --ink-2:#a6acb6; --ink-3:#747b86;
+    --line:#292e36; --rail:#333941;
+    --shadow:0 1px 3px rgba(0,0,0,.5); --shadow-lg:0 10px 32px rgba(0,0,0,.6);
     --tint:.22;
   }
 }
 :root[data-theme="dark"]{
-  --bg:#121417; --surf:#1b1e23; --surf-2:#22262c;
-  --ink:#eceef2; --ink-2:#a8aeb8; --ink-3:#767d88;
-  --line:#2b3038; --rail:#333942;
-  --shadow:0 1px 3px rgba(0,0,0,.5);
-  --shadow-lg:0 8px 28px rgba(0,0,0,.6);
+  --bg:#101215; --surf:#191c21; --surf-2:#20242a;
+  --ink:#edeff3; --ink-2:#a6acb6; --ink-3:#747b86;
+  --line:#292e36; --rail:#333941;
+  --shadow:0 1px 3px rgba(0,0,0,.5); --shadow-lg:0 10px 32px rgba(0,0,0,.6);
   --tint:.22;
 }
-*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+*{box-sizing:border-box;margin:0;padding:0}
 body{
   font-family:'Apple SD Gothic Neo',-apple-system,system-ui,'Malgun Gothic',sans-serif;
   background:var(--bg); color:var(--ink);
-  font-size:16px; line-height:1.6; letter-spacing:-.01em;
-  padding-bottom:calc(56px + env(safe-area-inset-bottom));
-  padding-top:env(safe-area-inset-top);
+  font-size:15px; line-height:1.65; letter-spacing:-.01em;
 }
 
 /* ── 신학 층 ── */
-.thbadge{display:inline-flex;align-items:center;font-size:11px;font-weight:700;padding:2px 8px;
-  border-radius:999px;background:rgba(107,72,200,.14);color:#6b48c8;border:1px solid rgba(107,72,200,.3);white-space:nowrap}
+.thbadge{display:inline-flex;align-items:center;gap:4px;font-size:11px;font-weight:700;
+  padding:2px 7px;border-radius:999px;background:rgba(107,72,200,.14);color:#6b48c8;
+  border:1px solid rgba(107,72,200,.3);white-space:nowrap}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .thbadge{background:rgba(168,140,255,.18);color:#c4aaff;border-color:rgba(168,140,255,.35)}}
 :root[data-theme="dark"] .thbadge{background:rgba(168,140,255,.18);color:#c4aaff;border-color:rgba(168,140,255,.35)}
-.card.thband{background:linear-gradient(100deg,rgba(107,72,200,.055),transparent 55%)}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .card.thband{background:linear-gradient(100deg,rgba(168,140,255,.08),transparent 55%)}}
-:root[data-theme="dark"] .card.thband{background:linear-gradient(100deg,rgba(168,140,255,.08),transparent 55%)}
-.thnote{font-size:10.5px;color:var(--ink-3);font-weight:500}
+.row.thband .card{background:linear-gradient(90deg,rgba(107,72,200,.05),transparent 60%)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .row.thband .card{background:linear-gradient(90deg,rgba(168,140,255,.07),transparent 60%)}}
+:root[data-theme="dark"] .row.thband .card{background:linear-gradient(90deg,rgba(168,140,255,.07),transparent 60%)}
+.thband-note{font-size:10.5px;color:var(--ink-3);font-weight:500;white-space:nowrap}
 .thlist{margin-top:11px;padding-top:10px;border-top:1px dashed var(--line);display:none}
 .card.open .thlist{display:block}
-.thlist .h{font-size:10.5px;font-weight:700;letter-spacing:.08em;color:var(--ink-3);margin-bottom:7px}
-.thitem{font-size:13.5px;color:var(--ink-2);padding:4px 0;display:flex;gap:9px;align-items:baseline;line-height:1.5}
-.thitem .k{font-size:10.5px;font-weight:700;color:#6b48c8;flex-shrink:0;min-width:60px}
+.thlist .h{font-size:10.5px;font-weight:700;letter-spacing:.08em;color:var(--ink-3);margin-bottom:6px}
+.thitem{font-size:13px;color:var(--ink-2);padding:3px 0;display:flex;gap:8px;align-items:baseline}
+.thitem .k{font-size:10.5px;font-weight:700;color:#6b48c8;flex-shrink:0;min-width:56px}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .thitem .k{color:#c4aaff}}
 :root[data-theme="dark"] .thitem .k{color:#c4aaff}
-.thitem.absent{opacity:.72}.thitem.absent .k{color:var(--ink-3)}
+.thitem.absent{opacity:.72}
+.thitem.absent .k{color:var(--ink-3)}
 .thitem .tag{font-size:10px;border:1px dashed var(--ink-3);color:var(--ink-3);border-radius:4px;padding:0 4px;font-weight:700}
-#bTh{flex-shrink:0}
-.thchips{display:flex;gap:7px}
-.thchips button{flex:1;font-family:inherit;font-size:13.5px;font-weight:700;min-height:42px;border-radius:10px;
-  border:1.5px solid transparent;background:var(--surf-2);color:var(--ink-2);cursor:pointer}
-.thchips button.on{border-color:#6b48c8;color:#6b48c8}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .thchips button.on{border-color:#c4aaff;color:#c4aaff}}
-:root[data-theme="dark"] .thchips button.on{border-color:#c4aaff;color:#c4aaff}
-.thstat{font-size:12px;color:var(--ink-3);line-height:1.8;margin-top:11px}
+.thmode{display:flex;gap:4px;margin-top:2px}
+.thmode button{flex:1;font-family:inherit;font-size:12px;font-weight:600;padding:7px 4px;border-radius:8px;
+  border:1.5px solid transparent;background:var(--surf-2);color:var(--ink-2);cursor:pointer;transition:border-color .15s}
+.thmode button.on{border-color:#6b48c8;color:#6b48c8}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .thmode button.on{border-color:#c4aaff;color:#c4aaff}}
+:root[data-theme="dark"] .thmode button.on{border-color:#c4aaff;color:#c4aaff}
+.thstat{font-size:11.5px;color:var(--ink-3);line-height:1.7;margin-top:10px}
 .thstat b{color:var(--ink-2);font-variant-numeric:tabular-nums}
-.appx{padding:8px 14px 40px}
-.appx section{background:var(--surf);border:1px solid var(--line);border-radius:13px;padding:18px 16px;margin-top:14px;box-shadow:var(--shadow)}
-.appx h3{font-size:17px;font-weight:900;letter-spacing:-.02em;margin-bottom:5px;line-height:1.35}
-.appx .sub{font-size:12.5px;color:var(--ink-3);margin-bottom:13px;line-height:1.7}
-.appx ul{list-style:none}
-.appx li{font-size:13.5px;color:var(--ink-2);padding:4px 0;display:flex;gap:9px;align-items:baseline;line-height:1.5}
-.appx li .k{font-size:10.5px;font-weight:700;color:var(--ink-3);flex-shrink:0;min-width:56px;font-variant-numeric:tabular-nums}
-.gapitem{padding:8px 0;border-bottom:1px solid var(--line)}
-.gapitem:last-child{border-bottom:0}
-.gapitem .n{font-size:14px;color:var(--ink);font-weight:500;line-height:1.45}
-.gapitem .m{font-size:11.5px;color:var(--ink-3);margin-top:3px;font-variant-numeric:tabular-nums}
-.gapkind{font-size:10.5px;font-weight:700;letter-spacing:.05em;color:#6b48c8;margin-top:16px;padding-bottom:5px;border-bottom:1px solid var(--line);line-height:1.5}
-.gapkind:first-child{margin-top:0}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .gapkind{color:#c4aaff}}
-:root[data-theme="dark"] .gapkind{color:#c4aaff}
-.gapitem .gr{font-size:10px;font-weight:700;border:1px solid var(--ink-3);color:var(--ink-3);border-radius:4px;padding:0 4px;white-space:nowrap}
+.appx{max-width:1180px;margin:0 auto;padding:0 40px 72px}
+.appx section{background:var(--surf);border:1px solid var(--line);border-radius:14px;padding:22px 24px;margin-top:18px;box-shadow:var(--shadow)}
+.appx h3{font-family:AppleMyungjo,'Nanum Myeongjo',Georgia,serif;font-size:19px;font-weight:900;letter-spacing:-.02em;margin-bottom:5px}
+.appx .sub{font-size:12.5px;color:var(--ink-3);margin-bottom:14px;line-height:1.7}
+.appx ul{list-style:none;display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:5px 18px}
+.appx li{font-size:13px;color:var(--ink-2);padding:3px 0;display:flex;gap:8px;align-items:baseline}
+.appx li .k{font-size:10.5px;font-weight:700;color:var(--ink-3);flex-shrink:0;min-width:52px;font-variant-numeric:tabular-nums}
+.gaptbl{width:100%;border-collapse:collapse;font-size:12.5px}
+.gaptbl th{text-align:left;font-size:10.5px;letter-spacing:.06em;color:var(--ink-3);padding:6px 10px 6px 0;border-bottom:1px solid var(--line);font-weight:700}
+.gaptbl td{padding:7px 10px 7px 0;border-bottom:1px solid var(--line);color:var(--ink-2);vertical-align:top}
+.gaptbl td.y{font-variant-numeric:tabular-nums;white-space:nowrap;color:var(--ink)}
+.gaptbl td.n{color:var(--ink);font-weight:500}
+.gaptbl td.p{font-size:11.5px;color:var(--ink-3)}
+.gaptbl td.kind{font-size:10.5px;font-weight:700;letter-spacing:.05em;color:#6b48c8;padding-top:16px;border-bottom:1px solid var(--line)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .gaptbl td.kind{color:#c4aaff}}
+:root[data-theme="dark"] .gaptbl td.kind{color:#c4aaff}
+.gaptbl tr:first-child td.kind{padding-top:0}
+.gaptbl .gr{font-size:10px;font-weight:700;border:1px solid var(--ink-3);color:var(--ink-3);border-radius:4px;padding:0 4px;white-space:nowrap}
+.gaptbl td.note{font-size:11.5px;color:var(--ink-3);padding-top:0;padding-bottom:9px;border-bottom:1px solid var(--line);line-height:1.6}
+@media(max-width:900px){.appx{padding:0 20px 56px}.gaptbl td.p{display:none}.gaptbl th:nth-child(3){display:none}}
 
-/* ─── 헤더 ─── */
-.hdr{
-  background:linear-gradient(150deg,#1a1a2e,#2d1b4e 55%,#4a1942);
-  color:#fff; padding:26px 20px 22px;
-}
-.hdr .eyebrow{font-size:11.5px;letter-spacing:.06em;color:#cfc0e8;margin-bottom:9px;line-height:1.5}
-.hdr h1{font-size:24px;font-weight:900;line-height:1.3;letter-spacing:-.02em;text-wrap:balance}
-.hdr .flow{
-  margin-top:12px;font-size:12px;line-height:1.75;color:#d6cbe8;
-  display:flex;flex-wrap:wrap;gap:3px 0;
-}
-.hdr .flow b{font-weight:500;color:#fff}
-.hdr .n{margin-top:11px;font-size:11.5px;color:#b9a9d4}
+/* ── 헤더 ── */
+.hdr{background:linear-gradient(135deg,#1a1a2e,#2d1b4e 55%,#4a1942);color:#fff;padding:44px 40px 36px}
+.hdr .in{max-width:1180px;margin:0 auto}
+.hdr .eyebrow{font-size:12.5px;letter-spacing:.06em;color:#cfc0e8;margin-bottom:12px}
+.hdr h1{font-family:AppleMyungjo,'Nanum Myeongjo',Georgia,serif;font-size:38px;font-weight:900;letter-spacing:-.03em;line-height:1.25}
+.hdr .flow{margin-top:16px;font-size:14px;color:#d6cbe8;line-height:1.8}
+.hdr .flow b{color:#fff;font-weight:500}
+.hdr .n{margin-top:10px;font-size:12.5px;color:#b9a9d4}
 
-/* ─── 필터 바 (sticky · 항상 한 줄) ─── */
-.bar{
-  position:sticky; top:0; z-index:50;
-  background:var(--surf); border-bottom:1px solid var(--line);
-  box-shadow:var(--shadow);
-  display:flex; gap:8px; padding:9px 14px; align-items:center;
-}
-.bar button{
-  font-family:inherit; font-size:13px; font-weight:700; color:var(--ink);
-  background:var(--surf-2); border:1px solid var(--line); border-radius:9px;
-  padding:0 12px; height:40px; min-width:0; cursor:pointer;
-  display:flex; align-items:center; gap:6px; white-space:nowrap;
-}
-.bar button .v{color:var(--ink-2);font-weight:500;overflow:hidden;text-overflow:ellipsis}
-.bar button .ar{color:var(--ink-3);font-size:10px;flex-shrink:0}
-.bar #bWv{flex:1;min-width:0}
-.bar #bCat{flex-shrink:0}
-.bar button[aria-expanded="true"]{border-color:var(--ink-3);background:var(--surf)}
+/* ── 2단 레이아웃 ── */
+.wrap{max-width:1180px;margin:0 auto;padding:26px 40px 64px;display:grid;grid-template-columns:270px 1fr;gap:34px;align-items:start}
 
-/* ─── 펼침 시트 ─── */
-.sheet{
-  display:none; background:var(--surf); border-bottom:1px solid var(--line);
-  padding:4px 14px 14px; box-shadow:var(--shadow);
-  position:sticky; top:59px; z-index:49;
+/* 사이드바 */
+.side{position:sticky;top:22px;display:flex;flex-direction:column;gap:20px}
+.panel{background:var(--surf);border:1px solid var(--line);border-radius:14px;padding:17px 18px;box-shadow:var(--shadow)}
+.panel h2{font-size:10.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);margin-bottom:11px}
+.opts{display:flex;flex-direction:column;gap:5px}
+.opt{
+  font-family:inherit;font-size:13.5px;font-weight:600;text-align:left;
+  border:1.5px solid transparent;border-radius:9px;padding:8px 11px;cursor:pointer;
+  background:var(--surf-2);color:var(--ink-2);display:flex;align-items:center;gap:8px;
+  transition:border-color .15s;
 }
-.sheet.on{display:block}
-.sheet h2{
-  font-size:10.5px;font-weight:700;letter-spacing:.09em;color:var(--ink-3);
-  text-transform:uppercase;margin:12px 0 8px;
-}
-.chips{display:flex;flex-wrap:wrap;gap:7px}
-.chip{
-  font-family:inherit;font-size:13.5px;font-weight:700;
-  border:1.5px solid transparent;border-radius:10px;
-  padding:9px 13px;min-height:42px;cursor:pointer;
-  display:flex;align-items:center;background:var(--surf-2);color:var(--ink-2);
-}
-.chip.on{border-color:currentColor}
-.sheet .done{
-  width:100%;margin-top:14px;height:46px;border:0;border-radius:11px;
-  background:var(--ink);color:var(--bg);font-family:inherit;
-  font-size:14.5px;font-weight:700;cursor:pointer;
-}
+.opt .sw{width:9px;height:9px;border-radius:50%;flex-shrink:0;background:currentColor}
+.opt .cnt{margin-left:auto;font-size:11.5px;color:var(--ink-3);font-variant-numeric:tabular-nums;font-weight:500}
+.opt.on{border-color:currentColor}
+.opt:hover{border-color:currentColor}
 
-/* ─── 세계관 설명 ─── */
-.wvbox{
-  margin:14px; border-radius:14px; padding:16px 17px;
-  border-left:4px solid; background:var(--surf); box-shadow:var(--shadow);
-  display:none;
-}
+/* 세계관 설명 */
+.wvbox{border-left:4px solid;border-radius:0 12px 12px 0;padding:16px 18px;background:var(--surf);box-shadow:var(--shadow);display:none;margin-bottom:22px}
 .wvbox.on{display:block}
-.wvbox .t{font-size:17px;font-weight:900;letter-spacing:-.02em}
-.wvbox .p{font-size:12px;color:var(--ink-3);margin:3px 0 9px;font-weight:500}
-.wvbox .d{font-size:14px;color:var(--ink-2);line-height:1.75}
-.wvbox .f{font-size:12.5px;color:var(--ink-3);margin-top:10px;line-height:1.6}
-.wvbox .q{
-  font-size:13px;color:var(--ink-2);font-style:italic;line-height:1.7;
-  margin-top:11px;padding-top:11px;border-top:1px solid var(--line);
-}
+.wvbox .t{font-family:AppleMyungjo,'Nanum Myeongjo',Georgia,serif;font-size:21px;font-weight:900;letter-spacing:-.02em}
+.wvbox .p{font-size:12.5px;color:var(--ink-3);margin:4px 0 11px;font-weight:500}
+.wvbox .d{font-size:14.5px;color:var(--ink-2);line-height:1.8;max-width:62ch}
+.wvbox .f{font-size:13px;color:var(--ink-3);margin-top:12px}
+.wvbox .q{font-size:13.5px;font-style:italic;color:var(--ink-2);margin-top:12px;padding-top:12px;border-top:1px solid var(--line);line-height:1.75}
 
-/* ─── 개수 ─── */
-.count{padding:14px 16px 4px;font-size:12.5px;color:var(--ink-3);font-weight:500}
+.count{font-size:13px;color:var(--ink-3);margin-bottom:18px;font-weight:500}
 .count b{color:var(--ink);font-weight:700}
 
-/* ─── 타임라인 (레일 없음 · 카드 전체폭) ─── */
-.tl{padding:0 14px 40px}
-.era{
-  position:sticky; top:59px; z-index:20;
-  margin:22px -14px 12px; padding:9px 18px;
-  background:var(--bg); display:flex; align-items:baseline; gap:9px;
-  border-bottom:1px solid var(--line);
-}
-.era .nm{font-size:15px;font-weight:900;letter-spacing:-.02em}
-.era .pd{font-size:11.5px;color:var(--ink-3);font-weight:500}
-.era .ct{margin-left:auto;font-size:11.5px;color:var(--ink-3);font-variant-numeric:tabular-nums}
+/* ── 타임라인 레일 ── */
+.tl{position:relative;padding-left:118px}
+.tl::before{content:'';position:absolute;left:96px;top:8px;bottom:8px;width:2px;background:var(--rail)}
+.era{display:flex;align-items:center;gap:12px;margin:30px 0 14px;position:relative}
+.era::before{content:'';position:absolute;left:-30px;width:15px;height:15px;border-radius:50%;background:currentColor;box-shadow:0 0 0 4px var(--bg)}
+.era .nm{font-family:AppleMyungjo,'Nanum Myeongjo',Georgia,serif;font-size:19px;font-weight:900;letter-spacing:-.02em}
+.era .pd{font-size:12.5px;color:var(--ink-3);font-weight:500}
+.era .ct{font-size:12px;color:var(--ink-3);font-variant-numeric:tabular-nums}
 
+.row{position:relative;margin-bottom:9px}
+.row .yr{
+  position:absolute;left:-118px;top:15px;width:74px;text-align:right;
+  font-size:14px;font-weight:900;font-variant-numeric:tabular-nums;letter-spacing:-.02em;
+}
+.row::before{content:'';position:absolute;left:-27px;top:20px;width:9px;height:9px;border-radius:50%;background:currentColor;box-shadow:0 0 0 3px var(--bg)}
 .card{
-  background:var(--surf); border-radius:13px; padding:14px 15px;
-  margin-bottom:9px; box-shadow:var(--shadow);
-  border-left:4px solid; cursor:pointer; position:relative;
+  background:var(--surf);border:1px solid var(--line);border-left:4px solid;
+  border-radius:11px;padding:13px 17px;cursor:pointer;box-shadow:var(--shadow);
+  transition:box-shadow .18s,transform .18s;
 }
-.card:active{box-shadow:var(--shadow-lg)}
-.card .meta{display:flex;align-items:center;gap:8px;margin-bottom:7px;flex-wrap:wrap}
-.card .yr{
-  font-size:13px;font-weight:900;font-variant-numeric:tabular-nums;
-  letter-spacing:-.02em;flex-shrink:0;
-}
-.card .cat{
-  font-size:11px;font-weight:700;padding:3px 8px;border-radius:6px;flex-shrink:0;
-}
-.card .ttl{font-size:15.5px;font-weight:700;line-height:1.45;letter-spacing:-.02em;padding-right:22px}
-.card .dsc{
-  display:none;font-size:14px;color:var(--ink-2);line-height:1.78;
-  margin-top:10px;padding-top:10px;border-top:1px solid var(--line);
-}
-.card.open .dsc{display:block}
-.card .arw{
-  position:absolute;top:14px;right:14px;color:var(--ink-3);font-size:11px;
-  transition:transform .18s;
-}
+.card:hover{box-shadow:var(--shadow-lg);transform:translateY(-1px)}
+.card .top{display:flex;align-items:center;gap:10px}
+.card .cat{font-size:11px;font-weight:700;padding:3px 9px;border-radius:6px;flex-shrink:0}
+.card .ttl{font-size:15.5px;font-weight:700;letter-spacing:-.02em;flex:1}
+.card .arw{color:var(--ink-3);font-size:11px;flex-shrink:0;transition:transform .18s}
 .card.open .arw{transform:rotate(180deg)}
+.card .dsc{display:none;font-size:14px;color:var(--ink-2);line-height:1.8;margin-top:11px;padding-top:11px;border-top:1px solid var(--line);max-width:70ch}
+.card.open .dsc{display:block}
 
-.empty{text-align:center;padding:56px 20px;color:var(--ink-3);font-size:14px}
-.foot{
-  text-align:center;padding:22px 16px 34px;font-size:11.5px;color:var(--ink-3);
-  border-top:1px solid var(--line);margin:0 14px;
-}
+.empty{text-align:center;padding:70px 20px;color:var(--ink-3)}
+.foot{text-align:center;padding:26px 40px 40px;font-size:12px;color:var(--ink-3);border-top:1px solid var(--line);max-width:1180px;margin:0 auto}
 
-/* 넓은 화면에서도 무너지지 않게 */
-@media (min-width:640px){
-  body{font-size:16px}
-  .hdr,.bar,.sheet,.wvbox,.count,.tl,.foot{max-width:560px;margin-left:auto;margin-right:auto}
-  .wvbox{margin:14px auto}
-  .era{margin-left:0;margin-right:0;border-radius:8px}
+@media (max-width:900px){
+  .hdr{padding:32px 22px 26px}
+  .hdr h1{font-size:28px}
+  .wrap{grid-template-columns:1fr;padding:20px 22px 48px;gap:22px}
+  .side{position:static;flex-direction:row;flex-wrap:wrap}
+  .panel{flex:1;min-width:240px}
+  .tl{padding-left:74px}
+  .tl::before{left:56px}
+  .row .yr{left:-74px;width:46px;font-size:12.5px}
+  .era::before{left:-25px}
+  .row::before{left:-22px}
 }
 </style>
 
-<div class="hdr">
+<div class="hdr"><div class="in">
   <p class="eyebrow">2026년 수영로교회 바이블 칼리지 기독교 세계관을 위해서 만들었습니다.</p>
-  <h1>기독교 세계관<br>역사 타임라인</h1>
-  <p class="flow">
-    <b>기독교 유신론</b>&nbsp;→&nbsp;<b>이신론</b>&nbsp;→&nbsp;<b>자연주의</b>&nbsp;→&nbsp;<b>허무주의</b>&nbsp;→&nbsp;<b>실존주의</b>&nbsp;→&nbsp;<b>동양범신론</b>&nbsp;→&nbsp;<b>뉴에이지</b>&nbsp;→&nbsp;<b>포스트모더니즘</b>
-  </p>
+  <h1>기독교 세계관 역사 타임라인</h1>
+  <p class="flow"><b>기독교 유신론</b> → <b>이신론</b> → <b>자연주의</b> → <b>허무주의</b> → <b>실존주의</b> → <b>동양범신론</b> → <b>뉴에이지</b> → <b>포스트모더니즘</b></p>
   <p class="n">종교 · 과학 · 철학 · 예술 · 역사 · 한국사 통합 · 총 193개 사건</p>
-</div>
+</div></div>
 
-<div class="bar">
-  <button id="bWv" aria-expanded="false"><span>세계관</span><span class="v" id="vWv">전체</span><span class="ar">▼</span></button>
-  <button id="bCat" aria-expanded="false"><span>분류</span><span class="v" id="vCat">6</span><span class="ar">▼</span></button>
-  <button id="bTh" aria-expanded="false"><span>신학</span><span class="v" id="vTh">선만</span><span class="ar">▼</span></button>
+<div class="wrap">
+  <aside class="side">
+    <div class="panel">
+      <h2>신학 겹쳐 보기</h2>
+      <div class="thmode" id="thRow">
+        <button data-m="off">끄기</button>
+        <button data-m="point" class="on">선만</button>
+        <button data-m="band">선+띠</button>
+      </div>
+      <div class="thstat" id="thStat"></div>
+    </div>
+    <div class="panel">
+      <h2>세계관</h2>
+      <div class="opts" id="wvRow"></div>
+    </div>
+    <div class="panel">
+      <h2>분류</h2>
+      <div class="opts" id="catRow"></div>
+    </div>
+  </aside>
+  <main>
+    <div class="wvbox" id="wvInfo"></div>
+    <div class="count" id="stats"></div>
+    <div class="tl" id="timeline"></div>
+  </main>
 </div>
-
-<div class="sheet" id="shWv">
-  <h2>세계관 고르기</h2>
-  <div class="chips" id="wvRow"></div>
-  <button class="done" data-close="shWv">닫기</button>
-</div>
-
-<div class="sheet" id="shCat">
-  <h2>분류 걸러 보기</h2>
-  <div class="chips" id="catRow"></div>
-  <button class="done" data-close="shCat">닫기</button>
-</div>
-
-<div class="wvbox" id="wvInfo"></div>
-<div class="sheet" id="shTh">
-  <h2>신학 겹쳐 보기</h2>
-  <div class="thchips" id="thRow">
-    <button data-m="off">끄기</button>
-    <button data-m="point" class="on">선만</button>
-    <button data-m="band">선+띠</button>
-  </div>
-  <div class="thstat" id="thStat"></div>
-</div>
-<div class="count" id="stats"></div>
-<div class="tl" id="timeline"></div>
 <div class="foot">© 2026 seungmok lee. All rights reserved.</div>
-
-
-<div style="padding:10px 14px 0"><a href="read/" style="color:#6b48c8;text-decoration:none;font-weight:700;font-size:13.5px">열람판으로 보기 (넓은 화면) →</a></div>
-<div class="appx">
-  <section>
-    <h3>타임라인에 선이 닿지 않는 신학</h3>
-    <div class="sub">본문에 연도가 없어 어느 사건에도 걸리지 않는 글입니다. 빠진 것이 아니라 <b>연표가 아닌 주제를 다루기 때문</b>입니다.</div>
-    <ul id="appxUA"></ul>
-  </section>
-  <section>
-    <h3>『신학의 영토들』 중 연결이 없는 장</h3>
-    <div class="sub">인물평이나 서평이라 특정 사건에 걸리지 않는 장입니다.</div>
-    <ul id="appxUE"></ul>
-  </section>
-  <section>
-    <h3>본문에는 있는데 타임라인에 없는 사건</h3>
-    <div class="sub">『신학의 영토들』 45장을 훑다가 나온 것입니다. <b>타임라인에는 넣지 않았습니다</b> — 넣을지 말지는 판단하지 않고 값만 적었습니다.<br>
-      다만 <b>두 종류입니다.</b> 빈 해를 채우는 일과, 이미 찬 해에 하나를 더 놓는 일은 다릅니다.<br>
-      그리고 <b>셋은 타임라인의 칸에 그대로 안 들어갑니다</b> — 하나는 기간이라 연보다 넓고, 둘은 날짜까지 있어 연보다 좁습니다.</div>
-    <div id="appxG"></div>
-  </section>
-</div>
 
 <script>
 const WV = {
@@ -502,69 +428,68 @@ const EVENTS = [
 
 ];
 
-const THEO = {"t":{"1":"왜 신학 블록버스터인가","2":"하나님은 누구인가 [신]","3":"존재란 무엇인가","4":"하나님은 실제로 존재하는가","5":"창조론이 왜 '고백록' 안에 있나","6":"창조는 어떻게 이루어졌나","7":"창조의 목적은 무엇인가","8":"아테네와 예루살렘이 무슨 관계가 있나","9":"하나님의 인격성이란 무엇인가","10":"하나님의 인격성과 하나님의 부재","11":"일자란 무엇인가","12":"유일신은 배타적인가","13":"Review & Preview","14":"무오성 논쟁_성경에 오류가 있다 없다","15":"섭리논쟁_이게 다 하나님 때문이다","16":"예지논쟁_칼빈주의 vs 알미니안주의 vs 열린 유신론","17":"창조논쟁_창세기 1장의 하루 계산법","18":"하나님의 형상 논쟁_이마고 데이(Imago Dei)는 무엇","19":"기독론 논쟁_예수님은 인간이자 하나님","20":"속죄 논쟁_십자가가 그런 뜻이라고","21":"구원론 논쟁_구원받는 사람은 미리 정해져 있을까","22":"성화 논쟁_예수님 믿으면 끝 기독교 성화론 완벽 정리!","23":"영원한 안전 논쟁_칼빈주의 vs 알미니안주의 총정리","24":"미전도종족의 운명 논쟁_이순신 장군은 구원받았을까","25":"세례 논쟁_유아 세례, 꼭 받아야 할까","26":"성만찬 논쟁_주님의 살을 먹고 피를 마신다","27":"영적 은사 논쟁_ 방언은 정말 천상의 언어일까","28":"여성 사역 논쟁_ 여성은 목사가 될 수 있다 없다","29":"천년 왕국 논쟁_ 예수님은 언제 오시는가","30":"지옥 논쟁_지옥은 있다 없다","31":"Review & Preview 2","32":"초기 교회1_초기 기독교 성장의 4가지 비결","33":"초기 교회2_ 초대교회 성도들은 왜 무신론자로 불렸을까","34":"초기 교회3_부활한 몸은 어떤 모습일까(feat.오리게네스) (2)","35":"초기 교회4_ 로마제국과 동행한 기독교 얻은 것 vs 잃은 것 (2)","36":"초기 교회5_ 초기 교회 시대 핵심정리 (2)","37":"중세와 르네상스1_ 중세 전반기 500년 총정리 (2)","38":"중세와 르네상스2_중세 교회의 전성기 (2)","39":"중세와 르네상스3_ 중세신학의 꽃, 스콜라주의의 모든 것 (2)","40":"중세와 르네상스4_ 중세쇠퇴기-교황이 셋! (2)","41":"중세와 르네상스5_ 중세와 르네상스 핵심정리","42":"특별대담_최종원 교수님과 함께 하는 중세교회사","43":"종교개혁1_종교개혁은 왜 시작되었을까","44":"종교개혁2_종교개혁의 5가지 특징","45":"종교개혁3_종교개혁의 3대장","46":"종교개혁4_ 우리가 종교개혁의 비주류라고! 왜","47":"종교개혁5_종교개혁시대 핵심정리","48":"근대1 전반기_계몽주의와 혁명의 시대","49":"근대2_격동의 19세기, 유럽교회","50":"근대3_격동의 19세기, 미국교회","51":"근대4_근대 교회사, 핵심정리","52":"20세기_1차 세계대전, 기독교를 죽인 전쟁","53":"현대2_WCC, 2차 바티칸 공의회, 그리고 신복음주의","54":"현대3_민권운동과 기독교 우파의 등장","55":"현대4_현대 교회사 핵심정리","57":"성경과 하나님의 권위1","58":"성경과 하나님의 권위2","59":"성경과 하나님의 권위3","60":"성경과 하나님의 권위4","62":"책 vs. 책 인터뷰(1) 김근주 교수","63":"책 vs. 책 인터뷰(2) 정성국 교수","64":"Review & Preview 4","65":"현대 신학 프리퀄","66":"현대 신학_허버트, 톨런드, 틴들","67":"현대 신학_흄, 칸트, 헤겔","68":"현대 신학_리드, 콜리지, 키에르케고르","69":"현대 신학_슐라이어마허","70":"현대 신학_리츨, 하르낙, 라우센부쉬","71":"현대 신학_트뢸치","72":"현대 신학_가톨릭 현대주의 신학자들","73":"현대 신학_찰스 하지","74":"현대 신학_이자크 도르너","75":"현대 신학_ 호러스 부시넬","76":"현대 신학_칼 바르트","77":"현대 신학_루돌프 불트만","78":"현대 신학_ 라인홀드 니버","79":"현대 신학_폴 틸리히","80":"현대 신학_과정 신학","81":"현대 신학_ 본회퍼","82":"현대 신학_세속 신학, 신 죽음의 신학","83":"현대 신학_몰트만","84":"현대 신학_판넨베르크","85":"현대신학_해방신학","86":"미확인 — 파일에 제목이 없다(파일명·프론트매터 제목·본문 h1 셋 다 「[신학 Blockbuster_086]」뿐)","88":"현대 신학_발타자르","89":"현대 신학_복음주의","90":"현대 신학_스탠리 하우어워스","91":"현대 신학_존 카푸토"},"c":{"01-00":{"n":null,"t":"신학이란 무엇인가","p":1},"01-01":{"n":"슐라이어마허","t":"슐라이어마허","p":1},"01-02":{"n":"칼 바르트","t":"초월하신 하나님 — 칼 바르트: 깨어진 삶의 자리로 찾아오는 하느님의 희망","p":5},"01-03":{"n":"고든 카우프만","t":"카우프만: 신비로서 신, 상상으로서 신학","p":11},"01-04":{"n":"조지 린드벡 · 크리스틴 헬머","t":"조지 린드벡, 크리스틴 헬머 — 교리의 본성과 목적 논쟁","p":null},"01-05":{"n":"볼프하르트 판넨베르크","t":"볼프하르트 판넨베르크: 그리스도교 진리의 합리성과 보편성","p":18},"01-06":{"n":"패트릭 셰리","t":"패트릭 셰리: 아름다움은 우리를 구원할 것인가?","p":22},"01-07":{"n":"존 웹스터","t":"존 웹스터 — 하느님 말씀이 거룩하니 신학도 거룩하라","p":29},"01-08":{"n":"한스 부어스마","t":"한스 부어스마","p":32},"02-00":{"n":null,"t":"과거를 읽는 법","p":36},"02-01":{"n":"아돌프 폰 하르낙","t":"아돌프 폰 하르낙: 복음과 교리 사이에 선 역사학자로서 신학자","p":38},"02-02":{"n":"한스 큉","t":"한스 큉: 본질과 역사 사이에서 과거를 읽는 법","p":42},"02-03":{"n":"마르틴 루터","t":"마르틴 루터: 교회분열과 교회일치의 갈림길에 선 마르틴 루터","p":45},"02-04":{"n":"로완 윌리엄스","t":"로완 윌리엄스: 과거의 낯섦 앞에 선 그리스도인","p":48},"02-05":{"n":"로널드 핸델","t":"로널드 핸델: 현실주의와 상징주의 사이에서 창세기 읽다","p":53},"02-06":{"n":"로저 올슨","t":"로저 올슨: 현대 신학이라는 여행의 이유","p":56},"02-07":{"n":"폴 카페츠","t":"폴 카페츠: 역사를 통해 배우는 신에 대해 말하는 법","p":60},"02-08":{"n":"후카이 토모아키","t":"후카이 토모아키: 교양과 학문 사이에서 신학의 역사","p":63},"03-00":{"n":null,"t":"현대 개신교 신학의 대가들","p":67},"03-01":{"n":"헤르만 바빙크","t":"헤르만 바빙크: 세계관으로서 그리스도교","p":69},"03-02":{"n":"에밀 브루너 · 칼 바르트","t":"에밀 브루너, 칼 바르트: '오직 은혜로만?'에 관한 현대 논쟁","p":81},"03-03":{"n":"폴 틸리히","t":"폴 틸리히: 신학과 철학의 경계를 넘어선 경계선 위에서","p":85},"03-04":{"n":"리처드 니버","t":"리처드 니버: 유일하신 하느님과 역사 속의 인간","p":88},"03-05":{"n":"디트리히 본회퍼","t":"본회퍼: 윤리가 몰락한 세상에서 윤리를 다시 묻다","p":92},"03-06":{"n":"제임스 토런스 · 콜린 건턴","t":"제임스 토런스, 콜린 건던: 바르트 이후의 삼위일체 신학","p":96},"03-07":{"n":"위르겐 몰트만","t":"몰트만: 장애인과 비장애인 모두의 해방을 위한 장애신학","p":100},"03-08":{"n":"제임스 콘","t":"제임스 콘: 왜 그는 그리스도를 흑인이라 불렀나","p":104},"04-00":{"n":null,"t":"한 몸 다른 전통","p":108},"04-01":{"n":"블라디미르 로스키","t":"블라디미르 로스키: 부정신학을 통해 하느님의 신비에 다가가기","p":110},"04-02":{"n":"칼 라너","t":"칼 라너: 일상의 결을 타고 찾아온 하느님의 은총","p":114},"04-03":{"n":"한스 우르스 폰 발타사르","t":"한스 우르스 폰 발타자르: 지옥의 공포를 넘어선 담대한 희망","p":118},"04-04":{"n":"콘스탄틴 비르질 게오르규","t":"콘스탄틴 비르질 게오르규: 한 가난한 사제의 삶에 비친 그리스도교의 신비","p":123},"04-05":{"n":"교황 베네딕토 16세(요제프 라칭거)","t":"교황 베네딕토 16세: 그리스도교의 희망을 다시 묻다","p":127},"04-06":{"n":"구스타보 구티에레즈 · 성정모","t":"구스타보 구티에레즈, 성정모: 해방신학의 어제와 오늘","p":131},"04-07":{"n":"존 지지울러스","t":"존 지지울러스: 삼위일체 하느님의 형상으로서 교회","p":135},"04-08":{"n":"데이비드 벤틀리 하트","t":"데이비드 벤틀리 하트: 상처 입은 세계에서 분노하는 법","p":139},"05-00":{"n":null,"t":"신학의 새로운 흐름","p":143},"05-01":{"n":"샐리 맥페이그","t":"샐리 맥페이그: 기후 위기 시대에 일어난 신학의 기후 변화","p":145},"05-02":{"n":"스탠리 하우어워스","t":"스탠리 하우어워스: 자유주의 정치학에 맞서는 교회의 정치학","p":148},"05-03":{"n":"알리스터 맥그래스","t":"알리스터 맥그래스: 과학과 신학의 접촉점으로서 자연신학","p":152},"05-04":{"n":"세라 코클리","t":"세라 코클리: 삼위일체 하느님을 향한 기도와 욕망의 변주","p":156},"05-05":{"n":"미로슬라브 볼프","t":"미로슬라브 볼프: 평화로운 미래를 위한 '번영의' 신학","p":161},"05-06":{"n":"케빈 밴후저 · 제임스 스미스","t":"케빈 벤후저, 제임스 스미스: 복음주의 신학의 새로운 흐름","p":164},"05-07":{"n":"셸리 램보","t":"셸리 램보: 깨어진 세계에서 성령과 함께 남아 있기","p":169},"05-08":{"n":"앤드류 루트","t":"앤드류 루트: 나는 하나님의 피조물, 개입니다","p":174}},"s":{"타임라인":193,"선이_닿는_항목":71,"띠만_닿는_항목":122,"아무것도_안_닿는_항목":0,"보관함_미연결편":21,"영토들_미연결장":28},"ua":[{"번호":1,"제목":"왜 신학 블록버스터인가","시대값":"본문에 없음"},{"번호":3,"제목":"존재란 무엇인가","시대값":"본문에 없음"},{"번호":11,"제목":"일자란 무엇인가","시대값":"본문에 없음"},{"번호":13,"제목":"Review & Preview","시대값":"본문에 없음"},{"번호":15,"제목":"섭리논쟁_이게 다 하나님 때문이다","시대값":"본문에 없음"},{"번호":16,"제목":"예지논쟁_칼빈주의 vs 알미니안주의 vs 열린 유신론","시대값":"본문에 없음"},{"번호":21,"제목":"구원론 논쟁_구원받는 사람은 미리 정해져 있을까","시대값":"본문에 없음"},{"번호":24,"제목":"미전도종족의 운명 논쟁_이순신 장군은 구원받았을까","시대값":"본문에 없음"},{"번호":31,"제목":"Review & Preview 2","시대값":"본문에 없음"},{"번호":58,"제목":"성경과 하나님의 권위2","시대값":"본문에 없음"},{"번호":59,"제목":"성경과 하나님의 권위3","시대값":"본문에 없음"},{"번호":60,"제목":"성경과 하나님의 권위4","시대값":"본문에 없음"},{"번호":63,"제목":"책 vs. 책 인터뷰(2) 정성국 교수","시대값":"본문에 없음"},{"번호":64,"제목":"Review & Preview 4","시대값":"본문에 없음"},{"번호":67,"제목":"현대 신학_흄, 칸트, 헤겔","시대값":"본문에 없음"},{"번호":78,"제목":"현대 신학_ 라인홀드 니버","시대값":"본문에 없음"},{"번호":81,"제목":"현대 신학_ 본회퍼","시대값":"본문에 없음"},{"번호":84,"제목":"현대 신학_판넨베르크","시대값":"본문에 없음"},{"번호":88,"제목":"현대 신학_발타자르","시대값":"본문에 없음"},{"번호":90,"제목":"현대 신학_스탠리 하우어워스","시대값":"본문에 없음"},{"번호":91,"제목":"현대 신학_존 카푸토","시대값":"본문에 없음"}],"ue":[{"장번호":"01-00","인물명":null,"대표연도":null},{"장번호":"01-01","인물명":"슐라이어마허","대표연도":"미상"},{"장번호":"01-03","인물명":"고든 카우프만","대표연도":"1975"},{"장번호":"01-04","인물명":"조지 린드벡 · 크리스틴 헬머","대표연도":"1984"},{"장번호":"01-05","인물명":"볼프하르트 판넨베르크","대표연도":"1961"},{"장번호":"01-06","인물명":"패트릭 셰리","대표연도":"1971"},{"장번호":"01-07","인물명":"존 웹스터","대표연도":"2002"},{"장번호":"01-08","인물명":"한스 부어스마","대표연도":"2011"},{"장번호":"02-00","인물명":null,"대표연도":null},{"장번호":"02-01","인물명":"아돌프 폰 하르낙","대표연도":"1900"},{"장번호":"02-04","인물명":"로완 윌리엄스","대표연도":"미상"},{"장번호":"02-05","인물명":"로널드 핸델","대표연도":"2013"},{"장번호":"02-06","인물명":"로저 올슨","대표연도":"2013"},{"장번호":"02-08","인물명":"후카이 토모아키","대표연도":"2011"},{"장번호":"03-00","인물명":null,"대표연도":null},{"장번호":"03-01","인물명":"헤르만 바빙크","대표연도":"1904"},{"장번호":"03-03","인물명":"폴 틸리히","대표연도":"미상"},{"장번호":"03-04","인물명":"리처드 니버","대표연도":"1916"},{"장번호":"03-06","인물명":"제임스 토런스 · 콜린 건턴","대표연도":"1989"},{"장번호":"03-07","인물명":"위르겐 몰트만","대표연도":"1975"},{"장번호":"04-00","인물명":null,"대표연도":null},{"장번호":"04-08","인물명":"데이비드 벤틀리 하트","대표연도":"2011"},{"장번호":"05-00","인물명":null,"대표연도":null},{"장번호":"05-01","인물명":"샐리 맥페이그","대표연도":"2004"},{"장번호":"05-03","인물명":"알리스터 맥그래스","대표연도":"2009"},{"장번호":"05-04","인물명":"세라 코클리","대표연도":"2013"},{"장번호":"05-06","인물명":"케빈 밴후저 · 제임스 스미스","대표연도":"미상"},{"장번호":"05-08","인물명":"앤드류 루트","대표연도":"2017"}],"g":[{"n":"세월호 참사","y":"2014","c":"04-08 · 05-07","ex":[],"k":"A","gr":"","inner":[]},{"n":"인도양 쓰나미","y":"연도 표기 없음","c":"04-08","k":"C","ex":[],"gr":"","inner":[]},{"n":"맨체스터 테러 사건","y":"2017","c":"05-05","ex":[],"k":"A","gr":"","inner":[]},{"n":"보스니아 내전·인종학살","y":"1992~1996","c":"05-05","ex":[],"k":"A","gr":"기간","inner":[{"y":1992,"ex":[]},{"y":1993,"ex":["레드필드 《셀레스틴 예언》"]},{"y":1994,"ex":["켄 윌버 《모든 것의 역사》","WWW(월드와이드웹) 대중화"]},{"y":1995,"ex":[]},{"y":1996,"ex":[]}]},{"n":"크로아티아 독립","y":"1991","c":"05-05","ex":["소련 붕괴"],"k":"B","gr":"","inner":[]},{"n":"버밍햄 16번가 침례교회 폭탄 테러","y":"1963","c":"03-08","ex":["케네디 암살"],"k":"B","gr":"","inner":[]},{"n":"제2차 라틴아메리카 주교회의(메데인)","y":"1968","c":"04-06","ex":["68혁명·베트남 반전운동"],"k":"B","gr":"","inner":[]},{"n":"교황청 신앙교리성 해방신학 훈령 「자유의 전갈」","y":"1984","c":"04-06","ex":["한국 기독교 100주년 대회","리처드 로티 《실용주의의 귀결》"],"k":"B","gr":"","inner":[]},{"n":"교황청, 한스 큉 가톨릭 신학 교수 자격 박탈","y":"1979-12-18","c":"02-02","ex":["리오타르 《포스트모던 조건》","더글러스 애덤스 《은하수를 여행하는 히치하이커를 위한 안내서》"],"k":"B","gr":"일","inner":[]},{"n":"브루너–바르트 자연신학 논쟁","y":"1934","c":"03-02","ex":[],"k":"A","gr":"","inner":[]},{"n":"브루너–바르트 화해(바젤)","y":"1960-11-19","c":"03-02","ex":["4.19 혁명"],"k":"B","gr":"일","inner":[]},{"n":"몰트만 한국 첫 강연","y":"1975","c":"03-07","ex":["카프라 《물리학의 도》","푸코 《감시와 처벌》"],"k":"B","gr":"","inner":[]},{"n":"북미 성공회 분립","y":"2009","c":"01-08","ex":[],"k":"A","gr":"","inner":[]},{"n":"종교개혁 500주년","y":"2017","c":"02-03","ex":[],"k":"A","gr":"","inner":[]},{"n":"테러와의 전쟁·중동 파병","y":"연도 표기 없음","c":"05-07","k":"C","ex":[],"gr":"","inner":[]}]};
+const THEO = {"t":{"1":"왜 신학 블록버스터인가","2":"하나님은 누구인가 [신]","3":"존재란 무엇인가","4":"하나님은 실제로 존재하는가","5":"창조론이 왜 '고백록' 안에 있나","6":"창조는 어떻게 이루어졌나","7":"창조의 목적은 무엇인가","8":"아테네와 예루살렘이 무슨 관계가 있나","9":"하나님의 인격성이란 무엇인가","10":"하나님의 인격성과 하나님의 부재","11":"일자란 무엇인가","12":"유일신은 배타적인가","13":"Review & Preview","14":"무오성 논쟁_성경에 오류가 있다 없다","15":"섭리논쟁_이게 다 하나님 때문이다","16":"예지논쟁_칼빈주의 vs 알미니안주의 vs 열린 유신론","17":"창조논쟁_창세기 1장의 하루 계산법","18":"하나님의 형상 논쟁_이마고 데이(Imago Dei)는 무엇","19":"기독론 논쟁_예수님은 인간이자 하나님","20":"속죄 논쟁_십자가가 그런 뜻이라고","21":"구원론 논쟁_구원받는 사람은 미리 정해져 있을까","22":"성화 논쟁_예수님 믿으면 끝 기독교 성화론 완벽 정리!","23":"영원한 안전 논쟁_칼빈주의 vs 알미니안주의 총정리","24":"미전도종족의 운명 논쟁_이순신 장군은 구원받았을까","25":"세례 논쟁_유아 세례, 꼭 받아야 할까","26":"성만찬 논쟁_주님의 살을 먹고 피를 마신다","27":"영적 은사 논쟁_ 방언은 정말 천상의 언어일까","28":"여성 사역 논쟁_ 여성은 목사가 될 수 있다 없다","29":"천년 왕국 논쟁_ 예수님은 언제 오시는가","30":"지옥 논쟁_지옥은 있다 없다","31":"Review & Preview 2","32":"초기 교회1_초기 기독교 성장의 4가지 비결","33":"초기 교회2_ 초대교회 성도들은 왜 무신론자로 불렸을까","34":"초기 교회3_부활한 몸은 어떤 모습일까(feat.오리게네스) (2)","35":"초기 교회4_ 로마제국과 동행한 기독교 얻은 것 vs 잃은 것 (2)","36":"초기 교회5_ 초기 교회 시대 핵심정리 (2)","37":"중세와 르네상스1_ 중세 전반기 500년 총정리 (2)","38":"중세와 르네상스2_중세 교회의 전성기 (2)","39":"중세와 르네상스3_ 중세신학의 꽃, 스콜라주의의 모든 것 (2)","40":"중세와 르네상스4_ 중세쇠퇴기-교황이 셋! (2)","41":"중세와 르네상스5_ 중세와 르네상스 핵심정리","42":"특별대담_최종원 교수님과 함께 하는 중세교회사","43":"종교개혁1_종교개혁은 왜 시작되었을까","44":"종교개혁2_종교개혁의 5가지 특징","45":"종교개혁3_종교개혁의 3대장","46":"종교개혁4_ 우리가 종교개혁의 비주류라고! 왜","47":"종교개혁5_종교개혁시대 핵심정리","48":"근대1 전반기_계몽주의와 혁명의 시대","49":"근대2_격동의 19세기, 유럽교회","50":"근대3_격동의 19세기, 미국교회","51":"근대4_근대 교회사, 핵심정리","52":"20세기_1차 세계대전, 기독교를 죽인 전쟁","53":"현대2_WCC, 2차 바티칸 공의회, 그리고 신복음주의","54":"현대3_민권운동과 기독교 우파의 등장","55":"현대4_현대 교회사 핵심정리","57":"성경과 하나님의 권위1","58":"성경과 하나님의 권위2","59":"성경과 하나님의 권위3","60":"성경과 하나님의 권위4","62":"책 vs. 책 인터뷰(1) 김근주 교수","63":"책 vs. 책 인터뷰(2) 정성국 교수","64":"Review & Preview 4","65":"현대 신학 프리퀄","66":"현대 신학_허버트, 톨런드, 틴들","67":"현대 신학_흄, 칸트, 헤겔","68":"현대 신학_리드, 콜리지, 키에르케고르","69":"현대 신학_슐라이어마허","70":"현대 신학_리츨, 하르낙, 라우센부쉬","71":"현대 신학_트뢸치","72":"현대 신학_가톨릭 현대주의 신학자들","73":"현대 신학_찰스 하지","74":"현대 신학_이자크 도르너","75":"현대 신학_ 호러스 부시넬","76":"현대 신학_칼 바르트","77":"현대 신학_루돌프 불트만","78":"현대 신학_ 라인홀드 니버","79":"현대 신학_폴 틸리히","80":"현대 신학_과정 신학","81":"현대 신학_ 본회퍼","82":"현대 신학_세속 신학, 신 죽음의 신학","83":"현대 신학_몰트만","84":"현대 신학_판넨베르크","85":"현대신학_해방신학","86":"미확인 — 파일에 제목이 없다(파일명·프론트매터 제목·본문 h1 셋 다 「[신학 Blockbuster_086]」뿐)","88":"현대 신학_발타자르","89":"현대 신학_복음주의","90":"현대 신학_스탠리 하우어워스","91":"현대 신학_존 카푸토"},"c":{"01-00":{"n":null,"t":"신학이란 무엇인가","p":1},"01-01":{"n":"슐라이어마허","t":"슐라이어마허","p":1},"01-02":{"n":"칼 바르트","t":"초월하신 하나님 — 칼 바르트: 깨어진 삶의 자리로 찾아오는 하느님의 희망","p":5},"01-03":{"n":"고든 카우프만","t":"카우프만: 신비로서 신, 상상으로서 신학","p":11},"01-04":{"n":"조지 린드벡 · 크리스틴 헬머","t":"조지 린드벡, 크리스틴 헬머 — 교리의 본성과 목적 논쟁","p":null},"01-05":{"n":"볼프하르트 판넨베르크","t":"볼프하르트 판넨베르크: 그리스도교 진리의 합리성과 보편성","p":18},"01-06":{"n":"패트릭 셰리","t":"패트릭 셰리: 아름다움은 우리를 구원할 것인가?","p":22},"01-07":{"n":"존 웹스터","t":"존 웹스터 — 하느님 말씀이 거룩하니 신학도 거룩하라","p":29},"01-08":{"n":"한스 부어스마","t":"한스 부어스마","p":32},"02-00":{"n":null,"t":"과거를 읽는 법","p":36},"02-01":{"n":"아돌프 폰 하르낙","t":"아돌프 폰 하르낙: 복음과 교리 사이에 선 역사학자로서 신학자","p":38},"02-02":{"n":"한스 큉","t":"한스 큉: 본질과 역사 사이에서 과거를 읽는 법","p":42},"02-03":{"n":"마르틴 루터","t":"마르틴 루터: 교회분열과 교회일치의 갈림길에 선 마르틴 루터","p":45},"02-04":{"n":"로완 윌리엄스","t":"로완 윌리엄스: 과거의 낯섦 앞에 선 그리스도인","p":48},"02-05":{"n":"로널드 핸델","t":"로널드 핸델: 현실주의와 상징주의 사이에서 창세기 읽다","p":53},"02-06":{"n":"로저 올슨","t":"로저 올슨: 현대 신학이라는 여행의 이유","p":56},"02-07":{"n":"폴 카페츠","t":"폴 카페츠: 역사를 통해 배우는 신에 대해 말하는 법","p":60},"02-08":{"n":"후카이 토모아키","t":"후카이 토모아키: 교양과 학문 사이에서 신학의 역사","p":63},"03-00":{"n":null,"t":"현대 개신교 신학의 대가들","p":67},"03-01":{"n":"헤르만 바빙크","t":"헤르만 바빙크: 세계관으로서 그리스도교","p":69},"03-02":{"n":"에밀 브루너 · 칼 바르트","t":"에밀 브루너, 칼 바르트: '오직 은혜로만?'에 관한 현대 논쟁","p":81},"03-03":{"n":"폴 틸리히","t":"폴 틸리히: 신학과 철학의 경계를 넘어선 경계선 위에서","p":85},"03-04":{"n":"리처드 니버","t":"리처드 니버: 유일하신 하느님과 역사 속의 인간","p":88},"03-05":{"n":"디트리히 본회퍼","t":"본회퍼: 윤리가 몰락한 세상에서 윤리를 다시 묻다","p":92},"03-06":{"n":"제임스 토런스 · 콜린 건턴","t":"제임스 토런스, 콜린 건던: 바르트 이후의 삼위일체 신학","p":96},"03-07":{"n":"위르겐 몰트만","t":"몰트만: 장애인과 비장애인 모두의 해방을 위한 장애신학","p":100},"03-08":{"n":"제임스 콘","t":"제임스 콘: 왜 그는 그리스도를 흑인이라 불렀나","p":104},"04-00":{"n":null,"t":"한 몸 다른 전통","p":108},"04-01":{"n":"블라디미르 로스키","t":"블라디미르 로스키: 부정신학을 통해 하느님의 신비에 다가가기","p":110},"04-02":{"n":"칼 라너","t":"칼 라너: 일상의 결을 타고 찾아온 하느님의 은총","p":114},"04-03":{"n":"한스 우르스 폰 발타사르","t":"한스 우르스 폰 발타자르: 지옥의 공포를 넘어선 담대한 희망","p":118},"04-04":{"n":"콘스탄틴 비르질 게오르규","t":"콘스탄틴 비르질 게오르규: 한 가난한 사제의 삶에 비친 그리스도교의 신비","p":123},"04-05":{"n":"교황 베네딕토 16세(요제프 라칭거)","t":"교황 베네딕토 16세: 그리스도교의 희망을 다시 묻다","p":127},"04-06":{"n":"구스타보 구티에레즈 · 성정모","t":"구스타보 구티에레즈, 성정모: 해방신학의 어제와 오늘","p":131},"04-07":{"n":"존 지지울러스","t":"존 지지울러스: 삼위일체 하느님의 형상으로서 교회","p":135},"04-08":{"n":"데이비드 벤틀리 하트","t":"데이비드 벤틀리 하트: 상처 입은 세계에서 분노하는 법","p":139},"05-00":{"n":null,"t":"신학의 새로운 흐름","p":143},"05-01":{"n":"샐리 맥페이그","t":"샐리 맥페이그: 기후 위기 시대에 일어난 신학의 기후 변화","p":145},"05-02":{"n":"스탠리 하우어워스","t":"스탠리 하우어워스: 자유주의 정치학에 맞서는 교회의 정치학","p":148},"05-03":{"n":"알리스터 맥그래스","t":"알리스터 맥그래스: 과학과 신학의 접촉점으로서 자연신학","p":152},"05-04":{"n":"세라 코클리","t":"세라 코클리: 삼위일체 하느님을 향한 기도와 욕망의 변주","p":156},"05-05":{"n":"미로슬라브 볼프","t":"미로슬라브 볼프: 평화로운 미래를 위한 '번영의' 신학","p":161},"05-06":{"n":"케빈 밴후저 · 제임스 스미스","t":"케빈 벤후저, 제임스 스미스: 복음주의 신학의 새로운 흐름","p":164},"05-07":{"n":"셸리 램보","t":"셸리 램보: 깨어진 세계에서 성령과 함께 남아 있기","p":169},"05-08":{"n":"앤드류 루트","t":"앤드류 루트: 나는 하나님의 피조물, 개입니다","p":174}},"s":{"타임라인":193,"선이_닿는_항목":71,"띠만_닿는_항목":122,"아무것도_안_닿는_항목":0,"보관함_미연결편":21,"영토들_미연결장":28},"ua":[{"번호":1,"제목":"왜 신학 블록버스터인가","시대값":"본문에 없음"},{"번호":3,"제목":"존재란 무엇인가","시대값":"본문에 없음"},{"번호":11,"제목":"일자란 무엇인가","시대값":"본문에 없음"},{"번호":13,"제목":"Review & Preview","시대값":"본문에 없음"},{"번호":15,"제목":"섭리논쟁_이게 다 하나님 때문이다","시대값":"본문에 없음"},{"번호":16,"제목":"예지논쟁_칼빈주의 vs 알미니안주의 vs 열린 유신론","시대값":"본문에 없음"},{"번호":21,"제목":"구원론 논쟁_구원받는 사람은 미리 정해져 있을까","시대값":"본문에 없음"},{"번호":24,"제목":"미전도종족의 운명 논쟁_이순신 장군은 구원받았을까","시대값":"본문에 없음"},{"번호":31,"제목":"Review & Preview 2","시대값":"본문에 없음"},{"번호":58,"제목":"성경과 하나님의 권위2","시대값":"본문에 없음"},{"번호":59,"제목":"성경과 하나님의 권위3","시대값":"본문에 없음"},{"번호":60,"제목":"성경과 하나님의 권위4","시대값":"본문에 없음"},{"번호":63,"제목":"책 vs. 책 인터뷰(2) 정성국 교수","시대값":"본문에 없음"},{"번호":64,"제목":"Review & Preview 4","시대값":"본문에 없음"},{"번호":67,"제목":"현대 신학_흄, 칸트, 헤겔","시대값":"본문에 없음"},{"번호":78,"제목":"현대 신학_ 라인홀드 니버","시대값":"본문에 없음"},{"번호":81,"제목":"현대 신학_ 본회퍼","시대값":"본문에 없음"},{"번호":84,"제목":"현대 신학_판넨베르크","시대값":"본문에 없음"},{"번호":88,"제목":"현대 신학_발타자르","시대값":"본문에 없음"},{"번호":90,"제목":"현대 신학_스탠리 하우어워스","시대값":"본문에 없음"},{"번호":91,"제목":"현대 신학_존 카푸토","시대값":"본문에 없음"}],"ue":[{"장번호":"01-00","인물명":null,"대표연도":null},{"장번호":"01-01","인물명":"슐라이어마허","대표연도":"미상"},{"장번호":"01-03","인물명":"고든 카우프만","대표연도":"1975"},{"장번호":"01-04","인물명":"조지 린드벡 · 크리스틴 헬머","대표연도":"1984"},{"장번호":"01-05","인물명":"볼프하르트 판넨베르크","대표연도":"1961"},{"장번호":"01-06","인물명":"패트릭 셰리","대표연도":"1971"},{"장번호":"01-07","인물명":"존 웹스터","대표연도":"2002"},{"장번호":"01-08","인물명":"한스 부어스마","대표연도":"2011"},{"장번호":"02-00","인물명":null,"대표연도":null},{"장번호":"02-01","인물명":"아돌프 폰 하르낙","대표연도":"1900"},{"장번호":"02-04","인물명":"로완 윌리엄스","대표연도":"미상"},{"장번호":"02-05","인물명":"로널드 핸델","대표연도":"2013"},{"장번호":"02-06","인물명":"로저 올슨","대표연도":"2013"},{"장번호":"02-08","인물명":"후카이 토모아키","대표연도":"2011"},{"장번호":"03-00","인물명":null,"대표연도":null},{"장번호":"03-01","인물명":"헤르만 바빙크","대표연도":"1904"},{"장번호":"03-03","인물명":"폴 틸리히","대표연도":"미상"},{"장번호":"03-04","인물명":"리처드 니버","대표연도":"1916"},{"장번호":"03-06","인물명":"제임스 토런스 · 콜린 건턴","대표연도":"1989"},{"장번호":"03-07","인물명":"위르겐 몰트만","대표연도":"1975"},{"장번호":"04-00","인물명":null,"대표연도":null},{"장번호":"04-08","인물명":"데이비드 벤틀리 하트","대표연도":"2011"},{"장번호":"05-00","인물명":null,"대표연도":null},{"장번호":"05-01","인물명":"샐리 맥페이그","대표연도":"2004"},{"장번호":"05-03","인물명":"알리스터 맥그래스","대표연도":"2009"},{"장번호":"05-04","인물명":"세라 코클리","대표연도":"2013"},{"장번호":"05-06","인물명":"케빈 밴후저 · 제임스 스미스","대표연도":"미상"},{"장번호":"05-08","인물명":"앤드류 루트","대표연도":"2017"}],"g":[{"n":"세월호 참사","y":"2014","p":"p.140 · p.142 · p.170(「2014년 온 국민 마음에 큰 상처를 남긴 세월호 사건」)","c":"04-08 · 05-07","ex":[],"k":"A","gr":"","inner":[]},{"n":"인도양 쓰나미","y":"연도 표기 없음","p":"p.139 · p.140 · p.142(「인도양 쓰나미, 아우슈비츠, 세월호 참사 같은」)","c":"04-08","k":"C","ex":[],"gr":"","inner":[]},{"n":"맨체스터 테러 사건","y":"2017","p":"p.161(「맨체스터 테러 사건은 현대인이 경험하는」) · p.164 각주 URL 2017","c":"05-05","ex":[],"k":"A","gr":"","inner":[]},{"n":"보스니아 내전·인종학살","y":"1992~1996","p":"p.162(「1992년부터 4년간 이어진 보스니아 내전 동안 인종학살이 벌어졌고」)","c":"05-05","ex":[],"k":"A","gr":"기간","inner":[{"y":1992,"ex":[]},{"y":1993,"ex":["레드필드 《셀레스틴 예언》"]},{"y":1994,"ex":["켄 윌버 《모든 것의 역사》","WWW(월드와이드웹) 대중화"]},{"y":1995,"ex":[]},{"y":1996,"ex":[]}]},{"n":"크로아티아 독립","y":"1991","p":"p.162(「크로아티아는 1991년에 독립했다」)","c":"05-05","ex":["소련 붕괴"],"k":"B","gr":"","inner":[]},{"n":"버밍햄 16번가 침례교회 폭탄 테러","y":"1963","p":"p.106(「1963년 9월 버밍햄 16번가 침례교회에서 테러로 네 명의 흑인 소녀가 죽은 후」)","c":"03-08","ex":["케네디 암살"],"k":"B","gr":"","inner":[]},{"n":"제2차 라틴아메리카 주교회의(메데인)","y":"1968","p":"p.132(「1968년 2월 메데인에서 열렸던 제2차 라틴아메리카」)","c":"04-06","ex":["68혁명·베트남 반전운동"],"k":"B","gr":"","inner":[]},{"n":"교황청 신앙교리성 해방신학 훈령 「자유의 전갈」","y":"1984","p":"p.131 각주(「'자유의 전갈' … 해방신학의 일부 측면에 관한 훈령', 강대인 옮김 … (1984.08」)","c":"04-06","ex":["한국 기독교 100주년 대회","리처드 로티 《실용주의의 귀결》"],"k":"B","gr":"","inner":[]},{"n":"교황청, 한스 큉 가톨릭 신학 교수 자격 박탈","y":"1979-12-18","p":"p.43(「바티칸은 1979년 12월 18일, (큉)에게 전 세계 로마 가톨릭 기관에서 신학을 가르치는 것을」)","c":"02-02","ex":["리오타르 《포스트모던 조건》","더글러스 애덤스 《은하수를 여행하는 히치하이커를 위한 안내서》"],"k":"B","gr":"일","inner":[]},{"n":"브루너–바르트 자연신학 논쟁","y":"1934","p":"p.81~85(03-02 장 전체 주제)","c":"03-02","ex":[],"k":"A","gr":"","inner":[]},{"n":"브루너–바르트 화해(바젤)","y":"1960-11-19","p":"p.85(「1960년 11월 19일 바젤에서 브루너와 바르트 부부의 만남」)","c":"03-02","ex":["4.19 혁명"],"k":"B","gr":"일","inner":[]},{"n":"몰트만 한국 첫 강연","y":"1975","p":"p.100~101","c":"03-07","ex":["카프라 《물리학의 도》","푸코 《감시와 처벌》"],"k":"B","gr":"","inner":[]},{"n":"북미 성공회 분립","y":"2009","p":"p.33(「미국 성공회와 캐나다 성공회와 갈등을 일으켜 2009년에 독립한」)","c":"01-08","ex":[],"k":"A","gr":"","inner":[]},{"n":"종교개혁 500주년","y":"2017","p":"p.45(「종교개혁 500주년을 한 해 앞둔 2016년에 『마르틴 루터』를 출판했다」 · 강연명 「마르틴 루터 1517~2017」)","c":"02-03","ex":[],"k":"A","gr":"","inner":[]},{"n":"테러와의 전쟁·중동 파병","y":"연도 표기 없음","p":"p.170(「911 테러 이후에는 테러와의 전쟁, 중동에 파병되었다가 돌아온 군인들이」)","c":"05-07","k":"C","ex":[],"gr":"","inner":[]}]};
 let thm = 'point';
 const ORDER = ['theism','deism','naturalism','nihilism','existentialism','pantheism','newage','postmodern'];
 let wv = 'all';
 let cats = new Set(Object.keys(CAT));
-
 const $ = id => document.getElementById(id);
+
 const dark = () => {
   const t = document.documentElement.getAttribute('data-theme');
   if (t === 'dark') return true;
   if (t === 'light') return false;
   return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
 };
-// 밝은 파스텔 배경은 다크에서 못 쓴다 → 색을 반투명 틴트로
 const tint = hex => {
   const h = hex.replace('#','');
-  const r = parseInt(h.slice(0,2),16), g = parseInt(h.slice(2,4),16), b = parseInt(h.slice(4,6),16);
-  return `rgba(${r},${g},${b},var(--tint))`;
+  return `rgba(${parseInt(h.slice(0,2),16)},${parseInt(h.slice(2,4),16)},${parseInt(h.slice(4,6),16)},var(--tint))`;
 };
 const lift = hex => {
   if (!dark()) return hex;
   const h = hex.replace('#','');
-  let r = parseInt(h.slice(0,2),16), g = parseInt(h.slice(2,4),16), b = parseInt(h.slice(4,6),16);
   const f = v => Math.round(v + (255 - v) * 0.45);
-  return `rgb(${f(r)},${f(g)},${f(b)})`;
+  return `rgb(${f(parseInt(h.slice(0,2),16))},${f(parseInt(h.slice(2,4),16))},${f(parseInt(h.slice(4,6),16))})`;
 };
 
-function chips() {
+function sidebar() {
   const wr = $('wvRow'); wr.innerHTML = '';
   Object.entries(WV).forEach(([k,v]) => {
+    const n = k === 'all' ? EVENTS.length : EVENTS.filter(e => e.era === k).length;
     const b = document.createElement('button');
-    b.className = 'chip' + (k === wv ? ' on' : '');
-    b.textContent = v.label;
-    if (k !== 'all') { b.style.color = lift(v.color); b.style.background = tint(v.color); }
-    b.onclick = () => { wv = k; $('shWv').classList.remove('on'); $('bWv').setAttribute('aria-expanded','false'); render(); };
+    b.className = 'opt' + (k === wv ? ' on' : '');
+    b.style.color = k === 'all' ? 'var(--ink-2)' : lift(v.color);
+    if (k !== 'all') b.style.background = tint(v.color);
+    b.innerHTML = (k === 'all' ? '' : '<span class="sw"></span>') +
+      '<span>' + v.label + '</span><span class="cnt">' + n + '</span>';
+    b.onclick = () => { wv = k; render(); };
     wr.appendChild(b);
   });
   const cr = $('catRow'); cr.innerHTML = '';
   Object.entries(CAT).forEach(([k,v]) => {
+    const n = EVENTS.filter(e => e.cat === k && (wv === 'all' || e.era === wv)).length;
     const b = document.createElement('button');
-    b.className = 'chip' + (cats.has(k) ? ' on' : '');
-    b.textContent = v.label;
-    if (cats.has(k)) { b.style.color = lift(v.color); b.style.background = tint(v.color); }
+    b.className = 'opt' + (cats.has(k) ? ' on' : '');
+    b.style.color = lift(v.color);
+    if (cats.has(k)) b.style.background = tint(v.color);
+    b.innerHTML = '<span>' + v.label + '</span><span class="cnt">' + n + '</span>';
     b.onclick = () => {
       if (cats.has(k)) { if (cats.size > 1) cats.delete(k); } else cats.add(k);
-      chips(); render();
+      render();
     };
     cr.appendChild(b);
   });
 }
 
 function render() {
-  chips();
-  $('vWv').textContent = WV[wv].label.replace('전체 보기','전체');
-  $('vCat').textContent = cats.size === Object.keys(CAT).length ? '6' : cats.size + '/6';
-
+  sidebar();
   const info = $('wvInfo');
   if (wv !== 'all') {
-    const v = WV[wv];
+    const v = WV[wv], c = lift(v.color);
     info.className = 'wvbox on';
-    info.style.borderLeftColor = lift(v.color);
+    info.style.borderLeftColor = c;
     info.innerHTML =
-      '<div class="t" style="color:' + lift(v.color) + '">' + v.label + '</div>' +
+      '<div class="t" style="color:' + c + '">' + v.label + '</div>' +
       '<div class="p">' + v.period + '</div>' +
       '<div class="d">' + v.desc + '</div>' +
       '<div class="f">대표 인물 · ' + v.figures + '</div>' +
@@ -574,38 +499,34 @@ function render() {
   const list = EVENTS
     .filter(e => (wv === 'all' || e.era === wv) && cats.has(e.cat))
     .sort((a,b) => a.year - b.year);
-
-  $('stats').innerHTML = '<b>' + list.length + '</b>개 사건 · 전체 ' + EVENTS.length + '개';
+  $('stats').innerHTML = '<b>' + list.length + '</b>개 사건 표시 중 · 전체 ' + EVENTS.length + '개';
 
   const tl = $('timeline'); tl.innerHTML = '';
   if (!list.length) { tl.innerHTML = '<div class="empty">고른 조건에 맞는 사건이 없습니다.</div>'; return; }
 
-  const eras = wv === 'all' ? ORDER : [wv];
-  eras.forEach(era => {
+  (wv === 'all' ? ORDER : [wv]).forEach(era => {
     const evs = list.filter(e => e.era === era);
     if (!evs.length) return;
     const v = WV[era], c = lift(v.color);
-
     const h = document.createElement('div');
-    h.className = 'era';
-    h.innerHTML = '<span class="nm" style="color:' + c + '">' + v.label + '</span>' +
+    h.className = 'era'; h.style.color = c;
+    h.innerHTML = '<span class="nm">' + v.label + '</span>' +
                   '<span class="pd">' + v.period + '</span>' +
-                  '<span class="ct">' + evs.length + '</span>';
+                  '<span class="ct">' + evs.length + '건</span>';
     tl.appendChild(h);
 
     evs.forEach(ev => {
       const cv = CAT[ev.cat];
-      const d = document.createElement('div');
-      d.className = 'card';
-      d.style.borderLeftColor = c;
+      const r = document.createElement('div');
+      r.className = 'row'; r.style.color = c;
       const th = ev.th || {p:[],b:[],e:[]};
       const nLine = th.p.length + th.e.length;
       const showLine = thm !== 'off' && nLine > 0;
       const showBand = thm === 'band' && th.b.length > 0;
-      if (showBand) d.classList.add('thband');
+      if (showBand) r.classList.add('thband');
       let badge = '';
       if (showLine) badge = '<span class="thbadge">신학 ' + nLine + '</span>';
-      else if (showBand) badge = '<span class="thnote">띠 ' + th.b.length + '편</span>';
+      else if (showBand) badge = '<span class="thband-note">띠 ' + th.b.length + '편</span>';
       let panel = '';
       if (showLine) {
         let rows = '';
@@ -621,73 +542,71 @@ function render() {
         });
         panel = '<div class="thlist"><div class="h">이 사건에 닿는 신학</div>' + rows + '</div>';
       }
-      d.innerHTML =
-        '<div class="meta">' +
-          '<span class="yr" style="color:' + c + '">' + ev.year + '</span>' +
-          '<span class="cat" style="color:' + lift(cv.color) + ';background:' + tint(cv.color) + '">' + cv.label + '</span>' +
-          badge +
-        '</div>' +
-        '<div class="ttl">' + ev.title + '</div>' +
-        '<div class="dsc">' + ev.desc + '</div>' + panel +
-        '<span class="arw">▼</span>';
-      tl.appendChild(d);
+      r.innerHTML =
+        '<div class="yr">' + ev.year + '</div>' +
+        '<div class="card" style="border-left-color:' + c + '">' +
+          '<div class="top">' +
+            '<span class="cat" style="color:' + lift(cv.color) + ';background:' + tint(cv.color) + '">' + cv.label + '</span>' +
+            '<span class="ttl" style="color:var(--ink)">' + ev.title + '</span>' +
+            badge +
+            '<span class="arw">▼</span>' +
+          '</div>' +
+          '<div class="dsc">' + ev.desc + '</div>' + panel +
+        '</div>';
+      tl.appendChild(r);
     });
   });
 }
 
-// 이벤트 위임
 document.getElementById('timeline').addEventListener('click', e => {
   const c = e.target.closest('.card');
   if (c) c.classList.toggle('open');
 });
-function toggleSheet(btnId, sheetId, otherId) {
-  const b = $(btnId), s = $(sheetId), o = $(otherId);
-  const open = !s.classList.contains('on');
-  s.classList.toggle('on', open);
-  b.setAttribute('aria-expanded', open ? 'true' : 'false');
-  o.classList.remove('on');
-  $(otherId === 'shWv' ? 'bWv' : 'bCat').setAttribute('aria-expanded','false');
-}
-$('bWv').onclick = () => toggleSheet('bWv','shWv','shCat');
-$('bCat').onclick = () => toggleSheet('bCat','shCat','shWv');
-document.querySelectorAll('[data-close]').forEach(b => {
-  b.onclick = () => {
-    const id = b.getAttribute('data-close');
-    $(id).classList.remove('on');
-    $(id === 'shWv' ? 'bWv' : 'bCat').setAttribute('aria-expanded','false');
-  };
-});
 if (window.matchMedia) {
   window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', render);
 }
-(function(){
-  const bTh = document.getElementById('bTh'), shTh = document.getElementById('shTh');
-  bTh.addEventListener('click', () => {
-    const on = shTh.classList.toggle('on');
-    bTh.setAttribute('aria-expanded', on ? 'true' : 'false');
-    ['shWv','shCat'].forEach(id => {
-      const s = document.getElementById(id); if (s) s.classList.remove('on');
-    });
-    ['bWv','bCat'].forEach(id => {
-      const b = document.getElementById(id); if (b) b.setAttribute('aria-expanded','false');
-    });
-  });
-  ['bWv','bCat'].forEach(id => {
-    const b = document.getElementById(id);
-    if (b) b.addEventListener('click', () => { shTh.classList.remove('on'); bTh.setAttribute('aria-expanded','false'); });
-  });
-  document.getElementById('thRow').addEventListener('click', e => {
-    const b = e.target.closest('button'); if (!b) return;
-    thm = b.dataset.m;
-    [...document.querySelectorAll('#thRow button')].forEach(x => x.classList.toggle('on', x.dataset.m === thm));
-    document.getElementById('vTh').textContent = b.textContent;
-    render();
-  });
+function thStat(){
   const s = THEO.s;
-  document.getElementById('thStat').innerHTML =
+  $('thStat').innerHTML =
     '선이 닿는 사건 <b>' + s['선이_닿는_항목'] + '</b> / ' + s['타임라인'] + '<br>' +
     '띠만 닿는 사건 <b>' + s['띠만_닿는_항목'] + '</b><br>' +
     '어디에도 안 닿는 신학 <b>' + (s['보관함_미연결편'] + s['영토들_미연결장']) + '</b>편·장';
+}
+document.getElementById('thRow').addEventListener('click', e => {
+  const b = e.target.closest('button'); if (!b) return;
+  thm = b.dataset.m;
+  [...document.querySelectorAll('#thRow button')].forEach(x => x.classList.toggle('on', x.dataset.m === thm));
+  render();
+});
+thStat();
+
+render();
+</script>
+
+<div class="appx">
+  <section>
+    <h3>타임라인에 선이 닿지 않는 신학</h3>
+    <div class="sub">본문에 연도가 없어 어느 사건에도 걸리지 않는 글들입니다. 빠진 것이 아니라 <b>연표가 아닌 주제를 다루기 때문</b>입니다.</div>
+    <ul id="appxUA"></ul>
+  </section>
+  <section>
+    <h3>『신학의 영토들』 중 연결이 없는 장</h3>
+    <div class="sub">인물평이나 서평이라 특정 사건에 걸리지 않는 장입니다.</div>
+    <ul id="appxUE"></ul>
+  </section>
+  <section>
+    <h3>본문에는 있는데 타임라인에 없는 사건</h3>
+    <div class="sub">『신학의 영토들』 45장을 훑다가 나온 것입니다. <b>타임라인에는 넣지 않았습니다</b> — 넣을지 말지는 판단하지 않고 값만 적었습니다.<br>
+      다만 <b>두 종류입니다.</b> 빈 해를 채우는 일과, 이미 찬 해에 하나를 더 놓는 일은 다릅니다.<br>
+      그리고 <b>셋은 타임라인의 칸에 그대로 안 들어갑니다</b> — 하나는 기간이라 연보다 넓고, 둘은 날짜까지 있어 연보다 좁습니다.</div>
+    <table class="gaptbl">
+      <thead><tr><th>사건</th><th>연도</th><th>그 해에 이미 있는 것</th><th>장</th></tr></thead>
+      <tbody id="appxG"></tbody>
+    </table>
+  </section>
+</div>
+<script>
+(function(){
   const pad = n => String(n).padStart(3,'0');
   document.getElementById('appxUA').innerHTML = THEO.ua.map(o =>
     '<li><span class="k">' + pad(o['번호']) + '</span><span>' + (o['제목'] || '제목 미확인') + '</span></li>').join('');
@@ -698,19 +617,20 @@ if (window.matchMedia) {
   ['A','B','C'].forEach(k => {
     const rows = THEO.g.filter(o => o.k === k);
     if (!rows.length) return;
-    gh += '<div class="gapkind">' + KIND[k] + ' · ' + rows.length + '건</div>';
+    gh += '<tr><td class="kind" colspan="4">' + KIND[k] + ' · ' + rows.length + '건</td></tr>';
     rows.forEach(o => {
-      let ex = o.ex.length ? '<br>그 해에 이미: ' + o.ex.join(' · ') : '';
-      if (o.gr === '기간') ex += '<br>기간 사건이라 한 해에 안 놓인다 — ' +
-        o.inner.map(v => v.y + (v.ex.length ? '(참)' : '(빔)')).join(' · ');
-      else if (o.gr === '일') ex += '<br>날짜까지 있는데 타임라인은 연 단위다';
-      gh += '<div class="gapitem"><div class="n">' + o.n + (o.gr ? ' <span class="gr">' + o.gr + '</span>' : '') +
-            '</div><div class="m">' + o.y + ' · ' + o.c + ex + '</div></div>';
+      gh += '<tr><td class="n">' + o.n + (o.gr ? ' <span class="gr">' + o.gr + '</span>' : '') +
+            '</td><td class="y">' + o.y + '</td><td class="p">' +
+            (o.ex.length ? o.ex.join(' · ') : '—') + '</td><td class="y">' + o.c + '</td></tr>';
+      if (o.gr === '기간') {
+        gh += '<tr><td class="note" colspan="4">기간 사건이라 한 해에 놓이지 않는다 — ' +
+              o.inner.map(v => v.y + (v.ex.length ? '(참: ' + v.ex.join(' · ') + ')' : '(빔)')).join(' · ') + '</td></tr>';
+      } else if (o.gr === '일') {
+        gh += '<tr><td class="note" colspan="4">날짜까지 있는데 타임라인은 연 단위다 — 넣으려면 날짜를 버리거나 칸을 늘려야 한다</td></tr>';
+      }
     });
   });
   document.getElementById('appxG').innerHTML = gh;
 })();
-
-render();
 </script>
 </body></html>
