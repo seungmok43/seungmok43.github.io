@@ -1,0 +1,715 @@
+<!doctype html><html lang="ko"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="세계관·신학">
+<meta name="theme-color" content="#2C3A34">
+<link rel="apple-touch-icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxODAgMTgwIj48cmVjdCB3aWR0aD0iMTgwIiBoZWlnaHQ9IjE4MCIgcng9IjQwIiBmaWxsPSIjMkMzQTM0Ii8+PHJlY3QgeD0iODYiIHk9IjM0IiB3aWR0aD0iOCIgaGVpZ2h0PSIxMTIiIHJ4PSI0IiBmaWxsPSIjRjNFRUU0IiBvcGFjaXR5PSIuNTUiLz48Y2lyY2xlIGN4PSI5MCIgY3k9IjU2IiByPSIxNSIgZmlsbD0iI0YzRUVFNCIvPjxjaXJjbGUgY3g9IjkwIiBjeT0iOTgiIHI9IjE1IiBmaWxsPSIjRDlBNDQxIi8+PGNpcmNsZSBjeD0iOTAiIGN5PSIxNDAiIHI9IjEyIiBmaWxsPSIjRjNFRUU0IiBvcGFjaXR5PSIuNzIiLz48L3N2Zz4=">
+<link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxODAgMTgwIj48cmVjdCB3aWR0aD0iMTgwIiBoZWlnaHQ9IjE4MCIgcng9IjQwIiBmaWxsPSIjMkMzQTM0Ii8+PHJlY3QgeD0iODYiIHk9IjM0IiB3aWR0aD0iOCIgaGVpZ2h0PSIxMTIiIHJ4PSI0IiBmaWxsPSIjRjNFRUU0IiBvcGFjaXR5PSIuNTUiLz48Y2lyY2xlIGN4PSI5MCIgY3k9IjU2IiByPSIxNSIgZmlsbD0iI0YzRUVFNCIvPjxjaXJjbGUgY3g9IjkwIiBjeT0iOTgiIHI9IjE1IiBmaWxsPSIjRDlBNDQxIi8+PGNpcmNsZSBjeD0iOTAiIGN5PSIxNDAiIHI9IjEyIiBmaWxsPSIjRjNFRUU0IiBvcGFjaXR5PSIuNzIiLz48L3N2Zz4=">
+</head><body>
+<title>세계관·신학 타임라인</title>
+<style>
+:root{
+  --bg:#f2f3f5; --surf:#ffffff; --surf-2:#f8f9fa;
+  --ink:#1b1d21; --ink-2:#5a5f68; --ink-3:#8d939c;
+  --line:#e2e5ea; --rail:#d8dce2;
+  --shadow:0 1px 3px rgba(20,24,32,.10);
+  --shadow-lg:0 8px 28px rgba(20,24,32,.16);
+  --tint:.10;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#121417; --surf:#1b1e23; --surf-2:#22262c;
+    --ink:#eceef2; --ink-2:#a8aeb8; --ink-3:#767d88;
+    --line:#2b3038; --rail:#333942;
+    --shadow:0 1px 3px rgba(0,0,0,.5);
+    --shadow-lg:0 8px 28px rgba(0,0,0,.6);
+    --tint:.22;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#121417; --surf:#1b1e23; --surf-2:#22262c;
+  --ink:#eceef2; --ink-2:#a8aeb8; --ink-3:#767d88;
+  --line:#2b3038; --rail:#333942;
+  --shadow:0 1px 3px rgba(0,0,0,.5);
+  --shadow-lg:0 8px 28px rgba(0,0,0,.6);
+  --tint:.22;
+}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+body{
+  font-family:'Apple SD Gothic Neo',-apple-system,system-ui,'Malgun Gothic',sans-serif;
+  background:var(--bg); color:var(--ink);
+  font-size:16px; line-height:1.6; letter-spacing:-.01em;
+  padding-bottom:calc(56px + env(safe-area-inset-bottom));
+  padding-top:env(safe-area-inset-top);
+}
+
+/* ── 신학 층 ── */
+.thbadge{display:inline-flex;align-items:center;font-size:11px;font-weight:700;padding:2px 8px;
+  border-radius:999px;background:rgba(107,72,200,.14);color:#6b48c8;border:1px solid rgba(107,72,200,.3);white-space:nowrap}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .thbadge{background:rgba(168,140,255,.18);color:#c4aaff;border-color:rgba(168,140,255,.35)}}
+:root[data-theme="dark"] .thbadge{background:rgba(168,140,255,.18);color:#c4aaff;border-color:rgba(168,140,255,.35)}
+.card.thband{background:linear-gradient(100deg,rgba(107,72,200,.055),transparent 55%)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .card.thband{background:linear-gradient(100deg,rgba(168,140,255,.08),transparent 55%)}}
+:root[data-theme="dark"] .card.thband{background:linear-gradient(100deg,rgba(168,140,255,.08),transparent 55%)}
+.thnote{font-size:10.5px;color:var(--ink-3);font-weight:500}
+.thlist{margin-top:11px;padding-top:10px;border-top:1px dashed var(--line);display:none}
+.card.open .thlist{display:block}
+.thlist .h{font-size:10.5px;font-weight:700;letter-spacing:.08em;color:var(--ink-3);margin-bottom:7px}
+.thitem{font-size:13.5px;color:var(--ink-2);padding:4px 0;display:flex;gap:9px;align-items:baseline;line-height:1.5}
+.thitem .k{font-size:10.5px;font-weight:700;color:#6b48c8;flex-shrink:0;min-width:60px}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .thitem .k{color:#c4aaff}}
+:root[data-theme="dark"] .thitem .k{color:#c4aaff}
+.thitem.absent{opacity:.72}.thitem.absent .k{color:var(--ink-3)}
+.thitem .tag{font-size:10px;border:1px dashed var(--ink-3);color:var(--ink-3);border-radius:4px;padding:0 4px;font-weight:700}
+#bTh{flex-shrink:0}
+.thchips{display:flex;gap:7px}
+.thchips button{flex:1;font-family:inherit;font-size:13.5px;font-weight:700;min-height:42px;border-radius:10px;
+  border:1.5px solid transparent;background:var(--surf-2);color:var(--ink-2);cursor:pointer}
+.thchips button.on{border-color:#6b48c8;color:#6b48c8}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .thchips button.on{border-color:#c4aaff;color:#c4aaff}}
+:root[data-theme="dark"] .thchips button.on{border-color:#c4aaff;color:#c4aaff}
+.thstat{font-size:12px;color:var(--ink-3);line-height:1.8;margin-top:11px}
+.thstat b{color:var(--ink-2);font-variant-numeric:tabular-nums}
+.appx{padding:8px 14px 40px}
+.appx section{background:var(--surf);border:1px solid var(--line);border-radius:13px;padding:18px 16px;margin-top:14px;box-shadow:var(--shadow)}
+.appx h3{font-size:17px;font-weight:900;letter-spacing:-.02em;margin-bottom:5px;line-height:1.35}
+.appx .sub{font-size:12.5px;color:var(--ink-3);margin-bottom:13px;line-height:1.7}
+.appx ul{list-style:none}
+.appx li{font-size:13.5px;color:var(--ink-2);padding:4px 0;display:flex;gap:9px;align-items:baseline;line-height:1.5}
+.appx li .k{font-size:10.5px;font-weight:700;color:var(--ink-3);flex-shrink:0;min-width:56px;font-variant-numeric:tabular-nums}
+.gapitem{padding:8px 0;border-bottom:1px solid var(--line)}
+.gapitem:last-child{border-bottom:0}
+.gapitem .n{font-size:14px;color:var(--ink);font-weight:500;line-height:1.45}
+.gapitem .m{font-size:11.5px;color:var(--ink-3);margin-top:3px;font-variant-numeric:tabular-nums}
+.gapkind{font-size:10.5px;font-weight:700;letter-spacing:.05em;color:#6b48c8;margin-top:16px;padding-bottom:5px;border-bottom:1px solid var(--line);line-height:1.5}
+.gapkind:first-child{margin-top:0}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .gapkind{color:#c4aaff}}
+:root[data-theme="dark"] .gapkind{color:#c4aaff}
+.gapitem .gr{font-size:10px;font-weight:700;border:1px solid var(--ink-3);color:var(--ink-3);border-radius:4px;padding:0 4px;white-space:nowrap}
+
+/* ─── 헤더 ─── */
+.hdr{
+  background:linear-gradient(150deg,#1a1a2e,#2d1b4e 55%,#4a1942);
+  color:#fff; padding:26px 20px 22px;
+}
+.hdr .eyebrow{font-size:11.5px;letter-spacing:.06em;color:#cfc0e8;margin-bottom:9px;line-height:1.5}
+.hdr h1{font-size:24px;font-weight:900;line-height:1.3;letter-spacing:-.02em;text-wrap:balance}
+.hdr .flow{
+  margin-top:12px;font-size:12px;line-height:1.75;color:#d6cbe8;
+  display:flex;flex-wrap:wrap;gap:3px 0;
+}
+.hdr .flow b{font-weight:500;color:#fff}
+.hdr .n{margin-top:11px;font-size:11.5px;color:#b9a9d4}
+
+/* ─── 필터 바 (sticky · 항상 한 줄) ─── */
+.bar{
+  position:sticky; top:0; z-index:50;
+  background:var(--surf); border-bottom:1px solid var(--line);
+  box-shadow:var(--shadow);
+  display:flex; gap:8px; padding:9px 14px; align-items:center;
+}
+.bar button{
+  font-family:inherit; font-size:13px; font-weight:700; color:var(--ink);
+  background:var(--surf-2); border:1px solid var(--line); border-radius:9px;
+  padding:0 12px; height:40px; min-width:0; cursor:pointer;
+  display:flex; align-items:center; gap:6px; white-space:nowrap;
+}
+.bar button .v{color:var(--ink-2);font-weight:500;overflow:hidden;text-overflow:ellipsis}
+.bar button .ar{color:var(--ink-3);font-size:10px;flex-shrink:0}
+.bar #bWv{flex:1;min-width:0}
+.bar #bCat{flex-shrink:0}
+.bar button[aria-expanded="true"]{border-color:var(--ink-3);background:var(--surf)}
+
+/* ─── 펼침 시트 ─── */
+.sheet{
+  display:none; background:var(--surf); border-bottom:1px solid var(--line);
+  padding:4px 14px 14px; box-shadow:var(--shadow);
+  position:sticky; top:59px; z-index:49;
+}
+.sheet.on{display:block}
+.sheet h2{
+  font-size:10.5px;font-weight:700;letter-spacing:.09em;color:var(--ink-3);
+  text-transform:uppercase;margin:12px 0 8px;
+}
+.chips{display:flex;flex-wrap:wrap;gap:7px}
+.chip{
+  font-family:inherit;font-size:13.5px;font-weight:700;
+  border:1.5px solid transparent;border-radius:10px;
+  padding:9px 13px;min-height:42px;cursor:pointer;
+  display:flex;align-items:center;background:var(--surf-2);color:var(--ink-2);
+}
+.chip.on{border-color:currentColor}
+.sheet .done{
+  width:100%;margin-top:14px;height:46px;border:0;border-radius:11px;
+  background:var(--ink);color:var(--bg);font-family:inherit;
+  font-size:14.5px;font-weight:700;cursor:pointer;
+}
+
+/* ─── 세계관 설명 ─── */
+.wvbox{
+  margin:14px; border-radius:14px; padding:16px 17px;
+  border-left:4px solid; background:var(--surf); box-shadow:var(--shadow);
+  display:none;
+}
+.wvbox.on{display:block}
+.wvbox .t{font-size:17px;font-weight:900;letter-spacing:-.02em}
+.wvbox .p{font-size:12px;color:var(--ink-3);margin:3px 0 9px;font-weight:500}
+.wvbox .d{font-size:14px;color:var(--ink-2);line-height:1.75}
+.wvbox .f{font-size:12.5px;color:var(--ink-3);margin-top:10px;line-height:1.6}
+.wvbox .q{
+  font-size:13px;color:var(--ink-2);font-style:italic;line-height:1.7;
+  margin-top:11px;padding-top:11px;border-top:1px solid var(--line);
+}
+
+/* ─── 개수 ─── */
+.count{padding:14px 16px 4px;font-size:12.5px;color:var(--ink-3);font-weight:500}
+.count b{color:var(--ink);font-weight:700}
+
+/* ─── 타임라인 (레일 없음 · 카드 전체폭) ─── */
+.tl{padding:0 14px 40px}
+.era{
+  position:sticky; top:59px; z-index:20;
+  margin:22px -14px 12px; padding:9px 18px;
+  background:var(--bg); display:flex; align-items:baseline; gap:9px;
+  border-bottom:1px solid var(--line);
+}
+.era .nm{font-size:15px;font-weight:900;letter-spacing:-.02em}
+.era .pd{font-size:11.5px;color:var(--ink-3);font-weight:500}
+.era .ct{margin-left:auto;font-size:11.5px;color:var(--ink-3);font-variant-numeric:tabular-nums}
+
+.card{
+  background:var(--surf); border-radius:13px; padding:14px 15px;
+  margin-bottom:9px; box-shadow:var(--shadow);
+  border-left:4px solid; cursor:pointer; position:relative;
+}
+.card:active{box-shadow:var(--shadow-lg)}
+.card .meta{display:flex;align-items:center;gap:8px;margin-bottom:7px;flex-wrap:wrap}
+.card .yr{
+  font-size:13px;font-weight:900;font-variant-numeric:tabular-nums;
+  letter-spacing:-.02em;flex-shrink:0;
+}
+.card .cat{
+  font-size:11px;font-weight:700;padding:3px 8px;border-radius:6px;flex-shrink:0;
+}
+.card .ttl{font-size:15.5px;font-weight:700;line-height:1.45;letter-spacing:-.02em;padding-right:22px}
+.card .dsc{
+  display:none;font-size:14px;color:var(--ink-2);line-height:1.78;
+  margin-top:10px;padding-top:10px;border-top:1px solid var(--line);
+}
+.card.open .dsc{display:block}
+.card .arw{
+  position:absolute;top:14px;right:14px;color:var(--ink-3);font-size:11px;
+  transition:transform .18s;
+}
+.card.open .arw{transform:rotate(180deg)}
+
+.empty{text-align:center;padding:56px 20px;color:var(--ink-3);font-size:14px}
+.foot{
+  text-align:center;padding:22px 16px 34px;font-size:11.5px;color:var(--ink-3);
+  border-top:1px solid var(--line);margin:0 14px;
+}
+
+/* 넓은 화면에서도 무너지지 않게 */
+@media (min-width:640px){
+  body{font-size:16px}
+  .hdr,.bar,.sheet,.wvbox,.count,.tl,.foot{max-width:560px;margin-left:auto;margin-right:auto}
+  .wvbox{margin:14px auto}
+  .era{margin-left:0;margin-right:0;border-radius:8px}
+}
+</style>
+
+<div class="hdr">
+  <p class="eyebrow">2026년 수영로교회 바이블 칼리지 기독교 세계관을 위해서 만들었습니다.</p>
+  <h1>기독교 세계관<br>역사 타임라인</h1>
+  <p class="flow">
+    <b>기독교 유신론</b>&nbsp;→&nbsp;<b>이신론</b>&nbsp;→&nbsp;<b>자연주의</b>&nbsp;→&nbsp;<b>허무주의</b>&nbsp;→&nbsp;<b>실존주의</b>&nbsp;→&nbsp;<b>동양범신론</b>&nbsp;→&nbsp;<b>뉴에이지</b>&nbsp;→&nbsp;<b>포스트모더니즘</b>
+  </p>
+  <p class="n">종교 · 과학 · 철학 · 예술 · 역사 · 한국사 통합 · 총 193개 사건</p>
+</div>
+
+<div class="bar">
+  <button id="bWv" aria-expanded="false"><span>세계관</span><span class="v" id="vWv">전체</span><span class="ar">▼</span></button>
+  <button id="bCat" aria-expanded="false"><span>분류</span><span class="v" id="vCat">6</span><span class="ar">▼</span></button>
+  <button id="bTh" aria-expanded="false"><span>신학</span><span class="v" id="vTh">선만</span><span class="ar">▼</span></button>
+</div>
+
+<div class="sheet" id="shWv">
+  <h2>세계관 고르기</h2>
+  <div class="chips" id="wvRow"></div>
+  <button class="done" data-close="shWv">닫기</button>
+</div>
+
+<div class="sheet" id="shCat">
+  <h2>분류 걸러 보기</h2>
+  <div class="chips" id="catRow"></div>
+  <button class="done" data-close="shCat">닫기</button>
+</div>
+
+<div class="wvbox" id="wvInfo"></div>
+<div class="sheet" id="shTh">
+  <h2>신학 겹쳐 보기</h2>
+  <div class="thchips" id="thRow">
+    <button data-m="off">끄기</button>
+    <button data-m="point" class="on">선만</button>
+    <button data-m="band">선+띠</button>
+  </div>
+  <div class="thstat" id="thStat"></div>
+</div>
+<div class="count" id="stats"></div>
+<div class="tl" id="timeline"></div>
+<div class="foot">© 2026 seungmok lee. All rights reserved.</div>
+
+
+<div class="appx">
+  <section>
+    <h3>타임라인에 선이 닿지 않는 신학</h3>
+    <div class="sub">본문에 연도가 없어 어느 사건에도 걸리지 않는 글입니다. 빠진 것이 아니라 <b>연표가 아닌 주제를 다루기 때문</b>입니다.</div>
+    <ul id="appxUA"></ul>
+  </section>
+  <section>
+    <h3>『신학의 영토들』 중 연결이 없는 장</h3>
+    <div class="sub">인물평이나 서평이라 특정 사건에 걸리지 않는 장입니다.</div>
+    <ul id="appxUE"></ul>
+  </section>
+  <section>
+    <h3>본문에는 있는데 타임라인에 없는 사건</h3>
+    <div class="sub">『신학의 영토들』 45장을 훑다가 나온 것입니다. <b>타임라인에는 넣지 않았습니다</b> — 넣을지 말지는 판단하지 않고 값만 적었습니다.<br>
+      다만 <b>두 종류입니다.</b> 빈 해를 채우는 일과, 이미 찬 해에 하나를 더 놓는 일은 다릅니다.<br>
+      그리고 <b>셋은 타임라인의 칸에 그대로 안 들어갑니다</b> — 하나는 기간이라 연보다 넓고, 둘은 날짜까지 있어 연보다 좁습니다.</div>
+    <div id="appxG"></div>
+  </section>
+</div>
+
+<script>
+const WV = {
+  all: {label:'전체 보기',color:'#555555',bg:'#f5f5f5',period:'',desc:'',figures:'',quote:''},
+  theism: {label:'기독교 유신론',color:'#8b6200',bg:'#fdf4d0',period:'~17세기',desc:'삼위일체 하나님이 우주를 창조하고 섭리로 다스리신다. 성경이 지식과 윤리의 권위 있는 근거이며, 인간은 하나님의 형상(imago Dei)으로 창조되어 피조 세계를 청지기로 다스리도록 부름받았다. 17세기 말까지 서양의 지배적 세계관이었다.',figures:'아우구스티누스, 아퀴나스, 루터, 칼뱅, 아이작 뉴턴',quote:'"세계는 신의 장업으로 충만해 있다" — 제라드 맨리 홉킨스'},
+  deism: {label:'이신론',color:'#1a7a6e',bg:'#e0f5f2',period:'1650–1800',desc:'하나님이 우주를 창조했지만 그 이후 세계의 일에 개입하지 않는다는 입장. 시계 제작자 은유로 대표됨. 이성만으로 신을 알 수 있다는 계몽주의 신앙. 계시·기적·교회 권위보다 자연과 이성을 우선한다.',figures:'볼테르, 로크, 뉴턴(후기), 루소, 토마스 페인',quote:'"이성이야말로 하나님이 우리에게 주신 가장 위대한 선물이다" — 볼테르'},
+  naturalism: {label:'자연주의',color:'#2a6e30',bg:'#e4f2e4',period:'1800–1880',desc:'신 없이 자연법칙만으로 모든 것을 설명할 수 있다는 입장. 다윈의 진화론, 마르크스의 유물론, 프로이트의 정신분석이 과학적 기반을 제공했다. 초자연적 실재를 부정하며 물질과 에너지가 전부다.',figures:'다윈, 마르크스, 포이어바흐, 헉슬리, 스펜서',quote:'"신은 인간 본성의 투영일 뿐이다" — 포이어바흐'},
+  nihilism: {label:'허무주의',color:'#8b1010',bg:'#fbeaea',period:'1880–1930',desc:'지식, 도덕, 삶의 의미 등 모든 것이 궁극적으로 무근거하다는 입장. 니체의 "신은 죽었다" 선언이 상징. 자연주의의 논리적 귀결이지만 인간이 실제로 살 수 없는 세계관이다.',figures:'니체, 카프카, 뒤샹, 프로이트, T.S. 엘리엇',quote:'"신은 죽었다. 신은 죽은 채로 있다. 우리가 신을 죽였다" — 니체'},
+  existentialism: {label:'실존주의',color:'#1a3a8a',bg:'#e4ebfb',period:'1930–1970',desc:'허무주의를 넘으려는 두 갈래. 무신론적 실존주의(사르트르·카뮈)는 신 없는 세계에서 스스로 의미를 창조하려 했고, 유신론적 실존주의(키에르케고르·바르트·부버)는 신앙의 도약으로 응답했다.',figures:'사르트르, 카뮈, 하이데거, 키에르케고르, 마틴 부버',quote:'"존재가 본질을 선행한다" — 사르트르'},
+  pantheism: {label:'동양범신론',color:'#a05010',bg:'#fdf0e0',period:'1945–1985',desc:'신=우주=자아라는 동양 사상의 서구 유입. 힌두교·불교의 영향. 1960년대 반문화 운동과 함께 확산. 자아의 신성화, 명상, 업(karma) 개념의 서구화. 자연주의의 허무를 신비적 통일로 극복하려는 시도.',figures:'D.T. 스즈키, 알란 왓츠, 마하리시, 프리초프 카프라',quote:'"당신이 곧 우주다" — 알란 왓츠'},
+  newage: {label:'뉴에이지',color:'#7020a0',bg:'#f5e8fc',period:'1970–2000',desc:'동양 신비주의, 점성술, 심리학, 환경운동이 혼합된 새로운 영성 운동. "물병자리 시대"의 도래를 주장. 자아 계발, 의식 확장, 에너지 치유. 개인이 자신의 현실을 창조한다는 믿음.',figures:'마릴린 퍼거슨, 셜리 맥클레인, 켄 윌버, 프리초프 카프라',quote:'"우리는 공허와 모든 알려진 세계가 공존하는 곳에서 에너지와 물질과 생명을 창조한다" — 존 밀리'},
+  postmodern: {label:'포스트모더니즘',color:'#2d3748',bg:'#eef0f3',period:'1970–현재',desc:'절대적 진리, 거대서사, 객관적 지식의 가능성을 부정. "신의 죽음" 이후 인간 이성마저 해체. 모든 지식은 권력 관계의 산물이며, 다양한 서사들이 동등하게 타당하다.',figures:'데리다, 푸코, 리오타르, 로티, 보드리야르',quote:'"거대서사에 대한 불신 — 이것이 포스트모던이다" — 리오타르'},
+};
+const CAT = {
+  religion: {label:'✝ 종교·신학',color:'#6b48c8',bg:'#f0ecfb'},
+  science: {label:'🔬 과학·사회',color:'#1565a0',bg:'#e3f0fc'},
+  philosophy: {label:'💡 철학·사상',color:'#2e7d50',bg:'#e6f4ec'},
+  art: {label:'🎨 예술·문학',color:'#b05800',bg:'#fdf0e0'},
+  history: {label:'📜 역사적 사건',color:'#b03030',bg:'#fbeaea'},
+  korea: {label:'🇰🇷 한국 역사',color:'#c0282a',bg:'#fff0f0'},
+};
+const EVENTS = [
+{year:325,era:'theism',cat:'religion',title:'니케아 공의회',desc:'삼위일체 교리 공식 확정. 성부·성자·성령의 관계를 논의하여 기독교 유신론 신학의 핵심 기초를 수립했다.',th:{"p":[35,36,40],"b":[27,32,34,35,36,37,40],"e":[]}},
+  {year:1054,era:'theism',cat:'history',title:'동서 교회 대분열',desc:'로마 가톨릭과 동방정교회의 분리. 기독교 유신론 세계관이 두 갈래로 나뉘는 결정적 사건.',th:{"p":[37,53],"b":[4,20,38,39],"e":[]}},
+  {year:1095,era:'theism',cat:'history',title:'제1차 십자군',desc:'교황 우르반 2세의 호소로 시작. 기독교 유신론이 전쟁의 종교적 동력이 된 상징적 사건.',th:{"p":[],"b":[4,20,38,39],"e":[]}},
+  {year:1215,era:'theism',cat:'history',title:'마그나 카르타',desc:'영국 왕의 권력을 제한한 대헌장. 기독교적 법 이념(자연법)에 기반한 인권 개념의 맹아.',th:{"p":[38,42],"b":[38,39],"e":[]}},
+  {year:1274,era:'theism',cat:'philosophy',title:'아퀴나스 《신학대전》',desc:'이성과 신앙의 조화. 아리스토텔레스 철학으로 기독교 신학을 체계화. 스콜라 철학의 완성.',th:{"p":[],"b":[38,39],"e":[]}},
+  {year:1321,era:'theism',cat:'art',title:'단테 《신곡》',desc:'기독교 유신론적 우주관의 문학적 완성. 천국·연옥·지옥을 통해 신의 섭리와 인간 운명을 묘사.',th:{"p":[],"b":[39,40,41],"e":[]}},
+  {year:1392,era:'theism',cat:'korea',title:'조선 건국, 성리학 채택',desc:'유교적 천하관을 국가 이념으로 채택. 기독교와 다른 동아시아 유신론적 질서의 확립. 불교 억압.',th:{"p":[],"b":[39,40,41],"e":[]}},
+  {year:1440,era:'theism',cat:'science',title:'구텐베르크 인쇄술',desc:'성경 대량 보급의 기술적 토대. 종교개혁을 가능하게 한 미디어 혁명. 지식 민주화의 시작.',th:{"p":[],"b":[2,40,41,43,44,46,55],"e":[]}},
+  {year:1443,era:'theism',cat:'korea',title:'세종, 한글 창제',desc:'민본주의적 소통 문자 창제. 유교적 왕도정치의 실천. 성리학적 세계관 아래 백성을 향한 교화 정신.',th:{"p":[],"b":[2,40,41,43,44,46,55],"e":[]}},
+  {year:1492,era:'theism',cat:'history',title:'콜럼버스 신대륙 발견',desc:'지리적 세계관의 확장. 기독교 선교의 확대와 함께 식민지배의 시작. 유신론적 세계 정복의 명분.',th:{"p":[],"b":[2,40,41,43,44,46,55],"e":[]}},
+  {year:1517,era:'theism',cat:'religion',title:'루터의 95개 논제',desc:'종교개혁의 시작. 교황 권위에 도전하고 성경 중심 신앙을 주장. 기독교 유신론의 내부 분화.',th:{"p":[45],"b":[18,23,25,26,37,39,41,43,45,46,47,51],"e":[{"장번호":"02-03","강도":"강","관계":"해당"},{"장번호":"05-02","강도":"강","관계":"해당"}]}},
+  {year:1534,era:'theism',cat:'history',title:'영국 국교회 성립',desc:'헨리 8세의 이혼 문제로 로마 교황청과 결별. 종교와 국가 권력의 관계 재편.',th:{"p":[46],"b":[18,23,25,26,37,39,41,43,45,46,47,51],"e":[]}},
+  {year:1536,era:'theism',cat:'religion',title:'칼뱅 《기독교 강요》',desc:'개혁 신학 체계화. 하나님의 절대 주권, 예정론, 말씀 중심 예배. 개혁교회의 신학적 기초.',th:{"p":[45],"b":[18,23,25,26,37,39,41,43,45,46,47,51],"e":[]}},
+  {year:1543,era:'theism',cat:'science',title:'코페르니쿠스 지동설',desc:'태양 중심 우주론. 지구 중심적 기독교 우주관에 균열. 과학혁명의 시작점.',th:{"p":[],"b":[18,23,25,26,37,39,41,43,45,46,47,51],"e":[]}},
+  {year:1545,era:'theism',cat:'religion',title:'트리엔트 공의회',desc:'가톨릭 반종교개혁. 교리 재정비, 예수회 설립. 기독교 유신론 내의 가톨릭적 응답.',th:{"p":[],"b":[18,23,25,26,37,39,41,43,45,46,47,51],"e":[]}},
+  {year:1572,era:'theism',cat:'history',title:'성 바르톨로메오 학살',desc:'프랑스에서 가톨릭이 위그노 3만여 명 학살. 종교적 확신이 폭력으로 귀결된 비극.',th:{"p":[47],"b":[18,23,25,26,37,39,41,43,45,46,47,51],"e":[]}},
+  {year:1592,era:'theism',cat:'korea',title:'임진왜란',desc:'조선 성리학적 세계관의 첫 충격. 7년 전쟁 후 사회 질서 혼란. 조선 사회와 사상의 재편 계기.',th:{"p":[],"b":[18,23,25,26,37,39,41,43,45,46,47,51],"e":[]}},
+  {year:1600,era:'theism',cat:'history',title:'브루노 화형',desc:'무한 우주론·지동설 지지로 화형. 과학적 진리와 교회 권위의 충돌을 상징하는 사건.',th:{"p":[],"b":[10,20,37,39,42,47,48,51,55,66],"e":[]}},
+  {year:1605,era:'theism',cat:'art',title:'세르반테스 《돈키호테》',desc:'중세 기사도(종교적 이상)의 붕괴와 현실의 충돌. 유신론 세계관 해체의 문학적 예고.',th:{"p":[],"b":[10,20,37,39,42,47,48,51,55,66],"e":[]}},
+  {year:1610,era:'theism',cat:'science',title:'갈릴레오 망원경 관측',desc:'목성의 위성 발견. 지동설의 관측 증거. 성경 해석과 과학 관측 사이의 긴장 표면화.',th:{"p":[],"b":[10,20,37,39,42,47,48,51,55,66],"e":[]}},
+  {year:1618,era:'theism',cat:'history',title:'30년 전쟁',desc:'유럽 최대의 종교전쟁. 1648년 베스트팔렌 조약으로 종결 후 교회의 정치적 권위 급격히 쇠퇴.',th:{"p":[],"b":[10,20,37,39,42,47,48,51,55,66],"e":[]}},
+  {year:1636,era:'theism',cat:'korea',title:'병자호란',desc:'청나라에 패배, 인조의 삼전도 굴욕. 성리학적 명분론과 현실의 괴리. 조선의 세계관적 위기.',th:{"p":[],"b":[10,20,37,39,42,47,48,51,55,66],"e":[]}},
+  {year:64,era:'theism',cat:'history',title:'네로 황제의 기독교 박해',desc:'로마 대화재 후 기독교인들에게 누명. 베드로·바울 순교 추정 시기. 최초 조직적 박해. 교회가 피로써 세워지다.',th:{"p":[8],"b":[5,17,19,27,28,29,32,33,35,37,38,45,47,52,62,70,71,73,77,82,85],"e":[]}},
+  {year:70,era:'theism',cat:'history',title:'예루살렘 멸망과 성전 파괴',desc:'로마군 티투스의 예루살렘 함락. 성전 완전 파괴. 유대교-기독교 분리 가속화. 사도시대 교회의 결정적 전환점.',th:{"p":[5,40],"b":[5,17,19,27,28,29,32,33,35,37,38,45,47,52,62,70,71,73,77,82,85],"e":[]}},
+  {year:107,era:'theism',cat:'religion',title:'이그나티우스 순교',desc:'안티오키아 주교 이그나티우스, 로마에서 맹수에 의해 순교. "나는 하나님의 밀이다." 순교 신학의 원형.',th:{"p":[],"b":[5,17,18,25,30,33,34,35,36,40,62],"e":[]}},
+  {year:155,era:'theism',cat:'religion',title:'폴리갑 순교',desc:'스미르나 주교 폴리갑. "86년 동안 그분을 섬겨왔는데, 어찌 그분을 욕되게 할 수 있겠소?" 초대교회 신앙의 증거.',th:{"p":[],"b":[5,17,18,25,30,33,34,35,36,40,62],"e":[]}},
+  {year:313,era:'theism',cat:'history',title:'밀라노 칙령 (기독교 공인)',desc:'콘스탄티누스 황제의 종교자유령. 기독교 박해 종식. 제국 종교화의 시작. 교회와 국가 관계의 근본적 전환.',th:{"p":[35],"b":[27,32,34,35,36,37,40],"e":[]}},
+  {year:381,era:'theism',cat:'religion',title:'콘스탄티노플 공의회 (삼위일체 확정)',desc:'삼위일체 교리 최종 확정. 아리우스파 이단 정죄. 성령의 신성 공식 선언. 니케아 신경 완성.',th:{"p":[36],"b":[27,32,34,35,36,37,40],"e":[]}},
+  {year:397,era:'theism',cat:'religion',title:'카르타고 공의회 (신약 정경 확정)',desc:'27권 신약성경 정경 목록 공식 채택. 구약 39권과 함께 성경 66권 체계 확립. 무엇이 하나님의 말씀인가 결정.',th:{"p":[],"b":[27,32,34,35,36,37,40],"e":[]}},
+  {year:590,era:'theism',cat:'religion',title:'교황 그레고리 1세 즉위',desc:'"종의 종" 자처하며 중세 교황제도 기초 확립. 선교 열정과 교회 행정 정비. 앵글로색슨 선교 파송.',th:{"p":[],"b":[8,32,37],"e":[]}},
+  {year:635,era:'theism',cat:'korea',title:'경교, 당나라 도착·신라 전래 가능성',desc:'네스토리우스파 선교사 알로펜, 당나라 도착. 638년 조정 공인. 당나라와 긴밀했던 신라를 통한 한반도 전래 가능성 추측. 불국사 돌십자가 등 증거.',th:{"p":[37],"b":[37,51],"e":[]}},
+  {year:781,era:'theism',cat:'korea',title:'대진경교유행중국비 건립',desc:'당나라 장안에 경교 전래 기념비 건립. 로마(대진)의 기독교(경교)가 중국에서 유행함을 기념. 1625년 발견. 한국교회사의 뿌리를 묻게 하는 사건.',th:{"p":[37],"b":[37],"e":[]}},
+  {year:800,era:'theism',cat:'history',title:'샤를마뉴 대관식',desc:'교황 레오 3세가 샤를마뉴에게 황제관 수여. 서유럽 기독교 문명 형성의 기점. 교황권과 황권의 긴장 관계 시작.',th:{"p":[],"b":[37,38,41],"e":[]}},
+  {year:845,era:'theism',cat:'korea',title:'회창멸법: 경교 박해와 쇠퇴',desc:'열렬한 도교 신자 무종의 외래종교 탄압령. 경교승 수백 명 환속. 4-7만 교도 개종·도주. 주로 지식인·관료 중심으로 민중 기반 없어 쇠퇴.',th:{"p":[37],"b":[37,38,41],"e":[]}},
+  {year:1309,era:'theism',cat:'history',title:'아비뇽 유수 (교황청 이전)',desc:'1309-1377년 교황청이 프랑스 아비뇽으로 이전. 교황권의 프랑스 왕권 종속. 교황의 권위 실추. 교회 개혁의 필요성 절감.',th:{"p":[40],"b":[39,40,41],"e":[]}},
+  {year:1378,era:'theism',cat:'history',title:'서방 교회 대분열 (3명의 교황)',desc:'1378-1417년 교황 2-3명이 동시 존재. 로마·아비뇽·피사 각각 교황 선출. 교황제도 신뢰 심각하게 손상. 종교개혁의 배경.',th:{"p":[],"b":[39,40,41],"e":[]}},
+  {year:1415,era:'theism',cat:'religion',title:'얀 후스 화형 (콘스탄츠 공의회)',desc:'보헤미아 종교개혁자 얀 후스, 이단 정죄 화형. 성경 권위와 교회 부패 비판. "진리는 승리한다." 루터의 선구자.',th:{"p":[40],"b":[2,40,41,43,44,46,55],"e":[]}},
+  {year:1521,era:'theism',cat:'religion',title:'보름스 제국의회 (루터 입장 고수)',desc:'"여기 내가 서 있소, 달리 할 수 없소, 하나님이여 도우소서." 루터, 황제 앞에서 입장 취소 거부. 종교개혁의 돌이킬 수 없는 확립.',th:{"p":[],"b":[18,23,25,26,37,39,41,43,45,46,47,51],"e":[{"장번호":"02-03","강도":"강","관계":"해당"}]}},
+  {year:1627,era:'theism',cat:'korea',title:'벨트브레(박연), 조선 최초 서양인 귀화',desc:'네덜란드 개신교 신자 벨트브레, 경주 앞바다 표류 입국. 병자호란 참전. 조선 귀화 최초 서양인. 조선에 들어온 최초의 개신교 신자로 추정.',th:{"p":[],"b":[10,20,37,39,42,47,48,51,55,66],"e":[]}},
+  {year:1645,era:'theism',cat:'korea',title:'소현세자, 아담 샬과 만남',desc:'병자호란 포로로 청에 억류된 소현세자가 예수회 독일 신부 아담 샬과 교류. 귀국 70일 만에 의문사. 가톨릭의 위로부터의 선교 전략 상징적 사건.',th:{"p":[],"b":[10,20,37,39,42,47,48,51,55,66],"e":[]}},
+  {year:1620,era:'deism',cat:'philosophy',title:'베이컨 《신기관》',desc:'귀납적 방법론 제시. 신학 대신 자연 탐구를 지식의 근거로. 근대 과학 방법론의 선언.',th:{"p":[47],"b":[10,20,37,39,42,47,48,51,55,66],"e":[]}},
+  {year:1637,era:'deism',cat:'philosophy',title:'데카르트 《방법서설》',desc:'"코기토 에르고 숨(나는 생각한다, 고로 존재한다)." 이성 중심 철학, 신학으로부터 독립 선언.',th:{"p":[],"b":[10,20,37,39,42,47,48,51,55,66],"e":[]}},
+  {year:1648,era:'deism',cat:'history',title:'베스트팔렌 조약',desc:'30년 전쟁 종결. 국가 주권 확립, 종교의 정치적 절대 권위 약화. 세속 근대 국가 질서 시작.',th:{"p":[66],"b":[10,20,37,39,42,47,48,51,55,66],"e":[]}},
+  {year:1651,era:'deism',cat:'philosophy',title:'홉스 《리바이어던》',desc:'사회계약론. 국가 정당성을 신이 아닌 인간 합의에서 찾음. 세속 정치철학의 기초.',th:{"p":[],"b":[10,20,37,39,42,47,48,51,55,66],"e":[]}},
+  {year:1667,era:'deism',cat:'art',title:'밀턴 《실낙원》',desc:'기독교 세계관 속 인간의 타락과 자유를 탐구. 신학적 유신론과 이성적 인간 사이의 긴장.',th:{"p":[],"b":[10,20,37,39,42,47,48,51,55,66],"e":[]}},
+  {year:1670,era:'deism',cat:'philosophy',title:'스피노자 《신학정치론》',desc:'성경의 이성적 비평. "신=자연"(Deus sive Natura). 범신론적 이신론으로 기독교 계시를 해체.',th:{"p":[],"b":[10,20,37,39,42,47,48,51,55,66],"e":[]}},
+  {year:1687,era:'deism',cat:'science',title:'뉴턴 《프린키피아》',desc:'만유인력 법칙. 우주를 수학적 법칙이 지배하는 기계로 묘사. 이신론의 과학적 토대 제공.',th:{"p":[],"b":[10,20,37,39,42,47,48,51,55,66],"e":[]}},
+  {year:1689,era:'deism',cat:'history',title:'영국 명예혁명·관용법',desc:'의회 주권 확립, 종교적 관용 법제화. 신앙을 이성과 관용의 틀 안에서 재편.',th:{"p":[48],"b":[10,20,37,39,42,47,48,51,55,66],"e":[]}},
+  {year:1690,era:'deism',cat:'philosophy',title:'로크 《인간오성론》',desc:'경험론. 지식의 근거를 신의 계시가 아닌 감각 경험에서 찾음. 계몽주의 인식론의 기초.',th:{"p":[],"b":[10,20,37,39,42,47,48,51,55,66],"e":[]}},
+  {year:1726,era:'deism',cat:'art',title:'스위프트 《걸리버 여행기》',desc:'인간 이성과 종교 독단에 대한 신랄한 풍자. 계몽주의적 유머로 전통적 세계관에 의문 제기.',th:{"p":[],"b":[17,22,23,29,36,41,48,50,51,65,66,68,69,75],"e":[]}},
+  {year:1739,era:'deism',cat:'philosophy',title:'흄 《인간 본성론》',desc:'인과율 회의. 기적·설계 논증 해체 시도. 이신론마저 비판하며 자연주의의 선구자가 됨.',th:{"p":[],"b":[17,22,23,29,36,41,48,50,51,65,66,68,69,75],"e":[]}},
+  {year:1748,era:'deism',cat:'philosophy',title:'몽테스키외 《법의 정신》',desc:'삼권분립 이론. 법의 근거를 신이 아닌 자연과 이성에서 찾음. 근대 민주주의 이론의 토대.',th:{"p":[],"b":[17,22,23,29,36,41,48,50,51,65,66,68,69,75],"e":[]}},
+  {year:1751,era:'deism',cat:'philosophy',title:'《백과전서》 편찬 시작',desc:'디드로·달랑베르 편집. 지식 체계의 세속화. 종교적 권위를 이성의 권위로 대체하는 상징.',th:{"p":[],"b":[17,22,23,29,36,41,48,50,51,65,66,68,69,75],"e":[]}},
+  {year:1755,era:'deism',cat:'history',title:'리스본 대지진',desc:'3만~6만 명 사망. "선한 하나님이 이런 일을 허용하는가?" 섭리론·신정론에 대한 유럽의 회의 심화.',th:{"p":[],"b":[17,22,23,29,36,41,48,50,51,65,66,68,69,75],"e":[]}},
+  {year:1759,era:'deism',cat:'art',title:'볼테르 《캉디드》',desc:'"최선의 세계"라는 낙관적 섭리론 풍자. 현실의 부조리로 기독교적 세계관 조롱.',th:{"p":[],"b":[17,22,23,29,36,41,48,50,51,65,66,68,69,75],"e":[]}},
+  {year:1762,era:'deism',cat:'philosophy',title:'루소 《사회계약론》',desc:'"일반의지"와 세속 도덕 모색. 자연종교 제안. 계몽주의적 정치·종교 이상의 결정판.',th:{"p":[],"b":[17,22,23,29,36,41,48,50,51,65,66,68,69,75],"e":[]}},
+  {year:1770,era:'deism',cat:'philosophy',title:'돌바크 《자연의 체계》',desc:'체계적 무신론·유물론. 신·영혼·자유의지 전면 부정. 자연주의로 가는 결정적 한 걸음.',th:{"p":[],"b":[17,22,23,29,36,41,48,50,51,65,66,68,69,75],"e":[]}},
+  {year:1776,era:'deism',cat:'history',title:'미국 독립선언',desc:'"모든 사람은 평등하게 창조되었다." 계몽주의 이신론적 정치 이상의 현실화.',th:{"p":[48],"b":[17,22,23,29,36,41,48,50,51,65,66,68,69,75],"e":[]}},
+  {year:1781,era:'deism',cat:'philosophy',title:'칸트 《순수이성비판》',desc:'이성으로 신을 증명하는 것은 불가능. 신학과 과학의 영역을 분리. 근대 철학의 전환점.',th:{"p":[],"b":[17,22,23,29,36,41,48,50,51,65,66,68,69,75],"e":[]}},
+  {year:1784,era:'deism',cat:'korea',title:'이승훈, 천주교 세례 (북경)',desc:'한국 최초의 자발적 천주교 수용. 서학(西學)의 유입. 조선 성리학 세계관과의 본격 충돌 시작.',th:{"p":[],"b":[17,22,23,29,36,41,48,50,51,65,66,68,69,75],"e":[]}},
+  {year:1789,era:'deism',cat:'history',title:'프랑스 대혁명',desc:'교회 재산 몰수, 성직자 추방. 이성의 여신 숭배. 기독교 유신론 세계관의 정치적 해체.',th:{"p":[48],"b":[17,22,23,29,36,41,48,50,51,65,66,68,69,75],"e":[]}},
+  {year:1794,era:'deism',cat:'religion',title:'페인 《이성의 시대》',desc:'기독교 계시 전면 비판. "이성이 유일한 교회다." 이신론의 대중적 선언문.',th:{"p":[],"b":[17,22,23,29,36,41,48,50,51,65,66,68,69,75],"e":[]}},
+  {year:1801,era:'deism',cat:'korea',title:'신유박해',desc:'정순왕후의 천주교 탄압. 이승훈·권철신 등 처형. 조선에서 천주교 수용이 사회적 갈등으로.',th:{"p":[],"b":[6,9,14,22,29,32,46,48,49,50,51,52,53,68,69,70,72,73,75,86,89],"e":[]}},
+  {year:1653,era:'deism',cat:'korea',title:'하멜, 제주도 표착',desc:'네덜란드 동인도회사 선원 하멜 일행 36명, 제주도에 표착. 13년 억류 후 탈출하여 《하멜 표류기》 저술. 조선 최초의 서양 체류 기록. 당시 조선의 쇄국 분위기를 서방에 알린 사건.',th:{"p":[],"b":[10,20,37,39,42,47,48,51,55,66],"e":[]}},
+  {year:1675,era:'deism',cat:'religion',title:'슈페너, 경건주의 운동 시작',desc:'《경건한 소원》(Pia Desideria) 출판. 교리 중심 정통주의에 반발, 삶의 변화·성경 묵상·소그룹 운동 강조. 이신론 시대에 교회 내부 갱신을 시도한 대표적 흐름.',th:{"p":[],"b":[10,20,37,39,42,47,48,51,55,66],"e":[]}},
+  {year:1734,era:'deism',cat:'religion',title:'대각성운동 (에드워즈·휫필드)',desc:'조나단 에드워즈의 노샘프턴 부흥(1734), 조지 휫필드의 순회 전도(1739~). 이성·계몽 시대에 감성·회심 중심 복음주의 부흥. 미국 개신교 형성의 뿌리.',th:{"p":[],"b":[17,22,23,29,36,41,48,50,51,65,66,68,69,75],"e":[]}},
+  {year:1780,era:'deism',cat:'religion',title:'주일학교 운동 (로버트 레익스)',desc:'영국 글로스터에서 로버트 레익스가 공장 아동 대상 주일학교 시작. 교육과 복음 결합. 산업혁명 시대 빈민 아동 계몽의 기독교적 응답.',th:{"p":[],"b":[17,22,23,29,36,41,48,50,51,65,66,68,69,75],"e":[]}},
+  {year:1785,era:'deism',cat:'korea',title:'을사추조적발사건',desc:'한양 반촌에서 명례방 집회 발각. 김범우의 집에서 이승훈·정약전·정약용 등 모여 천주교 신앙 실천 중 적발. 조선 최초의 천주교 신앙 모임 탄로. 이후 천주교 박해의 서막.',th:{"p":[],"b":[17,22,23,29,36,41,48,50,51,65,66,68,69,75],"e":[]}},
+  {year:1791,era:'deism',cat:'korea',title:'신해박해 (진산사건)',desc:'윤지충이 모친 제사를 거부하고 신주를 소각한 진산사건. 유교적 조상제사와 천주교 신앙의 충돌. 조선 최초 천주교 순교자(윤지충·권상연). 이후 박해의 법적 근거 확립.',th:{"p":[],"b":[17,22,23,29,36,41,48,50,51,65,66,68,69,75],"e":[]}},
+  {year:1802,era:'naturalism',cat:'religion',title:'페일리 《자연신학》',desc:'"시계를 발견하면 시계 제작자를 알 수 있다." 다윈 이전 마지막 유신론적 자연신학의 대표작.',th:{"p":[],"b":[6,9,14,22,29,32,46,48,49,50,51,52,53,68,69,70,72,73,75,86,89],"e":[]}},
+  {year:1807,era:'naturalism',cat:'philosophy',title:'헤겔 《정신현상학》',desc:'절대정신의 역사적 전개. 기독교를 역사 발전의 한 단계로 위치시킴. 변증법적 역사관.',th:{"p":[],"b":[6,9,14,22,29,32,46,48,49,50,51,52,53,68,69,70,72,73,75,86,89],"e":[]}},
+  {year:1830,era:'naturalism',cat:'science',title:'라이엘 《지질학 원리》',desc:'동일과정설. 지구 나이가 수십억 년. 창세기적 창조론에 지질학적 균열을 가져옴.',th:{"p":[],"b":[6,9,14,22,29,32,46,48,49,50,51,52,53,68,69,70,72,73,75,86,89],"e":[]}},
+  {year:1835,era:'naturalism',cat:'religion',title:'슈트라우스 《예수의 생애》',desc:'역사비평학 적용. 복음서를 신화로 분석. 고등비평학의 출발. 성경의 역사적 권위 도전.',th:{"p":[],"b":[6,9,14,22,29,32,46,48,49,50,51,52,53,68,69,70,72,73,75,86,89],"e":[]}},
+  {year:1839,era:'naturalism',cat:'korea',title:'기해박해',desc:'앵베르 등 프랑스 선교사 처형. 수백 명의 조선 천주교인 순교. 한국 초기 순교의 역사.',th:{"p":[],"b":[6,9,14,22,29,32,46,48,49,50,51,52,53,68,69,70,72,73,75,86,89],"e":[]}},
+  {year:1841,era:'naturalism',cat:'philosophy',title:'포이어바흐 《기독교의 본질》',desc:'"신은 인간 본성의 투영." 신학을 인간학으로 완전 환원. 마르크스·엥겔스에 결정적 영향.',th:{"p":[],"b":[6,9,14,22,29,32,46,48,49,50,51,52,53,68,69,70,72,73,75,86,89],"e":[]}},
+  {year:1844,era:'naturalism',cat:'philosophy',title:'키에르케고르 《불안의 개념》',desc:'헤겔 이성주의에 반발. "주체적 진리", 신앙의 도약. 불안을 인간 실존의 핵심으로 직시.',th:{"p":[],"b":[6,9,14,22,29,32,46,48,49,50,51,52,53,68,69,70,72,73,75,86,89],"e":[]}},
+  {year:1848,era:'naturalism',cat:'history',title:'마르크스·엥겔스 《공산당 선언》',desc:'종교는 인민의 아편. 유물론적 역사관. 계급 투쟁이 역사의 동력. 초월적 의미 전면 부정.',th:{"p":[],"b":[6,9,14,22,29,32,46,48,49,50,51,52,53,68,69,70,72,73,75,86,89],"e":[{"장번호":"04-05","강도":"강","관계":"해당"}]}},
+  {year:1851,era:'naturalism',cat:'art',title:'멜빌 《모비딕》',desc:'거대한 고래=신의 침묵·우주적 무관심. 자연의 냉혹함 앞에서 인간 의지의 비극적 도전.',th:{"p":[],"b":[6,9,14,22,29,32,46,48,49,50,51,52,53,68,69,70,72,73,75,86,89],"e":[]}},
+  {year:1859,era:'naturalism',cat:'science',title:'다윈 《종의 기원》',desc:'자연선택으로 생명의 다양성 설명. 목적 없는 과정. 기독교 창조론 해체의 결정타.',th:{"p":[],"b":[6,9,14,22,29,32,46,48,49,50,51,52,53,68,69,70,72,73,75,86,89],"e":[]}},
+  {year:1862,era:'naturalism',cat:'art',title:'위고 《레미제라블》',desc:'제도 종교 비판. 신학 없는 인도주의 윤리 탐구. 자연주의적 인간 연대의 가능성 탐색.',th:{"p":[],"b":[6,9,14,22,29,32,46,48,49,50,51,52,53,68,69,70,72,73,75,86,89],"e":[]}},
+  {year:1865,era:'naturalism',cat:'science',title:'멘델 유전법칙',desc:'유전의 물질적 기반 발견. 자연주의적 생물학 강화. 생명을 법칙으로 설명하는 토대.',th:{"p":[50],"b":[6,9,14,22,29,32,46,48,49,50,51,52,53,68,69,70,72,73,75,86,89],"e":[]}},
+  {year:1866,era:'naturalism',cat:'korea',title:'병인박해·병인양요',desc:'8천여 명의 조선 천주교인 처형. 프랑스 함대 침공. 동서 세계관 충돌의 군사적 표현.',th:{"p":[],"b":[6,9,14,22,29,32,46,48,49,50,51,52,53,68,69,70,72,73,75,86,89],"e":[]}},
+  {year:1867,era:'naturalism',cat:'history',title:'마르크스 《자본론》',desc:'경제법칙으로 역사 설명. 종교의 사회과학적 대체. 자본주의 분석과 공산주의 혁명 이론.',th:{"p":[],"b":[6,9,14,22,29,32,46,48,49,50,51,52,53,68,69,70,72,73,75,86,89],"e":[]}},
+  {year:1871,era:'naturalism',cat:'science',title:'다윈 《인간의 유래》',desc:'인간도 진화의 산물. 인간의 특별한 지위 부정. 자연주의의 인간론적 완성.',th:{"p":[],"b":[6,9,14,22,29,32,46,48,49,50,51,52,53,68,69,70,72,73,75,86,89],"e":[]}},
+  {year:1876,era:'naturalism',cat:'korea',title:'강화도 조약',desc:'일본과의 불평등 조약. 서양식 근대화의 압력. 조선의 성리학적 세계관이 도전받기 시작.',th:{"p":[],"b":[6,9,14,22,29,32,46,48,49,50,51,52,53,68,69,70,72,73,75,86,89],"e":[]}},
+  {year:1878,era:'naturalism',cat:'religion',title:'웰하우젠 문서설 (JEDP)',desc:'모세5경의 다중 출처 주장. 성경 무오류설에 학문적 도전. 고등비평학의 절정.',th:{"p":[],"b":[6,9,14,22,29,32,46,48,49,50,51,52,53,68,69,70,72,73,75,86,89],"e":[]}},
+  {year:1884,era:'naturalism',cat:'korea',title:'언더우드·아펜젤러 입국',desc:'개신교 선교 공식 시작. 교육·의료 사업과 복음. 한국 근대화와 기독교의 결합.',th:{"p":[55,74],"b":[6,9,14,22,29,32,46,48,49,50,51,52,53,68,69,70,72,73,75,86,89],"e":[]}},
+  {year:1792,era:'naturalism',cat:'religion',title:'윌리엄 캐리, 근대 선교운동 시작',desc:'영국 침례교 목사 캐리, 인도 선교 출발. 《이교도 개종을 위한 수단 사용의 의무》 출판. 근대 개신교 선교운동의 출발점. "하나님께 위대한 일을 기대하라, 하나님을 위해 위대한 일을 시도하라."',th:{"p":[],"b":[17,22,23,29,36,41,48,50,51,65,66,68,69,75],"e":[]}},
+  {year:1807,era:'naturalism',cat:'religion',title:'노예무역 폐지 (윌버포스)',desc:'영국 의회에서 윌리엄 윌버포스의 주도로 노예무역 폐지법 통과. 복음주의 신앙이 사회 변혁으로 이어진 대표 사례. 과학적 인종주의에 맞선 기독교 양심의 승리.',th:{"p":[],"b":[6,9,14,22,29,32,46,48,49,50,51,52,53,68,69,70,72,73,75,86,89],"e":[]}},
+  {year:1832,era:'naturalism',cat:'korea',title:'귀츨라프, 조선 해안 방문',desc:'독일 선교사 귀츨라프, 영국 동인도회사 선박을 타고 황해도·충청도 해안 방문. 조선인에게 한문 성경 배포 시도. 최초의 개신교 선교사 조선 방문 기록.',th:{"p":[],"b":[6,9,14,22,29,32,46,48,49,50,51,52,53,68,69,70,72,73,75,86,89],"e":[]}},
+  {year:1845,era:'naturalism',cat:'korea',title:'김대건 신부 서품',desc:'한국 최초의 가톨릭 사제 김대건 안드레아, 상해에서 사제 서품. 1846년 귀국 후 체포되어 25세로 순교. 한국 천주교의 상징적 순교자.',th:{"p":[],"b":[6,9,14,22,29,32,46,48,49,50,51,52,53,68,69,70,72,73,75,86,89],"e":[]}},
+  {year:1866,era:'naturalism',cat:'korea',title:'토마스 선교사, 대동강에서 순교',desc:'웨일즈 출신 로버트 토마스 선교사, 미국 상선 제너럴셔먼호를 타고 평양 대동강에서 성경 배포 시도 중 조선 수군에 의해 참수. 그가 던진 성경이 후일 평양 교회 설립에 기여했다는 전설.',th:{"p":[],"b":[6,9,14,22,29,32,46,48,49,50,51,52,53,68,69,70,72,73,75,86,89],"e":[]}},
+  {year:1869,era:'naturalism',cat:'religion',title:'제1차 바티칸 공의회',desc:'교황 무오류설 선언. 과학·자유주의·근대주의에 맞선 가톨릭의 보수적 응답. 교황권 강화. 이후 현대주의 논쟁의 씨앗.',th:{"p":[49],"b":[6,9,14,22,29,32,46,48,49,50,51,52,53,68,69,70,72,73,75,86,89],"e":[]}},
+  {year:1879,era:'naturalism',cat:'korea',title:'의주 청년들, 만주에서 세례',desc:'이응찬·백홍준 등 의주 청년들이 존 로스 선교사에게 세례를 받고 성경번역 조사로 활동. 한국 개신교 토착화의 첫 사례. 민중 스스로가 이끈 선교의 시작.',th:{"p":[],"b":[6,9,14,22,29,32,46,48,49,50,51,52,53,68,69,70,72,73,75,86,89],"e":[]}},
+  {year:1882,era:'naturalism',cat:'korea',title:'존 로스 역 《예수성교누가복음》 출간',desc:'스코틀랜드 선교사 존 로스, 조선인 조사들과 함께 번역한 최초의 한글 신약성경 간행. 의주 청년들의 협력. 선교사 입국 전 자생적 성경 보급. 한국 교회의 독특한 자생적 토대.',th:{"p":[],"b":[6,9,14,22,29,32,46,48,49,50,51,52,53,68,69,70,72,73,75,86,89],"e":[]}},
+  {year:1882,era:'naturalism',cat:'korea',title:'조미수호통상조약',desc:'미국과 조선의 최초 근대적 조약 체결. 서양과의 공식 외교 개시. 선교사 입국의 제도적 기반 마련. 근대 문명과 기독교의 공식적 접촉 시작.',th:{"p":[],"b":[6,9,14,22,29,32,46,48,49,50,51,52,53,68,69,70,72,73,75,86,89],"e":[]}},
+  {year:1883,era:'naturalism',cat:'korea',title:'이수정, 일본에서 세례·마가복음 번역',desc:'조선 유학생 이수정, 일본에서 야스가와에게 세례. 로마자 표기 한글 마가복음 번역. 아펜젤러·언더우드가 이 성경을 갖고 입국. 일본을 경유한 또 다른 선교 경로.',th:{"p":[49],"b":[6,9,14,22,29,32,46,48,49,50,51,52,53,68,69,70,72,73,75,86,89],"e":[]}},
+  {year:1885,era:'naturalism',cat:'korea',title:'광혜원(제중원) 개원',desc:'미국 북장로회 선교사 알렌, 갑신정변 부상자를 치료한 공로로 고종의 허락 받아 설립. 한국 최초의 서양식 병원. 의료 선교의 출발. 이후 세브란스병원으로 발전.',th:{"p":[],"b":[6,9,14,22,29,32,46,48,49,50,51,52,53,68,69,70,72,73,75,86,89],"e":[]}},
+  {year:1886,era:'naturalism',cat:'korea',title:'배재학당·이화학당 설립',desc:'아펜젤러, 배재학당(남학교) 개교. 스크랜턴 부인, 이화학당(여학교) 개교. 교육을 통한 선교. 근대적 남녀 교육의 시작. 이후 배재대·이화여대로 발전.',th:{"p":[],"b":[6,9,14,22,29,32,46,48,49,50,51,52,53,68,69,70,72,73,75,86,89],"e":[]}},
+  {year:1887,era:'naturalism',cat:'korea',title:'새문안교회 설립',desc:'언더우드 선교사, 한국 최초의 개신교 교회 새문안교회 설립. 14명으로 시작. 한국 장로교의 모교회. 선교사에 의한 교회 설립에서 자생적 한국 교회 형성으로 전환점.',th:{"p":[],"b":[6,9,14,22,29,32,46,48,49,50,51,52,53,68,69,70,72,73,75,86,89],"e":[]}},
+  {year:1893,era:'naturalism',cat:'korea',title:'교계예양 협정',desc:'장로교(미국 북·남장로회, 캐나다, 호주)·감리교(미국 북·남감리회) 선교사들이 지역 분할 협정. 선교지 중복 방지. 한국 개신교 협력과 교단 구분의 역사적 기초.',th:{"p":[],"b":[6,9,14,22,29,32,46,48,49,50,51,52,53,68,69,70,72,73,75,86,89],"e":[]}},
+  {year:1882,era:'nihilism',cat:'philosophy',title:'니체 "신은 죽었다" 《즐거운 학문》',desc:'기독교 도덕 체계의 붕괴 선언. "우리가 신을 죽였다." 자연주의의 귀결로서 허무주의 선언.',th:{"p":[],"b":[6,9,14,22,29,32,46,48,49,50,51,52,53,68,69,70,72,73,75,86,89],"e":[]}},
+  {year:1883,era:'nihilism',cat:'art',title:'니체 《차라투스트라는 이렇게 말했다》',desc:'초인(Übermensch) 이상 제시. 허무주의를 넘으려는 첫 시도. 그러나 니체 자신은 정신병원에서 생을 마침.',th:{"p":[49],"b":[6,9,14,22,29,32,46,48,49,50,51,52,53,68,69,70,72,73,75,86,89],"e":[]}},
+  {year:1887,era:'nihilism',cat:'philosophy',title:'니체 《도덕의 계보》',desc:'기독교 도덕 = "노예 도덕". 힘에의 의지. 모든 가치의 재평가 요청. 허무주의의 철학적 완성.',th:{"p":[],"b":[6,9,14,22,29,32,46,48,49,50,51,52,53,68,69,70,72,73,75,86,89],"e":[]}},
+  {year:1895,era:'nihilism',cat:'korea',title:'을미사변 (명성황후 시해)',desc:'일본 낭인들의 조선 왕비 시해. 국권 침탈의 노골화. 조선의 자존심과 성리학적 질서의 붕괴.',th:{"p":[],"b":[6,9,14,22,29,32,46,48,49,50,51,52,53,68,69,70,72,73,75,86,89],"e":[]}},
+  {year:1900,era:'nihilism',cat:'philosophy',title:'프로이트 《꿈의 해석》',desc:'의식은 무의식 충동의 표면. 이성·자아·자유의지 해체. 허무주의의 심리학적 심화.',th:{"p":[27,50],"b":[4,7,10,12,14,18,23,32,48,49,50,52,53,54,55,70,71,73,74,75,76,79,80,83,85,86,89],"e":[]}},
+  {year:1905,era:'nihilism',cat:'science',title:'아인슈타인 특수상대성이론',desc:'절대 시공간의 붕괴. 과학적 상대성이 문화적 상대주의로 오용됨.',th:{"p":[],"b":[4,7,10,12,14,18,23,32,48,49,50,52,53,54,55,70,71,73,74,75,76,79,80,83,85,86,89],"e":[]}},
+  {year:1905,era:'nihilism',cat:'korea',title:'을사늑약',desc:'대한제국 외교권 박탈. 보호국으로 전락. 5조약에 반발한 민영환 자결.',th:{"p":[],"b":[4,7,10,12,14,18,23,32,48,49,50,52,53,54,55,70,71,73,74,75,76,79,80,83,85,86,89],"e":[]}},
+  {year:1907,era:'nihilism',cat:'korea',title:'평양 대부흥운동',desc:'성령 부흥의 불길. 공개 회개와 기도. 한국 기독교의 독자적 영성 형성. 자연주의에 맞선 영적 대각성.',th:{"p":[55,72],"b":[4,7,10,12,14,18,23,32,48,49,50,52,53,54,55,70,71,73,74,75,76,79,80,83,85,86,89],"e":[]}},
+  {year:1910,era:'nihilism',cat:'korea',title:'한일합방',desc:'대한제국 멸망. 조선총독부 통치 시작. 식민지 지배의 시작. 허무주의적 절망과 저항의 동시 존재.',th:{"p":[51,52],"b":[4,7,10,12,14,18,23,32,48,49,50,52,53,54,55,70,71,73,74,75,76,79,80,83,85,86,89],"e":[]}},
+  {year:1912,era:'nihilism',cat:'art',title:'카프카 소설 집필 시작',desc:'《변신》《심판》《성》— 신 없는 세계의 부조리. 관료적 불가해성. 무의미한 죄책감의 문학화.',th:{"p":[],"b":[4,7,10,12,14,18,23,32,48,49,50,52,53,54,55,70,71,73,74,75,76,79,80,83,85,86,89],"e":[]}},
+  {year:1913,era:'nihilism',cat:'philosophy',title:'프로이트 《토템과 터부》',desc:'종교를 집단적 신경증·오이디푸스적 환상으로. 허무주의의 심리학적 완성.',th:{"p":[],"b":[4,7,10,12,14,18,23,32,48,49,50,52,53,54,55,70,71,73,74,75,76,79,80,83,85,86,89],"e":[]}},
+  {year:1914,era:'nihilism',cat:'history',title:'제1차 세계대전',desc:'기독교 문명의 자기 파괴. 이성과 과학이 대량 학살의 도구로. 계몽주의 낙관론의 완전한 붕괴.',th:{"p":[51,52],"b":[4,7,10,12,14,18,23,32,48,49,50,52,53,54,55,70,71,73,74,75,76,79,80,83,85,86,89],"e":[{"장번호":"04-04","강도":"강","관계":"해당"}]}},
+  {year:1917,era:'nihilism',cat:'history',title:'러시아 혁명',desc:'무신론 공산주의 국가 수립. 종교는 반역사적 환상. 체계적 교회 탄압 시작.',th:{"p":[52,55],"b":[4,7,10,12,14,18,23,32,48,49,50,52,53,54,55,70,71,73,74,75,76,79,80,83,85,86,89],"e":[{"장번호":"04-01","강도":"강","관계":"해당"}]}},
+  {year:1917,era:'nihilism',cat:'art',title:'뒤샹 《샘》 (Fountain)',desc:'소변기를 예술 작품으로. 예술의 의미·전통 해체. 허무주의 예술의 상징. 다다이즘.',th:{"p":[52,55],"b":[4,7,10,12,14,18,23,32,48,49,50,52,53,54,55,70,71,73,74,75,76,79,80,83,85,86,89],"e":[]}},
+  {year:1919,era:'nihilism',cat:'korea',title:'3.1 운동',desc:'민족자결 선언. 기독교·천도교·불교 연합. 33인의 독립선언. 비폭력 만세운동.',th:{"p":[],"b":[4,7,10,12,14,18,23,32,48,49,50,52,53,54,55,70,71,73,74,75,76,79,80,83,85,86,89],"e":[]}},
+  {year:1919,era:'nihilism',cat:'religion',title:'바르트 《로마서 강해》',desc:'자유주의 신학 정면 비판. "하나님은 완전히 다른 분." 신정통주의의 시작. 허무주의 시대의 신학적 응전.',th:{"p":[],"b":[4,7,10,12,14,18,23,32,48,49,50,52,53,54,55,70,71,73,74,75,76,79,80,83,85,86,89],"e":[{"장번호":"01-02","강도":"강","관계":"해당"},{"장번호":"02-07","강도":"강","관계":"해당"},{"장번호":"03-02","강도":"중","관계":"해당"}]}},
+  {year:1922,era:'nihilism',cat:'art',title:'T.S. 엘리엇 《황무지》',desc:'"공허한 사람들." 의미가 부서진 현대 문명의 파편. 전통적 의미 체계 붕괴의 시적 기록.',th:{"p":[50],"b":[4,7,10,12,14,18,23,32,48,49,50,52,53,54,55,70,71,73,74,75,76,79,80,83,85,86,89],"e":[]}},
+  {year:1927,era:'nihilism',cat:'philosophy',title:'하이데거 《존재와 시간》',desc:'현존재(Dasein), 불안, 죽음을 향한 존재. 무신론적 실존주의의 철학적 기초.',th:{"p":[],"b":[4,7,10,12,14,18,23,32,48,49,50,52,53,54,55,70,71,73,74,75,76,79,80,83,85,86,89],"e":[]}},
+  {year:1927,era:'nihilism',cat:'science',title:'하이젠베르크 불확정성 원리',desc:'결정론적 우주관에 균열. 관찰자가 현실에 영향을 미침. 지식의 근본적 한계.',th:{"p":[],"b":[4,7,10,12,14,18,23,32,48,49,50,52,53,54,55,70,71,73,74,75,76,79,80,83,85,86,89],"e":[]}},
+  {year:1929,era:'nihilism',cat:'history',title:'세계 대공황',desc:'자본주의·진보에 대한 신뢰 붕괴. 허무주의 감정의 대중화. 극단주의 이데올로기 확산 배경.',th:{"p":[50,52,80],"b":[4,7,10,12,14,18,23,32,48,49,50,52,53,54,55,70,71,73,74,75,76,79,80,83,85,86,89],"e":[]}},
+  {year:1933,era:'nihilism',cat:'history',title:'나치즘 등장 (히틀러 집권)',desc:'니체의 힘의 의지 왜곡·이용. 인간 존엄성 말살. 허무주의의 정치적 귀결이 드러남.',th:{"p":[],"b":[4,7,10,12,14,18,23,32,48,49,50,52,53,54,55,70,71,73,74,75,76,79,80,83,85,86,89],"e":[{"장번호":"03-02","강도":"중","관계":"해당"},{"장번호":"03-05","강도":"중","관계":"해당"}]}},
+  {year:1901,era:'nihilism',cat:'korea',title:'평양신학교 설립',desc:'마포삼열(마펫) 선교사 주도로 설립. 한국인 목회자 양성의 체계적 시작. 이후 1907년 독노회와 함께 한국 장로교 자립의 핵심 기관으로 성장.',th:{"p":[50,70],"b":[4,7,10,12,14,18,23,32,48,49,50,52,53,54,55,70,71,73,74,75,76,79,80,83,85,86,89],"e":[]}},
+  {year:1903,era:'nihilism',cat:'korea',title:'원산 부흥운동',desc:'캐나다 선교사 하디(R.A. Hardie)의 공개 회개로 촉발. 한국 최초의 근대적 부흥운동. 자신의 실패와 교만을 고백하는 선교사의 회개가 한국인에게 성령의 불꽃을 옮기다.',th:{"p":[],"b":[4,7,10,12,14,18,23,32,48,49,50,52,53,54,55,70,71,73,74,75,76,79,80,83,85,86,89],"e":[]}},
+  {year:1906,era:'nihilism',cat:'religion',title:'아주사 부흥운동',desc:'미국 로스앤젤레스 아주사 가(街). 흑인 설교자 윌리엄 시모어 인도. 방언·치유 동반한 부흥. 세계 오순절 운동의 기점. 한국 평양 대부흥과 같은 시기 동시 발생.',th:{"p":[50],"b":[4,7,10,12,14,18,23,32,48,49,50,52,53,54,55,70,71,73,74,75,76,79,80,83,85,86,89],"e":[]}},
+  {year:1907,era:'nihilism',cat:'korea',title:'평양 대부흥과 독노회 창립',desc:'1월 평양 장대현교회 대부흥: 이길함 선교사 집회 중 길선주 장로 공개 회개로 촉발. 전국 확산. 9월 독노회(獨老會) 창립, 7명의 첫 한국인 목사 안수(길선주·한석진 등). 이기풍 목사 제주 선교 파송. 한국 교회 자립·자치·자전의 시작.',th:{"p":[55,72],"b":[4,7,10,12,14,18,23,32,48,49,50,52,53,54,55,70,71,73,74,75,76,79,80,83,85,86,89],"e":[]}},
+  {year:1909,era:'nihilism',cat:'korea',title:'백만인 구령운동',desc:'한일합방 직전, 교회 전체가 1백만 명 전도 목표 설정. 실제로 대규모 전도 진행. 나라를 잃기 직전 교회가 민족을 품은 운동. 일제강점에 맞선 영적 저항.',th:{"p":[55],"b":[4,7,10,12,14,18,23,32,48,49,50,52,53,54,55,70,71,73,74,75,76,79,80,83,85,86,89],"e":[]}},
+  {year:1910,era:'nihilism',cat:'religion',title:'에딘버러 세계선교대회',desc:'세계 각국 1,200여 선교사 대표 참가. 현대 에큐메니칼 운동의 출발점. "이 세대 안에 세계 복음화"를 목표로. 한국 교회도 주목받는 선교의 열매로 소개됨.',th:{"p":[51,52],"b":[4,7,10,12,14,18,23,32,48,49,50,52,53,54,55,70,71,73,74,75,76,79,80,83,85,86,89],"e":[]}},
+  {year:1912,era:'nihilism',cat:'korea',title:'조선예수교장로회 총회 창립·중국선교 파송',desc:'장로교 총회 창립. 박태로·사병순·김영훈 3명을 중국 산동성 선교사로 파송. 식민지 한국 교회가 선교사를 파송하는 세계 선교사(史)의 이례적 사건.',th:{"p":[],"b":[4,7,10,12,14,18,23,32,48,49,50,52,53,54,55,70,71,73,74,75,76,79,80,83,85,86,89],"e":[]}},
+  {year:1938,era:'existentialism',cat:'art',title:'사르트르 《구토》',desc:'존재의 우연성·부조리 체험. 아무 이유 없이 던져진 존재. 실존주의 소설의 효시.',th:{"p":[],"b":[4,7,10,12,14,18,23,32,48,49,50,52,53,54,55,70,71,73,74,75,76,79,80,83,85,86,89],"e":[]}},
+  {year:1939,era:'existentialism',cat:'history',title:'제2차 세계대전·홀로코스트',desc:'"아우슈비츠 이후 시를 쓸 수 있는가?" 신정론 문제 극한화. 실존주의 급부상의 역사적 배경.',th:{"p":[52],"b":[4,7,10,12,14,18,23,32,48,49,50,52,53,54,55,70,71,73,74,75,76,79,80,83,85,86,89],"e":[{"장번호":"03-05","강도":"중","관계":"해당"},{"장번호":"04-04","강도":"강","관계":"해당"}]}},
+  {year:1942,era:'existentialism',cat:'art',title:'카뮈 《이방인》·《시지프 신화》',desc:'부조리(absurdity)에 항거. "시지프를 행복한 인간으로 상상해야 한다." 반항하는 인간.',th:{"p":[],"b":[4,7,10,12,14,18,23,32,48,49,50,52,53,54,55,70,71,73,74,75,76,79,80,83,85,86,89],"e":[]}},
+  {year:1943,era:'existentialism',cat:'philosophy',title:'사르트르 《존재와 무》',desc:'"존재가 본질을 선행한다." 신 없는 세계에서 인간이 스스로 본질을 창조해야 한다.',th:{"p":[83],"b":[4,7,10,12,14,18,23,32,48,49,50,52,53,54,55,70,71,73,74,75,76,79,80,83,85,86,89],"e":[]}},
+  {year:1945,era:'existentialism',cat:'history',title:'2차 세계대전 종전·원폭 투하',desc:'인류의 자기 파괴 능력 확인. 핵전쟁 공포. 실존적 불안이 사회 전반으로 확산.',th:{"p":[],"b":[4,7,10,12,14,18,23,32,48,49,50,52,53,54,55,70,71,73,74,75,76,79,80,83,85,86,89],"e":[]}},
+  {year:1945,era:'existentialism',cat:'korea',title:'광복 (해방)',desc:'일제강점 35년 종식. 그러나 분단의 씨앗. 새로운 세계관 모색의 시작.',th:{"p":[],"b":[4,7,10,12,14,18,23,32,48,49,50,52,53,54,55,70,71,73,74,75,76,79,80,83,85,86,89],"e":[]}},
+  {year:1946,era:'existentialism',cat:'philosophy',title:'사르트르 《실존주의는 휴머니즘이다》',desc:'신 없는 자유·책임·가치 창조. 무신론적 실존주의의 대중 선언. 파리 강연 후 유럽 전역으로 확산.',th:{"p":[],"b":[4,7,10,12,14,18,23,32,48,49,50,52,53,54,55,70,71,73,74,75,76,79,80,83,85,86,89],"e":[]}},
+  {year:1947,era:'existentialism',cat:'art',title:'카뮈 《페스트》',desc:'폐쇄된 도시 오랑 = 신 없는 우주의 상징. 부조리에도 연대하는 인간이 진정한 인간.',th:{"p":[],"b":[4,7,10,12,14,18,23,32,48,49,50,52,53,54,55,70,71,73,74,75,76,79,80,83,85,86,89],"e":[]}},
+  {year:1948,era:'existentialism',cat:'korea',title:'대한민국 정부 수립',desc:'민주공화국 탄생. 그러나 분단 고착화. 이념 대립의 씨앗.',th:{"p":[53,55,57],"b":[4,7,10,12,14,18,23,32,48,49,50,52,53,54,55,70,71,73,74,75,76,79,80,83,85,86,89],"e":[]}},
+  {year:1950,era:'existentialism',cat:'korea',title:'한국전쟁',desc:'이념 대립의 참상. 실존적 부조리의 극단적 경험. 전쟁 중 기독교 신앙 급성장.',th:{"p":[49],"b":[4,7,10,12,14,18,23,32,48,49,50,52,53,54,55,70,71,73,74,75,76,79,80,83,85,86,89],"e":[]}},
+  {year:1953,era:'existentialism',cat:'art',title:'베케트 《고도를 기다리며》',desc:'오지 않는 고도 = 부재하는 신·의미. 허무주의적 기다림을 고통스럽도록 생생하게 무대화.',th:{"p":[],"b":[4,7,10,12,14,18,23,32,48,49,50,52,53,54,55,70,71,73,74,75,76,79,80,83,85,86,89],"e":[]}},
+  {year:1954,era:'existentialism',cat:'history',title:'마틴 루터 킹, 민권운동 시작',desc:'기독교 신앙에 기반한 사회 정의 운동. 유신론적 실존주의의 실천적 표현.',th:{"p":[],"b":[4,7,10,12,14,18,23,32,48,49,50,52,53,54,55,70,71,73,74,75,76,79,80,83,85,86,89],"e":[{"장번호":"03-08","강도":"강","관계":"해당"}]}},
+  {year:1960,era:'existentialism',cat:'korea',title:'4.19 혁명',desc:'학생·시민 주도의 민주화. 이승만 독재 종식. 한국 민주주의의 첫 승리.',th:{"p":[50,53,54,82],"b":[4,7,10,12,14,18,23,32,48,49,50,52,53,54,55,70,71,73,74,75,76,79,80,83,85,86,89],"e":[]}},
+  {year:1961,era:'existentialism',cat:'korea',title:'5.16 군사쿠데타',desc:'박정희 집권. 경제개발 우선. 권위주의 통치. 산업화와 근대화의 빛과 그림자.',th:{"p":[],"b":[4,7,10,12,14,18,23,32,48,49,50,52,53,54,55,70,71,73,74,75,76,79,80,83,85,86,89],"e":[]}},
+  {year:1961,era:'existentialism',cat:'art',title:'조세프 헬러 《캐치-22》',desc:'군대의 부조리 풍자. 의미 없는 규칙이 지배하는 세계. 탈출 불가능한 역설.',th:{"p":[],"b":[4,7,10,12,14,18,23,32,48,49,50,52,53,54,55,70,71,73,74,75,76,79,80,83,85,86,89],"e":[]}},
+  {year:1962,era:'existentialism',cat:'religion',title:'제2차 바티칸 공의회',desc:'현대 세계와의 대화 강조. 실존주의·세속화 도전에 대한 가톨릭의 개방적 응전.',th:{"p":[],"b":[4,7,10,12,14,18,23,32,48,49,50,52,53,54,55,70,71,73,74,75,76,79,80,83,85,86,89],"e":[{"장번호":"02-02","강도":"강","관계":"해당"},{"장번호":"04-02","강도":"강","관계":"해당"},{"장번호":"04-03","강도":"중","관계":"불참"},{"장번호":"04-05","강도":"강","관계":"해당"},{"장번호":"04-07","강도":"강","관계":"해당"}]}},
+  {year:1963,era:'existentialism',cat:'history',title:'케네디 암살',desc:'이상주의에 대한 환멸. 허무주의 감정 심화. 미국 사회의 실존적 위기.',th:{"p":[54,82],"b":[4,7,10,12,14,18,23,32,48,49,50,52,53,54,55,70,71,73,74,75,76,79,80,83,85,86,89],"e":[]}},
+  {year:1966,era:'existentialism',cat:'religion',title:'타임지 "신은 죽었는가?" 표지',desc:'신의 죽음 신학(Death of God). 기독교 내부의 자기 부정. 실존주의와 허무주의의 신학적 합류.',th:{"p":[82],"b":[4,7,10,12,14,18,23,32,48,49,50,52,53,54,55,70,71,73,74,75,76,79,80,83,85,86,89],"e":[]}},
+  {year:1968,era:'existentialism',cat:'history',title:'68혁명·베트남 반전운동',desc:'권위·체제·도덕 전반에 대한 거부. 실존주의적 자유 개념의 정치화.',th:{"p":[54,55],"b":[4,7,10,12,14,18,23,32,48,49,50,52,53,54,55,70,71,73,74,75,76,79,80,83,85,86,89],"e":[]}},
+  {year:1969,era:'existentialism',cat:'art',title:'베케트 《숨소리》 (Breath)',desc:'35초짜리 작품. 쓰레기 더미 위 숨소리만. "삶이란 숨소리에 불과하다." 허무주의 예술의 극한.',th:{"p":[],"b":[4,7,10,12,14,18,23,32,48,49,50,52,53,54,55,70,71,73,74,75,76,79,80,83,85,86,89],"e":[]}},
+  {year:1970,era:'existentialism',cat:'korea',title:'전태일 분신',desc:'노동자 인권 선언. 사회 부조리에 대한 실존적 항거. 한국 노동운동과 인권운동의 기점.',th:{"p":[54],"b":[4,7,10,12,14,18,23,32,48,49,50,52,53,54,55,70,71,73,74,75,76,79,80,83,85,86,89],"e":[]}},
+  {year:1938,era:'existentialism',cat:'korea',title:'신사참배 결의 (조선예수교장로회 총회)',desc:'일제의 압박에 굴복, 총회에서 신사참배를 "종교의식이 아닌 국민의례"로 규정하고 결의. 주기철 목사 등 항거. 한국 교회의 친일과 저항의 갈림길. 이후 교단 분열의 역사적 뿌리.',th:{"p":[],"b":[4,7,10,12,14,18,23,32,48,49,50,52,53,54,55,70,71,73,74,75,76,79,80,83,85,86,89],"e":[]}},
+  {year:1948,era:'existentialism',cat:'religion',title:'WCC(세계교회협의회) 창설',desc:'암스테르담에서 창설. 에큐메니칼 운동의 제도화. 한국 예장통합·기장 등 참여. 이후 에큐메니즘 논쟁이 한국 교단 분열의 핵심 이슈가 됨.',th:{"p":[53,55,57],"b":[4,7,10,12,14,18,23,32,48,49,50,52,53,54,55,70,71,73,74,75,76,79,80,83,85,86,89],"e":[{"장번호":"04-07","강도":"강","관계":"해당"}]}},
+  {year:1953,era:'existentialism',cat:'korea',title:'한국기독교장로회(기장) 출범',desc:'WCC 가입과 김재준 목사 성경관 논쟁으로 예장에서 분리. 에큐메니칼·진보적 신학 노선. 한국 교단 분열의 첫 번째 공식적 분리. 보수-진보의 신학적 갈등 구체화.',th:{"p":[],"b":[4,7,10,12,14,18,23,32,48,49,50,52,53,54,55,70,71,73,74,75,76,79,80,83,85,86,89],"e":[]}},
+  {year:1959,era:'existentialism',cat:'korea',title:'예장 합동·통합 분열',desc:'WCC 가입과 NAE(근본주의) 노선 갈등으로 예장이 합동(반WCC, 보수)과 통합(친WCC, 온건)으로 분열. 한국 장로교 최대의 분열. 이후 한국 교회 교단 난립의 구조적 기원.',th:{"p":[53],"b":[4,7,10,12,14,18,23,32,48,49,50,52,53,54,55,70,71,73,74,75,76,79,80,83,85,86,89],"e":[]}},
+  {year:1945,era:'pantheism',cat:'religion',title:'D.T. 스즈키, 선불교 서방 소개',desc:'일본 불교 학자의 영어 강의. 선(禪)의 서구화 시작. 허무주의에 지친 서구인에게 동양 영성을 제시.',th:{"p":[],"b":[4,7,10,12,14,18,23,32,48,49,50,52,53,54,55,70,71,73,74,75,76,79,80,83,85,86,89],"e":[]}},
+  {year:1957,era:'pantheism',cat:'philosophy',title:'알란 왓츠 《선의 길》',desc:'선불교와 도교를 서양 심리학과 융합. 반문화 운동의 지적 토대. "당신이 곧 우주다."',th:{"p":[],"b":[4,7,10,12,14,18,23,32,48,49,50,52,53,54,55,70,71,73,74,75,76,79,80,83,85,86,89],"e":[]}},
+  {year:1962,era:'pantheism',cat:'art',title:'비틀즈, 인도 명상 방문',desc:'마하리시 마헤시 요기와의 만남. 인도 명상의 대중 문화화. 동양 영성의 서구 청년 문화 침투.',th:{"p":[],"b":[4,7,10,12,14,18,23,32,48,49,50,52,53,54,55,70,71,73,74,75,76,79,80,83,85,86,89],"e":[]}},
+  {year:1965,era:'pantheism',cat:'religion',title:'ISKCON 창설 (하레 크리슈나)',desc:'힌두교의 서방 진출. 만트라·윤회·업(karma) 사상 전파. 범신론적 인격신 숭배의 서구화.',th:{"p":[54,72,82],"b":[4,7,10,12,14,18,23,32,48,49,50,52,53,54,55,70,71,73,74,75,76,79,80,83,85,86,89],"e":[]}},
+  {year:1967,era:'pantheism',cat:'religion',title:'마하리시, TM(초월명상) 서방 확산',desc:'비틀즈 영향으로 초월명상 국제화. 과학적 명상 연구 시작. 의식 확장의 대중화.',th:{"p":[],"b":[4,7,10,12,14,18,23,32,48,49,50,52,53,54,55,70,71,73,74,75,76,79,80,83,85,86,89],"e":[]}},
+  {year:1970,era:'pantheism',cat:'philosophy',title:'인간 잠재력 운동 확산 (에살렌)',desc:'인간 의식의 무한 가능성 탐구. 동양 명상·심리학·신체 치유 통합. 자아의 신성화 운동.',th:{"p":[54],"b":[4,7,10,12,14,18,23,32,48,49,50,52,53,54,55,70,71,73,74,75,76,79,80,83,85,86,89],"e":[]}},
+  {year:1975,era:'pantheism',cat:'science',title:'카프라 《물리학의 도》',desc:'양자물리학과 동양 신비주의 연결. "물질=에너지=의식." 과학이 동양 범신론을 증명한다는 주장.',th:{"p":[],"b":[4,7,10,12,14,18,23,32,48,49,50,52,53,54,55,70,71,73,74,75,76,79,80,83,85,86,89],"e":[]}},
+  {year:1982,era:'pantheism',cat:'philosophy',title:'카프라 《전환점》',desc:'기계론적 패러다임에서 전체론·생태론으로. 서양 과학과 동양 세계관의 종합 시도.',th:{"p":[],"b":[4,7,10,12,14,18,23,32,48,49,50,52,53,54,55,70,71,73,74,75,76,79,80,83,85,86,89],"e":[]}},
+  {year:1973,era:'pantheism',cat:'korea',title:'빌리 그래함 한국전도대회',desc:'서울 여의도 광장. 5일간 110만 명 이상 참석(최종일 단일 집회 100만 명). 세계 전도대회 역사상 최대 규모. 한국 교회의 폭발적 성장을 세계에 알린 사건. 한국이 선교 받는 나라에서 선교하는 나라로 전환하는 상징.',th:{"p":[89],"b":[4,7,10,12,14,18,23,32,48,49,50,52,53,54,55,70,71,73,74,75,76,79,80,83,85,86,89],"e":[]}},
+  {year:1974,era:'pantheism',cat:'religion',title:'로잔 세계복음화 대회',desc:'빌리 그래함·존 스토트 주도, 스위스 로잔에서 150개국 2,700명 참가. 로잔 언약 채택. 복음화와 사회적 책임의 통합. 세계 복음주의 운동의 헌장. 한국 교회 해외 선교의 신학적 기초.',th:{"p":[54],"b":[4,7,10,12,14,18,23,32,48,49,50,52,53,54,55,70,71,73,74,75,76,79,80,83,85,86,89],"e":[]}},
+  {year:1974,era:'newage',cat:'art',title:'타임지 "심령 경계의 붐" 특집',desc:'ESP·텔레파시·환생에 대한 관심 급증 보도. 뉴에이지 운동의 대중화 전조.',th:{"p":[54],"b":[4,7,10,12,14,18,23,32,48,49,50,52,53,54,55,70,71,73,74,75,76,79,80,83,85,86,89],"e":[]}},
+  {year:1974,era:'newage',cat:'korea',title:'엑스폴로 74 (EXPLO\'74)',desc:'CCC(대학생선교회) 주최, 서울 여의도 광장. 5일간 323만 명 참석(폐막 집회 160만 명). 당시 세계 최대 기독교 집회. 한국 대학생 신앙 운동의 정점. "복음의 불길이 여기서부터 온 세계로."',th:{"p":[54],"b":[4,7,10,12,14,18,23,32,48,49,50,52,53,54,55,70,71,73,74,75,76,79,80,83,85,86,89],"e":[]}},
+  {year:1980,era:'newage',cat:'philosophy',title:'마릴린 퍼거슨 《물병자리 음모》',desc:'뉴에이지 운동의 이론적 기반. 의식 변혁이 사회 변혁을 이끈다. 개인 영성 혁명의 선언.',th:{"p":[27,50,54],"b":[4,7,10,12,14,18,23,32,48,49,50,52,53,54,55,70,71,73,74,75,76,79,80,83,85,86,89],"e":[]}},
+  {year:1982,era:'newage',cat:'art',title:'뉴에이지 음악 장르 탄생',desc:'명상·치유를 위한 음악. 크리스탈·아로마테라피 등 영성 문화와 결합. 대안 치유 시장 탄생.',th:{"p":[],"b":[4,7,10,12,14,18,23,32,48,49,50,52,53,54,55,70,71,73,74,75,76,79,80,83,85,86,89],"e":[]}},
+  {year:1983,era:'newage',cat:'art',title:'셜리 맥클레인 《Out on a Limb》',desc:'뉴에이지 자서전. 환생·채널링·우주 에너지 대중화. 할리우드 스타의 영성 고백으로 뉴에이지 주류화.',th:{"p":[],"b":[4,7,10,12,14,18,23,32,48,49,50,52,53,54,55,70,71,73,74,75,76,79,80,83,85,86,89],"e":[]}},
+  {year:1984,era:'newage',cat:'korea',title:'한국 기독교 100주년 대회',desc:'선교 100년 기념. 여의도 100만 명 집회. 한국 기독교의 세계적 위상 확인.',th:{"p":[55],"b":[4,7,10,12,14,18,23,32,48,49,50,52,53,54,55,70,71,73,74,75,76,79,80,83,85,86,89],"e":[]}},
+  {year:1986,era:'newage',cat:'philosophy',title:'켄 윌버 《에덴 위로》',desc:'의식 진화의 스펙트럼. 동양 신비주의와 서양 심리학 통합. 뉴에이지 철학의 학문화.',th:{"p":[],"b":[4,7,10,12,14,18,23,32,48,49,50,52,53,54,55,70,71,73,74,75,76,79,80,83,85,86,89],"e":[]}},
+  {year:1987,era:'newage',cat:'religion',title:'하모닉 컨버전스',desc:'마야 달력 예언에 따른 지구 에너지 전환 집회. 세계 144개 장소에서 동시 명상. 뉴에이지의 집단 의례.',th:{"p":[],"b":[4,7,10,12,14,18,23,32,48,49,50,52,53,54,55,70,71,73,74,75,76,79,80,83,85,86,89],"e":[]}},
+  {year:1988,era:'newage',cat:'korea',title:'서울 올림픽',desc:'한국의 세계화 계기. 서구 문화와 뉴에이지 사상의 본격 유입. 다원주의적 세계관 접촉.',th:{"p":[],"b":[4,7,10,12,14,18,23,32,48,49,50,52,53,54,55,70,71,73,74,75,76,79,80,83,85,86,89],"e":[]}},
+  {year:1993,era:'newage',cat:'art',title:'레드필드 《셀레스틴 예언》',desc:'의식 에너지·공시성·진화 개념의 소설화. 국제적 베스트셀러. 뉴에이지 세계관의 대중적 확산.',th:{"p":[],"b":[4,7,10,12,14,18,23,32,48,49,50,52,53,54,55,70,71,73,74,75,76,79,80,83,85,86,89],"e":[]}},
+  {year:1994,era:'newage',cat:'philosophy',title:'켄 윌버 《모든 것의 역사》',desc:'진화론+동양 신비주의+심리학 통합. 의식 진화의 통합적 지도. 뉴에이지의 지성화.',th:{"p":[],"b":[4,7,10,12,14,18,23,32,48,49,50,52,53,54,55,70,71,73,74,75,76,79,80,83,85,86,89],"e":[]}},
+  {year:1997,era:'newage',cat:'korea',title:'IMF 외환위기',desc:'경제 신화의 붕괴. 자기계발·영성 시장 급성장. 뉴에이지 심리 치유 상품 확산의 배경.',th:{"p":[],"b":[4,7,10,12,14,18,23,32,48,49,50,52,53,54,55,70,71,73,74,75,76,79,80,83,85,86,89],"e":[]}},
+  {year:1966,era:'postmodern',cat:'philosophy',title:'데리다 해체주의 발전',desc:'"텍스트 밖에는 아무것도 없다." 의미의 불안정성. 모든 구조는 해체 가능하다. 로고스 중심주의 비판.',th:{"p":[82],"b":[4,7,10,12,14,18,23,32,48,49,50,52,53,54,55,70,71,73,74,75,76,79,80,83,85,86,89],"e":[]}},
+  {year:1975,era:'postmodern',cat:'philosophy',title:'푸코 《감시와 처벌》',desc:'권력의 계보학. 모든 지식은 권력 관계의 산물. 감옥·병원·학교가 사회 통제의 수단.',th:{"p":[],"b":[4,7,10,12,14,18,23,32,48,49,50,52,53,54,55,70,71,73,74,75,76,79,80,83,85,86,89],"e":[]}},
+  {year:1979,era:'postmodern',cat:'philosophy',title:'리오타르 《포스트모던 조건》',desc:'"거대서사에 대한 불신." 하나의 진리 대신 복수의 작은 서사들. 포스트모더니즘의 철학적 선언.',th:{"p":[54,55],"b":[4,7,10,12,14,18,23,32,48,49,50,52,53,54,55,70,71,73,74,75,76,79,80,83,85,86,89],"e":[]}},
+  {year:1979,era:'postmodern',cat:'art',title:'더글러스 애덤스 《은하수를 여행하는 히치하이커를 위한 안내서》',desc:'"인생·우주·모든 것의 답 = 42." 의미 탐구 자체의 무의미함을 SF 유머로. 포스트모던 감수성.',th:{"p":[54,55],"b":[4,7,10,12,14,18,23,32,48,49,50,52,53,54,55,70,71,73,74,75,76,79,80,83,85,86,89],"e":[]}},
+  {year:1980,era:'postmodern',cat:'korea',title:'광주민주화운동',desc:'계엄군에 의한 시민 학살. 국가 폭력의 실존적 경험. 한국 민주화와 비판적 지식인의 형성.',th:{"p":[27,50,54],"b":[4,7,10,12,14,18,23,32,48,49,50,52,53,54,55,70,71,73,74,75,76,79,80,83,85,86,89],"e":[]}},
+  {year:1984,era:'postmodern',cat:'philosophy',title:'리처드 로티 《실용주의의 귀결》',desc:'진리는 사회적 합의. 절대 진리 거부. 아이러니와 연대가 포스트모던 자유주의의 핵심.',th:{"p":[55],"b":[4,7,10,12,14,18,23,32,48,49,50,52,53,54,55,70,71,73,74,75,76,79,80,83,85,86,89],"e":[]}},
+  {year:1987,era:'postmodern',cat:'korea',title:'6월 민주화운동',desc:'직선제 개헌 쟁취. 시민의 힘으로 권위주의 극복. 한국 민주주의의 결정적 전환점.',th:{"p":[],"b":[4,7,10,12,14,18,23,32,48,49,50,52,53,54,55,70,71,73,74,75,76,79,80,83,85,86,89],"e":[]}},
+  {year:1989,era:'postmodern',cat:'history',title:'베를린 장벽 붕괴',desc:'냉전 종식. 공산주의의 몰락. 이데올로기 시대의 종언. 포스트모던 다원주의의 현실적 배경.',th:{"p":[30],"b":[4,7,10,12,14,18,23,32,48,49,50,52,53,54,55,70,71,73,74,75,76,79,80,83,85,86,89],"e":[{"장번호":"04-06","강도":"강","관계":"해당"},{"장번호":"05-05","강도":"강","관계":"해당"}]}},
+  {year:1991,era:'postmodern',cat:'history',title:'소련 붕괴',desc:'마르크스주의 거대서사의 현실적 패배. 역사의 종언? 포스트모던 상대주의 강화.',th:{"p":[],"b":[4,7,10,12,14,18,23,32,48,49,50,52,53,54,55,70,71,73,74,75,76,79,80,83,85,86,89],"e":[]}},
+  {year:1994,era:'postmodern',cat:'science',title:'WWW(월드와이드웹) 대중화',desc:'정보 폭발. 모든 지식의 동등화·상대화. 중심 없는 네트워크가 포스트모던 세계의 구조가 됨.',th:{"p":[],"b":[4,7,10,12,14,18,23,32,48,49,50,52,53,54,55,70,71,73,74,75,76,79,80,83,85,86,89],"e":[]}},
+  {year:1997,era:'postmodern',cat:'science',title:'도킨스 《이기적 유전자》 재조명',desc:'유전자 결정론. 인간=유전자의 운반체(생존기계). 목적 없는 유전자가 모든 것을 설명.',th:{"p":[],"b":[4,7,10,12,14,18,23,32,48,49,50,52,53,54,55,70,71,73,74,75,76,79,80,83,85,86,89],"e":[]}},
+  {year:2001,era:'postmodern',cat:'history',title:'9/11 테러',desc:'종교 근본주의의 폭력. 문명 충돌. 절대 진리를 가진 종교의 위험성 논쟁. 포스트모던 혼란 심화.',th:{"p":[],"b":[4,28,53],"e":[{"장번호":"05-07","강도":"강","관계":"해당"}]}},
+  {year:2002,era:'postmodern',cat:'korea',title:'한·일 월드컵 4강',desc:'한국의 문화적 자신감. 붉은 악마 응원 문화. 집단 정체성과 포스트모던 감성의 결합.',th:{"p":[],"b":[4,28,53],"e":[]}},
+  {year:2006,era:'postmodern',cat:'religion',title:'도킨스 《만들어진 신》',desc:'"신무신론 운동." 종교=망상. 과학과 종교의 전면전. 세속주의의 적극적 공세.',th:{"p":[],"b":[4,28,53],"e":[]}},
+  {year:2007,era:'postmodern',cat:'science',title:'스마트폰 혁명 (iPhone)',desc:'정보 초연결 시대. 탈중심화. 개인이 미디어. 에코챔버와 필터버블 현상.',th:{"p":[],"b":[4,28,53],"e":[]}},
+  {year:2016,era:'postmodern',cat:'history',title:'"포스트트루스(탈진실)" 시대 선언',desc:'옥스퍼드 올해의 단어. 감정과 신념이 사실을 대체. 포스트모더니즘의 정치적 귀결.',th:{"p":[],"b":[4,28,53],"e":[]}},
+  {year:2020,era:'postmodern',cat:'history',title:'코로나19 팬데믹',desc:'전 세계적 위기. 과학 신뢰와 음모론의 충돌. 포스트모던 불확실성의 극대화.',th:{"p":[],"b":[4,28,53],"e":[]}},
+
+];
+
+const THEO = {"t":{"1":"왜 신학 블록버스터인가","2":"하나님은 누구인가 [신]","3":"존재란 무엇인가","4":"하나님은 실제로 존재하는가","5":"창조론이 왜 '고백록' 안에 있나","6":"창조는 어떻게 이루어졌나","7":"창조의 목적은 무엇인가","8":"아테네와 예루살렘이 무슨 관계가 있나","9":"하나님의 인격성이란 무엇인가","10":"하나님의 인격성과 하나님의 부재","11":"일자란 무엇인가","12":"유일신은 배타적인가","13":"Review & Preview","14":"무오성 논쟁_성경에 오류가 있다 없다","15":"섭리논쟁_이게 다 하나님 때문이다","16":"예지논쟁_칼빈주의 vs 알미니안주의 vs 열린 유신론","17":"창조논쟁_창세기 1장의 하루 계산법","18":"하나님의 형상 논쟁_이마고 데이(Imago Dei)는 무엇","19":"기독론 논쟁_예수님은 인간이자 하나님","20":"속죄 논쟁_십자가가 그런 뜻이라고","21":"구원론 논쟁_구원받는 사람은 미리 정해져 있을까","22":"성화 논쟁_예수님 믿으면 끝 기독교 성화론 완벽 정리!","23":"영원한 안전 논쟁_칼빈주의 vs 알미니안주의 총정리","24":"미전도종족의 운명 논쟁_이순신 장군은 구원받았을까","25":"세례 논쟁_유아 세례, 꼭 받아야 할까","26":"성만찬 논쟁_주님의 살을 먹고 피를 마신다","27":"영적 은사 논쟁_ 방언은 정말 천상의 언어일까","28":"여성 사역 논쟁_ 여성은 목사가 될 수 있다 없다","29":"천년 왕국 논쟁_ 예수님은 언제 오시는가","30":"지옥 논쟁_지옥은 있다 없다","31":"Review & Preview 2","32":"초기 교회1_초기 기독교 성장의 4가지 비결","33":"초기 교회2_ 초대교회 성도들은 왜 무신론자로 불렸을까","34":"초기 교회3_부활한 몸은 어떤 모습일까(feat.오리게네스) (2)","35":"초기 교회4_ 로마제국과 동행한 기독교 얻은 것 vs 잃은 것 (2)","36":"초기 교회5_ 초기 교회 시대 핵심정리 (2)","37":"중세와 르네상스1_ 중세 전반기 500년 총정리 (2)","38":"중세와 르네상스2_중세 교회의 전성기 (2)","39":"중세와 르네상스3_ 중세신학의 꽃, 스콜라주의의 모든 것 (2)","40":"중세와 르네상스4_ 중세쇠퇴기-교황이 셋! (2)","41":"중세와 르네상스5_ 중세와 르네상스 핵심정리","42":"특별대담_최종원 교수님과 함께 하는 중세교회사","43":"종교개혁1_종교개혁은 왜 시작되었을까","44":"종교개혁2_종교개혁의 5가지 특징","45":"종교개혁3_종교개혁의 3대장","46":"종교개혁4_ 우리가 종교개혁의 비주류라고! 왜","47":"종교개혁5_종교개혁시대 핵심정리","48":"근대1 전반기_계몽주의와 혁명의 시대","49":"근대2_격동의 19세기, 유럽교회","50":"근대3_격동의 19세기, 미국교회","51":"근대4_근대 교회사, 핵심정리","52":"20세기_1차 세계대전, 기독교를 죽인 전쟁","53":"현대2_WCC, 2차 바티칸 공의회, 그리고 신복음주의","54":"현대3_민권운동과 기독교 우파의 등장","55":"현대4_현대 교회사 핵심정리","57":"성경과 하나님의 권위1","58":"성경과 하나님의 권위2","59":"성경과 하나님의 권위3","60":"성경과 하나님의 권위4","62":"책 vs. 책 인터뷰(1) 김근주 교수","63":"책 vs. 책 인터뷰(2) 정성국 교수","64":"Review & Preview 4","65":"현대 신학 프리퀄","66":"현대 신학_허버트, 톨런드, 틴들","67":"현대 신학_흄, 칸트, 헤겔","68":"현대 신학_리드, 콜리지, 키에르케고르","69":"현대 신학_슐라이어마허","70":"현대 신학_리츨, 하르낙, 라우센부쉬","71":"현대 신학_트뢸치","72":"현대 신학_가톨릭 현대주의 신학자들","73":"현대 신학_찰스 하지","74":"현대 신학_이자크 도르너","75":"현대 신학_ 호러스 부시넬","76":"현대 신학_칼 바르트","77":"현대 신학_루돌프 불트만","78":"현대 신학_ 라인홀드 니버","79":"현대 신학_폴 틸리히","80":"현대 신학_과정 신학","81":"현대 신학_ 본회퍼","82":"현대 신학_세속 신학, 신 죽음의 신학","83":"현대 신학_몰트만","84":"현대 신학_판넨베르크","85":"현대신학_해방신학","86":"미확인 — 파일에 제목이 없다(파일명·프론트매터 제목·본문 h1 셋 다 「[신학 Blockbuster_086]」뿐)","88":"현대 신학_발타자르","89":"현대 신학_복음주의","90":"현대 신학_스탠리 하우어워스","91":"현대 신학_존 카푸토"},"c":{"01-00":{"n":null,"t":"신학이란 무엇인가","p":1},"01-01":{"n":"슐라이어마허","t":"슐라이어마허","p":1},"01-02":{"n":"칼 바르트","t":"초월하신 하나님 — 칼 바르트: 깨어진 삶의 자리로 찾아오는 하느님의 희망","p":5},"01-03":{"n":"고든 카우프만","t":"카우프만: 신비로서 신, 상상으로서 신학","p":11},"01-04":{"n":"조지 린드벡 · 크리스틴 헬머","t":"조지 린드벡, 크리스틴 헬머 — 교리의 본성과 목적 논쟁","p":null},"01-05":{"n":"볼프하르트 판넨베르크","t":"볼프하르트 판넨베르크: 그리스도교 진리의 합리성과 보편성","p":18},"01-06":{"n":"패트릭 셰리","t":"패트릭 셰리: 아름다움은 우리를 구원할 것인가?","p":22},"01-07":{"n":"존 웹스터","t":"존 웹스터 — 하느님 말씀이 거룩하니 신학도 거룩하라","p":29},"01-08":{"n":"한스 부어스마","t":"한스 부어스마","p":32},"02-00":{"n":null,"t":"과거를 읽는 법","p":36},"02-01":{"n":"아돌프 폰 하르낙","t":"아돌프 폰 하르낙: 복음과 교리 사이에 선 역사학자로서 신학자","p":38},"02-02":{"n":"한스 큉","t":"한스 큉: 본질과 역사 사이에서 과거를 읽는 법","p":42},"02-03":{"n":"마르틴 루터","t":"마르틴 루터: 교회분열과 교회일치의 갈림길에 선 마르틴 루터","p":45},"02-04":{"n":"로완 윌리엄스","t":"로완 윌리엄스: 과거의 낯섦 앞에 선 그리스도인","p":48},"02-05":{"n":"로널드 핸델","t":"로널드 핸델: 현실주의와 상징주의 사이에서 창세기 읽다","p":53},"02-06":{"n":"로저 올슨","t":"로저 올슨: 현대 신학이라는 여행의 이유","p":56},"02-07":{"n":"폴 카페츠","t":"폴 카페츠: 역사를 통해 배우는 신에 대해 말하는 법","p":60},"02-08":{"n":"후카이 토모아키","t":"후카이 토모아키: 교양과 학문 사이에서 신학의 역사","p":63},"03-00":{"n":null,"t":"현대 개신교 신학의 대가들","p":67},"03-01":{"n":"헤르만 바빙크","t":"헤르만 바빙크: 세계관으로서 그리스도교","p":69},"03-02":{"n":"에밀 브루너 · 칼 바르트","t":"에밀 브루너, 칼 바르트: '오직 은혜로만?'에 관한 현대 논쟁","p":81},"03-03":{"n":"폴 틸리히","t":"폴 틸리히: 신학과 철학의 경계를 넘어선 경계선 위에서","p":85},"03-04":{"n":"리처드 니버","t":"리처드 니버: 유일하신 하느님과 역사 속의 인간","p":88},"03-05":{"n":"디트리히 본회퍼","t":"본회퍼: 윤리가 몰락한 세상에서 윤리를 다시 묻다","p":92},"03-06":{"n":"제임스 토런스 · 콜린 건턴","t":"제임스 토런스, 콜린 건던: 바르트 이후의 삼위일체 신학","p":96},"03-07":{"n":"위르겐 몰트만","t":"몰트만: 장애인과 비장애인 모두의 해방을 위한 장애신학","p":100},"03-08":{"n":"제임스 콘","t":"제임스 콘: 왜 그는 그리스도를 흑인이라 불렀나","p":104},"04-00":{"n":null,"t":"한 몸 다른 전통","p":108},"04-01":{"n":"블라디미르 로스키","t":"블라디미르 로스키: 부정신학을 통해 하느님의 신비에 다가가기","p":110},"04-02":{"n":"칼 라너","t":"칼 라너: 일상의 결을 타고 찾아온 하느님의 은총","p":114},"04-03":{"n":"한스 우르스 폰 발타사르","t":"한스 우르스 폰 발타자르: 지옥의 공포를 넘어선 담대한 희망","p":118},"04-04":{"n":"콘스탄틴 비르질 게오르규","t":"콘스탄틴 비르질 게오르규: 한 가난한 사제의 삶에 비친 그리스도교의 신비","p":123},"04-05":{"n":"교황 베네딕토 16세(요제프 라칭거)","t":"교황 베네딕토 16세: 그리스도교의 희망을 다시 묻다","p":127},"04-06":{"n":"구스타보 구티에레즈 · 성정모","t":"구스타보 구티에레즈, 성정모: 해방신학의 어제와 오늘","p":131},"04-07":{"n":"존 지지울러스","t":"존 지지울러스: 삼위일체 하느님의 형상으로서 교회","p":135},"04-08":{"n":"데이비드 벤틀리 하트","t":"데이비드 벤틀리 하트: 상처 입은 세계에서 분노하는 법","p":139},"05-00":{"n":null,"t":"신학의 새로운 흐름","p":143},"05-01":{"n":"샐리 맥페이그","t":"샐리 맥페이그: 기후 위기 시대에 일어난 신학의 기후 변화","p":145},"05-02":{"n":"스탠리 하우어워스","t":"스탠리 하우어워스: 자유주의 정치학에 맞서는 교회의 정치학","p":148},"05-03":{"n":"알리스터 맥그래스","t":"알리스터 맥그래스: 과학과 신학의 접촉점으로서 자연신학","p":152},"05-04":{"n":"세라 코클리","t":"세라 코클리: 삼위일체 하느님을 향한 기도와 욕망의 변주","p":156},"05-05":{"n":"미로슬라브 볼프","t":"미로슬라브 볼프: 평화로운 미래를 위한 '번영의' 신학","p":161},"05-06":{"n":"케빈 밴후저 · 제임스 스미스","t":"케빈 벤후저, 제임스 스미스: 복음주의 신학의 새로운 흐름","p":164},"05-07":{"n":"셸리 램보","t":"셸리 램보: 깨어진 세계에서 성령과 함께 남아 있기","p":169},"05-08":{"n":"앤드류 루트","t":"앤드류 루트: 나는 하나님의 피조물, 개입니다","p":174}},"s":{"타임라인":193,"선이_닿는_항목":71,"띠만_닿는_항목":122,"아무것도_안_닿는_항목":0,"보관함_미연결편":21,"영토들_미연결장":28},"ua":[{"번호":1,"제목":"왜 신학 블록버스터인가","시대값":"본문에 없음"},{"번호":3,"제목":"존재란 무엇인가","시대값":"본문에 없음"},{"번호":11,"제목":"일자란 무엇인가","시대값":"본문에 없음"},{"번호":13,"제목":"Review & Preview","시대값":"본문에 없음"},{"번호":15,"제목":"섭리논쟁_이게 다 하나님 때문이다","시대값":"본문에 없음"},{"번호":16,"제목":"예지논쟁_칼빈주의 vs 알미니안주의 vs 열린 유신론","시대값":"본문에 없음"},{"번호":21,"제목":"구원론 논쟁_구원받는 사람은 미리 정해져 있을까","시대값":"본문에 없음"},{"번호":24,"제목":"미전도종족의 운명 논쟁_이순신 장군은 구원받았을까","시대값":"본문에 없음"},{"번호":31,"제목":"Review & Preview 2","시대값":"본문에 없음"},{"번호":58,"제목":"성경과 하나님의 권위2","시대값":"본문에 없음"},{"번호":59,"제목":"성경과 하나님의 권위3","시대값":"본문에 없음"},{"번호":60,"제목":"성경과 하나님의 권위4","시대값":"본문에 없음"},{"번호":63,"제목":"책 vs. 책 인터뷰(2) 정성국 교수","시대값":"본문에 없음"},{"번호":64,"제목":"Review & Preview 4","시대값":"본문에 없음"},{"번호":67,"제목":"현대 신학_흄, 칸트, 헤겔","시대값":"본문에 없음"},{"번호":78,"제목":"현대 신학_ 라인홀드 니버","시대값":"본문에 없음"},{"번호":81,"제목":"현대 신학_ 본회퍼","시대값":"본문에 없음"},{"번호":84,"제목":"현대 신학_판넨베르크","시대값":"본문에 없음"},{"번호":88,"제목":"현대 신학_발타자르","시대값":"본문에 없음"},{"번호":90,"제목":"현대 신학_스탠리 하우어워스","시대값":"본문에 없음"},{"번호":91,"제목":"현대 신학_존 카푸토","시대값":"본문에 없음"}],"ue":[{"장번호":"01-00","인물명":null,"대표연도":null},{"장번호":"01-01","인물명":"슐라이어마허","대표연도":"미상"},{"장번호":"01-03","인물명":"고든 카우프만","대표연도":"1975"},{"장번호":"01-04","인물명":"조지 린드벡 · 크리스틴 헬머","대표연도":"1984"},{"장번호":"01-05","인물명":"볼프하르트 판넨베르크","대표연도":"1961"},{"장번호":"01-06","인물명":"패트릭 셰리","대표연도":"1971"},{"장번호":"01-07","인물명":"존 웹스터","대표연도":"2002"},{"장번호":"01-08","인물명":"한스 부어스마","대표연도":"2011"},{"장번호":"02-00","인물명":null,"대표연도":null},{"장번호":"02-01","인물명":"아돌프 폰 하르낙","대표연도":"1900"},{"장번호":"02-04","인물명":"로완 윌리엄스","대표연도":"미상"},{"장번호":"02-05","인물명":"로널드 핸델","대표연도":"2013"},{"장번호":"02-06","인물명":"로저 올슨","대표연도":"2013"},{"장번호":"02-08","인물명":"후카이 토모아키","대표연도":"2011"},{"장번호":"03-00","인물명":null,"대표연도":null},{"장번호":"03-01","인물명":"헤르만 바빙크","대표연도":"1904"},{"장번호":"03-03","인물명":"폴 틸리히","대표연도":"미상"},{"장번호":"03-04","인물명":"리처드 니버","대표연도":"1916"},{"장번호":"03-06","인물명":"제임스 토런스 · 콜린 건턴","대표연도":"1989"},{"장번호":"03-07","인물명":"위르겐 몰트만","대표연도":"1975"},{"장번호":"04-00","인물명":null,"대표연도":null},{"장번호":"04-08","인물명":"데이비드 벤틀리 하트","대표연도":"2011"},{"장번호":"05-00","인물명":null,"대표연도":null},{"장번호":"05-01","인물명":"샐리 맥페이그","대표연도":"2004"},{"장번호":"05-03","인물명":"알리스터 맥그래스","대표연도":"2009"},{"장번호":"05-04","인물명":"세라 코클리","대표연도":"2013"},{"장번호":"05-06","인물명":"케빈 밴후저 · 제임스 스미스","대표연도":"미상"},{"장번호":"05-08","인물명":"앤드류 루트","대표연도":"2017"}],"g":[{"n":"세월호 참사","y":"2014","c":"04-08 · 05-07","ex":[],"k":"A","gr":"","inner":[]},{"n":"인도양 쓰나미","y":"연도 표기 없음","c":"04-08","k":"C","ex":[],"gr":"","inner":[]},{"n":"맨체스터 테러 사건","y":"2017","c":"05-05","ex":[],"k":"A","gr":"","inner":[]},{"n":"보스니아 내전·인종학살","y":"1992~1996","c":"05-05","ex":[],"k":"A","gr":"기간","inner":[{"y":1992,"ex":[]},{"y":1993,"ex":["레드필드 《셀레스틴 예언》"]},{"y":1994,"ex":["켄 윌버 《모든 것의 역사》","WWW(월드와이드웹) 대중화"]},{"y":1995,"ex":[]},{"y":1996,"ex":[]}]},{"n":"크로아티아 독립","y":"1991","c":"05-05","ex":["소련 붕괴"],"k":"B","gr":"","inner":[]},{"n":"버밍햄 16번가 침례교회 폭탄 테러","y":"1963","c":"03-08","ex":["케네디 암살"],"k":"B","gr":"","inner":[]},{"n":"제2차 라틴아메리카 주교회의(메데인)","y":"1968","c":"04-06","ex":["68혁명·베트남 반전운동"],"k":"B","gr":"","inner":[]},{"n":"교황청 신앙교리성 해방신학 훈령 「자유의 전갈」","y":"1984","c":"04-06","ex":["한국 기독교 100주년 대회","리처드 로티 《실용주의의 귀결》"],"k":"B","gr":"","inner":[]},{"n":"교황청, 한스 큉 가톨릭 신학 교수 자격 박탈","y":"1979-12-18","c":"02-02","ex":["리오타르 《포스트모던 조건》","더글러스 애덤스 《은하수를 여행하는 히치하이커를 위한 안내서》"],"k":"B","gr":"일","inner":[]},{"n":"브루너–바르트 자연신학 논쟁","y":"1934","c":"03-02","ex":[],"k":"A","gr":"","inner":[]},{"n":"브루너–바르트 화해(바젤)","y":"1960-11-19","c":"03-02","ex":["4.19 혁명"],"k":"B","gr":"일","inner":[]},{"n":"몰트만 한국 첫 강연","y":"1975","c":"03-07","ex":["카프라 《물리학의 도》","푸코 《감시와 처벌》"],"k":"B","gr":"","inner":[]},{"n":"북미 성공회 분립","y":"2009","c":"01-08","ex":[],"k":"A","gr":"","inner":[]},{"n":"종교개혁 500주년","y":"2017","c":"02-03","ex":[],"k":"A","gr":"","inner":[]},{"n":"테러와의 전쟁·중동 파병","y":"연도 표기 없음","c":"05-07","k":"C","ex":[],"gr":"","inner":[]}]};
+let thm = 'point';
+const ORDER = ['theism','deism','naturalism','nihilism','existentialism','pantheism','newage','postmodern'];
+let wv = 'all';
+let cats = new Set(Object.keys(CAT));
+
+const $ = id => document.getElementById(id);
+const dark = () => {
+  const t = document.documentElement.getAttribute('data-theme');
+  if (t === 'dark') return true;
+  if (t === 'light') return false;
+  return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+};
+// 밝은 파스텔 배경은 다크에서 못 쓴다 → 색을 반투명 틴트로
+const tint = hex => {
+  const h = hex.replace('#','');
+  const r = parseInt(h.slice(0,2),16), g = parseInt(h.slice(2,4),16), b = parseInt(h.slice(4,6),16);
+  return `rgba(${r},${g},${b},var(--tint))`;
+};
+const lift = hex => {
+  if (!dark()) return hex;
+  const h = hex.replace('#','');
+  let r = parseInt(h.slice(0,2),16), g = parseInt(h.slice(2,4),16), b = parseInt(h.slice(4,6),16);
+  const f = v => Math.round(v + (255 - v) * 0.45);
+  return `rgb(${f(r)},${f(g)},${f(b)})`;
+};
+
+function chips() {
+  const wr = $('wvRow'); wr.innerHTML = '';
+  Object.entries(WV).forEach(([k,v]) => {
+    const b = document.createElement('button');
+    b.className = 'chip' + (k === wv ? ' on' : '');
+    b.textContent = v.label;
+    if (k !== 'all') { b.style.color = lift(v.color); b.style.background = tint(v.color); }
+    b.onclick = () => { wv = k; $('shWv').classList.remove('on'); $('bWv').setAttribute('aria-expanded','false'); render(); };
+    wr.appendChild(b);
+  });
+  const cr = $('catRow'); cr.innerHTML = '';
+  Object.entries(CAT).forEach(([k,v]) => {
+    const b = document.createElement('button');
+    b.className = 'chip' + (cats.has(k) ? ' on' : '');
+    b.textContent = v.label;
+    if (cats.has(k)) { b.style.color = lift(v.color); b.style.background = tint(v.color); }
+    b.onclick = () => {
+      if (cats.has(k)) { if (cats.size > 1) cats.delete(k); } else cats.add(k);
+      chips(); render();
+    };
+    cr.appendChild(b);
+  });
+}
+
+function render() {
+  chips();
+  $('vWv').textContent = WV[wv].label.replace('전체 보기','전체');
+  $('vCat').textContent = cats.size === Object.keys(CAT).length ? '6' : cats.size + '/6';
+
+  const info = $('wvInfo');
+  if (wv !== 'all') {
+    const v = WV[wv];
+    info.className = 'wvbox on';
+    info.style.borderLeftColor = lift(v.color);
+    info.innerHTML =
+      '<div class="t" style="color:' + lift(v.color) + '">' + v.label + '</div>' +
+      '<div class="p">' + v.period + '</div>' +
+      '<div class="d">' + v.desc + '</div>' +
+      '<div class="f">대표 인물 · ' + v.figures + '</div>' +
+      '<div class="q">' + v.quote + '</div>';
+  } else info.className = 'wvbox';
+
+  const list = EVENTS
+    .filter(e => (wv === 'all' || e.era === wv) && cats.has(e.cat))
+    .sort((a,b) => a.year - b.year);
+
+  $('stats').innerHTML = '<b>' + list.length + '</b>개 사건 · 전체 ' + EVENTS.length + '개';
+
+  const tl = $('timeline'); tl.innerHTML = '';
+  if (!list.length) { tl.innerHTML = '<div class="empty">고른 조건에 맞는 사건이 없습니다.</div>'; return; }
+
+  const eras = wv === 'all' ? ORDER : [wv];
+  eras.forEach(era => {
+    const evs = list.filter(e => e.era === era);
+    if (!evs.length) return;
+    const v = WV[era], c = lift(v.color);
+
+    const h = document.createElement('div');
+    h.className = 'era';
+    h.innerHTML = '<span class="nm" style="color:' + c + '">' + v.label + '</span>' +
+                  '<span class="pd">' + v.period + '</span>' +
+                  '<span class="ct">' + evs.length + '</span>';
+    tl.appendChild(h);
+
+    evs.forEach(ev => {
+      const cv = CAT[ev.cat];
+      const d = document.createElement('div');
+      d.className = 'card';
+      d.style.borderLeftColor = c;
+      const th = ev.th || {p:[],b:[],e:[]};
+      const nLine = th.p.length + th.e.length;
+      const showLine = thm !== 'off' && nLine > 0;
+      const showBand = thm === 'band' && th.b.length > 0;
+      if (showBand) d.classList.add('thband');
+      let badge = '';
+      if (showLine) badge = '<span class="thbadge">신학 ' + nLine + '</span>';
+      else if (showBand) badge = '<span class="thnote">띠 ' + th.b.length + '편</span>';
+      let panel = '';
+      if (showLine) {
+        let rows = '';
+        th.p.forEach(n => {
+          const key = String(n);
+          rows += '<div class="thitem"><span class="k">보관함 ' + key.padStart(3,'0') + '</span><span>' + (THEO.t[key] || '제목 미확인') + '</span></div>';
+        });
+        th.e.forEach(o => {
+          const ch = THEO.c[o.장번호] || {};
+          const abs = o.관계 === '불참';
+          rows += '<div class="thitem' + (abs ? ' absent' : '') + '"><span class="k">영토들 ' + o.장번호 + '</span><span>' + (ch.n || '') +
+                  (abs ? ' <span class="tag">불참</span>' : '') + '</span></div>';
+        });
+        panel = '<div class="thlist"><div class="h">이 사건에 닿는 신학</div>' + rows + '</div>';
+      }
+      d.innerHTML =
+        '<div class="meta">' +
+          '<span class="yr" style="color:' + c + '">' + ev.year + '</span>' +
+          '<span class="cat" style="color:' + lift(cv.color) + ';background:' + tint(cv.color) + '">' + cv.label + '</span>' +
+          badge +
+        '</div>' +
+        '<div class="ttl">' + ev.title + '</div>' +
+        '<div class="dsc">' + ev.desc + '</div>' + panel +
+        '<span class="arw">▼</span>';
+      tl.appendChild(d);
+    });
+  });
+}
+
+// 이벤트 위임
+document.getElementById('timeline').addEventListener('click', e => {
+  const c = e.target.closest('.card');
+  if (c) c.classList.toggle('open');
+});
+function toggleSheet(btnId, sheetId, otherId) {
+  const b = $(btnId), s = $(sheetId), o = $(otherId);
+  const open = !s.classList.contains('on');
+  s.classList.toggle('on', open);
+  b.setAttribute('aria-expanded', open ? 'true' : 'false');
+  o.classList.remove('on');
+  $(otherId === 'shWv' ? 'bWv' : 'bCat').setAttribute('aria-expanded','false');
+}
+$('bWv').onclick = () => toggleSheet('bWv','shWv','shCat');
+$('bCat').onclick = () => toggleSheet('bCat','shCat','shWv');
+document.querySelectorAll('[data-close]').forEach(b => {
+  b.onclick = () => {
+    const id = b.getAttribute('data-close');
+    $(id).classList.remove('on');
+    $(id === 'shWv' ? 'bWv' : 'bCat').setAttribute('aria-expanded','false');
+  };
+});
+if (window.matchMedia) {
+  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', render);
+}
+(function(){
+  const bTh = document.getElementById('bTh'), shTh = document.getElementById('shTh');
+  bTh.addEventListener('click', () => {
+    const on = shTh.classList.toggle('on');
+    bTh.setAttribute('aria-expanded', on ? 'true' : 'false');
+    ['shWv','shCat'].forEach(id => {
+      const s = document.getElementById(id); if (s) s.classList.remove('on');
+    });
+    ['bWv','bCat'].forEach(id => {
+      const b = document.getElementById(id); if (b) b.setAttribute('aria-expanded','false');
+    });
+  });
+  ['bWv','bCat'].forEach(id => {
+    const b = document.getElementById(id);
+    if (b) b.addEventListener('click', () => { shTh.classList.remove('on'); bTh.setAttribute('aria-expanded','false'); });
+  });
+  document.getElementById('thRow').addEventListener('click', e => {
+    const b = e.target.closest('button'); if (!b) return;
+    thm = b.dataset.m;
+    [...document.querySelectorAll('#thRow button')].forEach(x => x.classList.toggle('on', x.dataset.m === thm));
+    document.getElementById('vTh').textContent = b.textContent;
+    render();
+  });
+  const s = THEO.s;
+  document.getElementById('thStat').innerHTML =
+    '선이 닿는 사건 <b>' + s['선이_닿는_항목'] + '</b> / ' + s['타임라인'] + '<br>' +
+    '띠만 닿는 사건 <b>' + s['띠만_닿는_항목'] + '</b><br>' +
+    '어디에도 안 닿는 신학 <b>' + (s['보관함_미연결편'] + s['영토들_미연결장']) + '</b>편·장';
+  const pad = n => String(n).padStart(3,'0');
+  document.getElementById('appxUA').innerHTML = THEO.ua.map(o =>
+    '<li><span class="k">' + pad(o['번호']) + '</span><span>' + (o['제목'] || '제목 미확인') + '</span></li>').join('');
+  document.getElementById('appxUE').innerHTML = THEO.ue.map(o =>
+    '<li><span class="k">' + o['장번호'] + '</span><span>' + o['인물명'] + '</span></li>').join('');
+  const KIND = {A:'빈 해 — 그 연도에 항목이 하나도 없다', B:'찬 해 — 연도는 차 있고 이 사건만 없다', C:'본문에 연도 표기가 없다'};
+  let gh = '';
+  ['A','B','C'].forEach(k => {
+    const rows = THEO.g.filter(o => o.k === k);
+    if (!rows.length) return;
+    gh += '<div class="gapkind">' + KIND[k] + ' · ' + rows.length + '건</div>';
+    rows.forEach(o => {
+      let ex = o.ex.length ? '<br>그 해에 이미: ' + o.ex.join(' · ') : '';
+      if (o.gr === '기간') ex += '<br>기간 사건이라 한 해에 안 놓인다 — ' +
+        o.inner.map(v => v.y + (v.ex.length ? '(참)' : '(빔)')).join(' · ');
+      else if (o.gr === '일') ex += '<br>날짜까지 있는데 타임라인은 연 단위다';
+      gh += '<div class="gapitem"><div class="n">' + o.n + (o.gr ? ' <span class="gr">' + o.gr + '</span>' : '') +
+            '</div><div class="m">' + o.y + ' · ' + o.c + ex + '</div></div>';
+    });
+  });
+  document.getElementById('appxG').innerHTML = gh;
+})();
+
+render();
+</script>
+</body></html>
