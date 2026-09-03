@@ -31,6 +31,28 @@ body{font-family:'Noto Sans KR',sans-serif;background:var(--gray);color:var(--te
 
 
 
+
+/* ── 상단 고정 · 하단 배너 (2026-09-03 오너 지시) ── */
+.site-header{position:sticky;top:0;z-index:120}
+.main-tabs{position:sticky;top:var(--hdr-h,56px);z-index:119}
+.site-header{flex-wrap:nowrap}
+.site-header>div:first-child{min-width:0}          /* ★제목이 버튼을 밀어내지 않게 */
+.site-header h1{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.hdr-tc{margin-left:auto;flex:0 0 auto;background:rgba(255,255,255,.16);color:#fff;
+  border:1px solid rgba(255,255,255,.34);border-radius:20px;padding:7px 13px;
+  font-family:inherit;font-size:12px;font-weight:700;cursor:pointer;white-space:nowrap;
+  -webkit-tap-highlight-color:transparent}
+.hdr-tc:active{background:rgba(255,255,255,.3)}
+/* 하단 고정 배너 바 */
+#touch-bar{position:fixed;left:0;right:0;bottom:0;z-index:200;background:#fff;
+  border-top:1px solid #e8ede8;box-shadow:0 -2px 12px rgba(0,0,0,.07);
+  padding:9px 12px calc(9px + env(safe-area-inset-bottom,0px))}
+#touch-bar .tb-t{font-size:12.5px;font-weight:800;color:var(--primary);
+  text-align:center;margin-bottom:6px;line-height:1.45;word-break:keep-all}
+#touch-bar img{width:100%;max-width:560px;display:block;margin:0 auto;border-radius:8px}
+body{padding-bottom:0}
+@media (max-width:420px){.hdr-tc{font-size:11px;padding:6px 10px}.tc-long{display:none}}
+
 /* ── 사랑방 십계명 (2026-09-03 오너 지시) ── */
 .tc-list{list-style:none;margin:0;padding:0;counter-reset:tc}
 .tc-list li{display:flex;gap:11px;align-items:flex-start;padding:11px 2px;
@@ -415,7 +437,10 @@ textarea{resize:vertical;min-height:80px}
   .decision-cards,.ws-cards{grid-template-columns:1fr}
 }
 /* 가로 스크롤 차단 — 폰에서 화면이 밀리는 것을 막는다 */
-html,body{max-width:100%;overflow-x:hidden}
+/* ★2026-09-03 — body 에 overflow-x:hidden 이 있으면 자식의 position:sticky 가 죽는다.
+   가로 넘침은 html 에서만 막고 body 는 visible 로 둔다(상단 고정을 살리기 위해). */
+html{max-width:100%;overflow-x:clip}
+body{max-width:100%;overflow-x:visible}
 </style>
 </head>
 <body>
@@ -425,6 +450,8 @@ html,body{max-width:100%;overflow-x:hidden}
     <div class="logo">수영로교회</div>
     <h1>사랑방 4W 온라인 키트</h1>
   </div>
+  <!-- ★2026-09-03 오너 지시 — 십계명을 상단으로 -->
+  <button class="hdr-tc" onclick="tcOpen()">📜 <span class="tc-long">사랑방 </span>십계명</button>
 </header>
 
 <!-- ══ PWA 상단 영역: 저장 안내 · 공지 · 이번 주 자료 (사업국 2026-08-07) ══ -->
@@ -455,11 +482,11 @@ html,body{max-width:100%;overflow-x:hidden}
   <div id="pwa-week-slot"></div>
 </div>
 
-<div class="main-tabs">
+<div class="main-tabs" id="main-tabs">
   <div class="main-tab active" onclick="switchMain(0)">🏠 Welcome</div>
   <div class="main-tab" onclick="switchMain(1)">🎵 Worship</div>
   <div class="main-tab" onclick="switchMain(2)">📖 Word</div>
-  <div class="main-tab" onclick="switchMain(3)">🌱 Works</div>
+  <div class="main-tab" onclick="switchMain(3)">🌱 Work</div>
 </div>
 
 <!-- ═══════════════════════════════════════
@@ -2505,6 +2532,33 @@ filteredQ=[...QUESTIONS]; showQ();
 
 
 
+
+// ── 하단 고정 TOUCH 바 + 상단 고정 높이 계산 (2026-09-03 오너 지시) ──
+function renderTouchBar(w){
+  var bar=document.getElementById('touch-bar'); if(!bar)return;
+  if(!w || (!w.제목 && !w.요약 && !w.이미지)){ bar.hidden=true; bar.innerHTML=''; syncFixed(); return; }
+  var esc2=function(t){var d=document.createElement('div');d.textContent=t==null?'':String(t);return d.innerHTML;};
+  var html='';
+  if(w.제목||w.요약){
+    html+='<div class="tb-t">'+(w.제목?esc2(w.제목):'')+(w.제목&&w.요약?' · ':'')+(w.요약?esc2(w.요약):'')+'</div>';
+  }
+  if(w.이미지) html+='<img src="'+esc2(w.이미지)+'" alt="'+esc2(w.제목||'안내')+'" loading="lazy">';
+  bar.innerHTML=html; bar.hidden=false;
+  syncFixed();
+  var im=bar.querySelector('img');            // ★이미지가 늦게 뜨면 높이가 달라진다
+  if(im) im.addEventListener('load',syncFixed);
+}
+// ★고정 요소들의 실제 높이를 재서 본문이 가려지지 않게 한다 — 눈대중 상수 금지
+function syncFixed(){
+  var h=document.querySelector('.site-header'), bar=document.getElementById('touch-bar');
+  if(h) document.documentElement.style.setProperty('--hdr-h', h.offsetHeight+'px');
+  var bh=(bar && !bar.hidden) ? bar.offsetHeight : 0;
+  document.body.style.paddingBottom = bh+'px';
+}
+window.addEventListener('resize',syncFixed);
+window.addEventListener('load',syncFixed);
+setTimeout(syncFixed,300);
+
 // ── 사랑방 십계명 (2026-09-03 오너 지시) ──
 function tcOpen(){
   document.getElementById('ov-tc').classList.add('on');
@@ -3031,12 +3085,10 @@ function genPrayer(){
 }
 function copyPrayer(){navigator.clipboard.writeText(document.getElementById('prayer-result').textContent).then(()=>alert('복사됐어요!'));}
 </script>
-<nav style="position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px solid #e8ede8;display:flex;padding-bottom:env(safe-area-inset-bottom,0px);z-index:200;box-shadow:0 -2px 10px rgba(0,0,0,.05)">
-  <!-- ★2026-09-03 오너 지시 — 홈·4W키트는 같은 화면이라 뺐다. 십계명만 남긴다. -->
-  <button onclick="tcOpen()" style="flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;padding:9px 4px 11px;border:0;background:none;font-family:inherit;font-size:11px;font-weight:700;color:#1B4332;cursor:pointer">
-    <span style="font-size:19px;line-height:1">📜</span>사랑방 십계명
-  </button>
-</nav>
+<!-- ★하단 고정 바는 renderTouchBar 가 채운다 -->
+<div id="touch-bar" hidden></div>
+
+
 
 <!-- ══ 사랑방 십계명 (2026-09-03 오너 지시) ══ -->
 <div class="pwa-ov" id="ov-tc" onclick="tcClose()"></div>
@@ -3361,10 +3413,13 @@ function copyPrayer(){navigator.clipboard.writeText(document.getElementById('pra
     var ws = document.getElementById('pwa-week-slot');
     var w = currentWeek(c && c.주차자료);
     if (ws) {
-      if (w && (w.제목 || w.요약 || w.목자안내 || w.본문 || w.이미지)) {
+      // ★2026-09-03 오너 지시 — 이 카드는 하단 고정 바에 그린다
+      renderTouchBar(w);
+      ws.innerHTML = '';
+      if (false) {
         ws.innerHTML = '<div class="pwa-card pwa-week">' +
-          '<div class="meta">' + esc(w.주차 || '') + (w.기간 ? ' · ' + esc(w.기간) : '') +
-            (w.대외비 ? '<span class="pwa-badge-conf">대외비</span>' : '') + '</div>' +
+          // ★2026-09-03 오너 지시 — 주차·기간을 보이지 않는다
+          (w.대외비 ? '<div class="meta"><span class="pwa-badge-conf">대외비</span></div>' : '') +
           (w.제목 ? '<div class="t">📌 ' + esc(w.제목) + '</div>' : '') +
           (w.본문 ? '<div class="lead">본문 · ' + esc(w.본문) + '</div>' : '') +
           (w.요약 ? '<div>' + esc(w.요약) + '</div>' : '') +
