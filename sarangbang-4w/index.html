@@ -50,8 +50,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:var(--gray);color:var(--te
 #qfs-text.fade{opacity:0}
 #qfs-hint{position:absolute;bottom:calc(env(safe-area-inset-bottom,0px) + 24px);left:0;right:0;
      text-align:center;font-size:13px;opacity:.6;font-weight:600}
-#qfs-count{position:absolute;bottom:calc(env(safe-area-inset-bottom,0px) + 50px);left:0;right:0;
-     text-align:center;font-size:12px;opacity:.42;font-weight:700;letter-spacing:1px}
+/* #qfs-count 제거 — 전체 질문 수 비표시(2026-09-03 오너 지시) */
 @media(orientation:landscape){#qfs-body{padding:70px 52px}#qfs-text{font-size:clamp(28px,6.4vw,56px)}}
 
 /* ── 헤더 ── */
@@ -2589,15 +2588,14 @@ filteredQ=[...QUESTIONS]; showQ();
 var qfsOn=false;
 function qfsRender(){
   var t=document.getElementById('qfs-text');
-  if(!filteredQ||!filteredQ.length){t.textContent='이 분류에는 질문이 없어요.';
-    document.getElementById('qfs-count').textContent='';return;}
+  if(!filteredQ||!filteredQ.length){t.textContent='이 분류에는 질문이 없어요.';return;}
   t.classList.add('fade');
   setTimeout(function(){
     t.textContent=filteredQ[qIdx].q;
     qfsFit();
     t.classList.remove('fade');
     document.getElementById('qfs-cat').textContent=qCat==='전체'?'전체':filteredQ[qIdx].cat;
-    document.getElementById('qfs-count').textContent=(qIdx+1)+' / '+filteredQ.length;
+    // ★2026-09-03 오너 지시 — 전체 질문 수를 보이지 않는다
   },140);
 }
 // ★글자를 화면에 맞을 때까지만 줄인다 — 「큰 글자」를 최대한 살린다.
@@ -2626,15 +2624,34 @@ function qfsClose(e){
   document.body.style.overflow='';
   if(typeof showQ==='function') showQ();   // 뒤 화면도 같은 질문으로 맞춰 둔다
 }
+// ★랜덤 모드는 「섞은 순서」로 돈다 — 예측 불가하되 한 바퀴 안에서 중복이 없다.
+//   (2026-09-03 오너 지적: 랜덤으로 열었는데 그다음이 순서대로 넘어갔다)
+var qShuffle=null, qShufPos=0, qRandomMode=false;
+function qfsShuffle(){
+  var a=filteredQ.map(function(_,i){return i;});
+  for(var i=a.length-1;i>0;i--){            // Fisher-Yates
+    var j=Math.floor(Math.random()*(i+1));
+    var t=a[i];a[i]=a[j];a[j]=t;
+  }
+  if(a.length>1 && a[0]===qIdx){            // 방금 본 질문이 또 첫 장이 되지 않게
+    a[0]=a[1];a[1]=qIdx;
+  }
+  qShuffle=a; qShufPos=0;
+}
 function qfsNext(){
   if(!filteredQ||!filteredQ.length)return;
-  qIdx=(qIdx+1)%filteredQ.length;
+  if(qRandomMode){
+    if(!qShuffle||qShufPos>=qShuffle.length) qfsShuffle();
+    qIdx=qShuffle[qShufPos++];
+  }else{
+    qIdx=(qIdx+1)%filteredQ.length;         // 분류로 들어왔으면 순서대로
+  }
   qfsRender();
 }
 (function(){
   var _filterQ=window.filterQ, _randomQ=window.randomQ;
-  window.filterQ=function(cat,el){ _filterQ(cat,el); qfsOpen(); };
-  window.randomQ=function(){ _randomQ(); qfsOpen(); };
+  window.filterQ=function(cat,el){ _filterQ(cat,el); qRandomMode=false; qShuffle=null; qfsOpen(); };
+  window.randomQ=function(){ _randomQ(); qRandomMode=true; qfsShuffle(); qfsOpen(); };
   // ★이 스크립트는 #qfs 마크업보다 앞에서 실행된다 — document 위임으로 건다.
   document.addEventListener('click',function(ev){
     if(!qfsOn)return;
@@ -3597,8 +3614,7 @@ function copyPrayer(){navigator.clipboard.writeText(document.getElementById('pra
   <button id="qfs-back" onclick="qfsClose(event)">← 돌아가기</button>
   <div id="qfs-cat"></div>
   <div id="qfs-body"><div id="qfs-text"></div></div>
-  <div id="qfs-count"></div>
-  <div id="qfs-hint">화면을 누르면 다음 질문 →</div>
+    <div id="qfs-hint">화면을 누르면 다음 질문 →</div>
 </div>
 </body>
 </html>

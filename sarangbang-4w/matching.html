@@ -149,32 +149,7 @@
         <div class="verse">“너희가 여기 내 형제 중에 지극히 작은 자 하나에게 한 것이<br>곧 내게 한 것이니라” (마 25:40)</div>
         <p class="note">평소 나의 모습에 솔직하게 답해 주세요. 정답은 없습니다.</p>
       </div>
-      <button class="btn" onclick="goRegister()">시작하기</button>
-    </section>
-
-    <!-- REGISTER -->
-    <section class="screen" id="register">
-      <div class="hero" style="text-align:left;">
-        <div style="text-align:center;"><div class="emoji">✍️</div>
-        <h2 style="font-size:20px;">먼저 인적사항을<br>입력해 주세요</h2>
-        <p style="text-align:center;">검사 결과와 사역 매칭 내용을<br>담당 부서에서 확인할 수 있도록 기록됩니다.</p></div>
-        <div class="field">
-          <label>이름 <i>*</i></label>
-          <input id="fName" type="text" placeholder="홍길동" autocomplete="name" />
-        </div>
-        <div class="field">
-          <label>소속 (교구 · 부서 · 기관) <i>*</i></label>
-          <input id="fOrg" type="text" placeholder="예: 1교구 / 청년부 / ○○기관" />
-        </div>
-        <div class="field">
-          <label>연락처 <i>*</i></label>
-          <input id="fTel" type="tel" inputmode="numeric" placeholder="010-1234-5678" autocomplete="tel" />
-        </div>
-        <p class="errmsg" id="regErr"></p>
-        <p class="note" style="margin-top:6px;">입력하신 정보는 사역 연결 안내 목적으로만 사용됩니다.</p>
-      </div>
-      <button class="btn" onclick="startTest()">검사 시작하기</button>
-      <button class="btn ghost" onclick="show('intro')">← 돌아가기</button>
+      <button class="btn" onclick="start()">시작하기</button>
     </section>
 
     <!-- QUESTION -->
@@ -347,25 +322,14 @@ QUESTIONS.forEach(q=>q.g.forEach(k=>MAX[k]++));
 
 // ===== 상태 =====
 let idx=0;
-let userInfo={name:"",org:"",tel:""};
+// ★2026-09-03 오너 지시 — 이름·소속·연락처를 받지 않는다(입력 화면 제거).
 const answers=new Array(QUESTIONS.length).fill(-1);
 const $=id=>document.getElementById(id);
 function show(id){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));$(id).classList.add('active');window.scrollTo(0,0);}
 
-function goRegister(){
+function _goRegister_removed(){
   $('regErr').textContent='';
   show('register');
-}
-
-function startTest(){
-  const name=$('fName').value.trim();
-  const org=$('fOrg').value.trim();
-  const tel=$('fTel').value.trim();
-  if(!name){ $('regErr').textContent='이름을 입력해 주세요.'; $('fName').focus(); return; }
-  if(!org){ $('regErr').textContent='소속(교구·부서·기관)을 입력해 주세요.'; $('fOrg').focus(); return; }
-  if(!tel){ $('regErr').textContent='연락처를 입력해 주세요.'; $('fTel').focus(); return; }
-  userInfo={name,org,tel};
-  start();
 }
 
 function start(){idx=0;answers.fill(-1);render();show('quiz');}
@@ -440,9 +404,6 @@ function finish(){
   const answerStr=answers.map(a=>a===1?'Y':a===0?'N':'-').join('');
   saveResult({
     timestamp:new Date().toLocaleString('ko-KR'),
-    name:userInfo.name,
-    org:userInfo.org,
-    tel:userInfo.tel,
     type:T.title,
     typeArea:T.area,
     secondType:TYPES[second].title,
@@ -457,7 +418,7 @@ function saveResult(data){
   const note=$('saveNote');
   if(!SHEET_ENDPOINT){
     note.className='saveNote ok';
-    note.innerHTML=`✅ <b>${data.name}</b>님, 검사가 완료되었습니다.`;
+    note.innerHTML='✅ 검사가 완료되었습니다.';
     return;
   }
   note.className='saveNote send';
@@ -469,7 +430,7 @@ function saveResult(data){
     body:JSON.stringify(data)
   }).then(()=>{
     note.className='saveNote ok';
-    note.innerHTML=`✅ <b>${data.name}</b>님의 결과가 저장되었습니다.`;
+    note.innerHTML='✅ 결과가 저장되었습니다.';
   }).catch(()=>{
     note.className='saveNote fail';
     note.innerHTML='⚠️ 저장에 실패했습니다. 결과는 화면에서 확인하실 수 있어요.';
@@ -478,8 +439,8 @@ function saveResult(data){
 
 function restart(){
   answers.fill(-1);idx=0;$('bar').style.width='0%';
-  $('fName').value='';$('fOrg').value='';$('fTel').value='';
-  userInfo={name:"",org:"",tel:""};
+  // 입력 화면 없음(2026-09-03)
+  // 개인정보 보관 없음
   show('intro');
 }
 
