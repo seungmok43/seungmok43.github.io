@@ -79,7 +79,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:var(--gray);color:var(--te
 /* ★기본을 크게 잡고 qfsFit() 이 넘칠 때만 줄인다 — 짧은 질문은 아주 크게 보인다 */
 #qfs-text{font-size:clamp(34px,11.5vw,68px);font-weight:800;line-height:1.34;
      word-break:keep-all;overflow-wrap:break-word;max-width:100%;min-width:0;
-     text-shadow:0 2px 14px rgba(0,0,0,.2);transition:opacity .16s}
+     text-shadow:0 2px 14px rgba(0,0,0,.2);transition:opacity .13s linear;will-change:opacity}
 #qfs-text.fade{opacity:0}
 #qfs-hint{position:absolute;bottom:calc(env(safe-area-inset-bottom,0px) + 24px);left:0;right:0;
      text-align:center;font-size:13px;opacity:.6;font-weight:600}
@@ -996,7 +996,13 @@ html,body{max-width:100%;overflow-x:hidden}
     'p-decision':1, 'p-members':1, 'p-prayer1':1, 'p-prayer2':1,
     'p-room':1, 'p-verse':1, 'p-vip':1,
     'prayer-btns':1, 'prayer-result':1, 'prev-decisions':1,
-    'stamp-grid':1, 'stamp-name':1
+    'stamp-grid':1, 'stamp-name':1,
+    // ★2026-09-03 심플화로 빠진 UI — 지운 패널의 id 를 JS 가 계속 찾다가
+    //   최상위에서 TypeError 를 던지면 그 아래 코드가 통째로 죽는다(웰컴사랑방 실종 사고).
+    'past-decisions':1, 'vip-cards':1, 'decision-cards':1, 'toast-msg':1,
+    'weather-result':1, 'weather-reason':1,
+    'dc-verse':1, 'dc-decision':1, 'dc-prayer':1,
+    'pwa-ver':1, 'pwa-src':1, 'pwa-install-btn':1
   };
   var realGet = Document.prototype.getElementById;
   var sink = null;
@@ -2567,17 +2573,25 @@ document.addEventListener('keydown',function(ev){
 // ── 전체화면 질문 모드 (2026-09-03 오너 지시 · 목자 모바일용) ──
 // ★기존 filterQ/randomQ/nextQ 를 지우지 않고 감싼다.
 var qfsOn=false;
+// ★겹침 방지 (2026-09-03 오너 지적)
+//   ⓐ 페이드아웃(.13s)이 끝난 뒤에 글자를 바꾼다 — 전에는 140ms 에 바꿔 옛 글자와 겹쳤다
+//   ⓑ 빠르게 연타하면 타이머가 여러 개 겹쳐 돌던 것을 clearTimeout 으로 막는다
+//   ⓒ 크기 조절(qfsFit)까지 끝나 레이아웃이 확정된 다음 프레임에 페이드인한다
+var qfsTimer=null;
 function qfsRender(){
   var t=document.getElementById('qfs-text');
   if(!filteredQ||!filteredQ.length){t.textContent='이 분류에는 질문이 없어요.';return;}
+  if(qfsTimer){clearTimeout(qfsTimer);qfsTimer=null;}
   t.classList.add('fade');
-  setTimeout(function(){
+  qfsTimer=setTimeout(function(){
+    qfsTimer=null;
     t.textContent=filteredQ[qIdx].q;
-    qfsFit();
-    t.classList.remove('fade');
+    qfsFit();                                  // ★투명한 동안 크기를 맞춘다(튐 방지)
     document.getElementById('qfs-cat').textContent=qCat==='전체'?'전체':filteredQ[qIdx].cat;
-    // ★2026-09-03 오너 지시 — 전체 질문 수를 보이지 않는다
-  },140);
+    requestAnimationFrame(function(){          // 레이아웃 확정 후
+      requestAnimationFrame(function(){ t.classList.remove('fade'); });
+    });
+  },170);                                      // ⛔전환 130ms + 여유 40ms
 }
 // ★글자를 화면에 맞을 때까지만 줄인다 — 「큰 글자」를 최대한 살린다.
 function qfsFit(){
@@ -2932,30 +2946,6 @@ function prevPhase(){clearInterval(phaseInt);phaseRunning=false;document.getElem
 function nextPhase(){clearInterval(phaseInt);phaseRunning=false;document.getElementById('timer-play-btn').textContent='▶ 시작';totalElapsed+=phaseLeft;if(phaseIdx<PHASES.length-1)setPhase(phaseIdx+1);}
 function jumpPhase(i){clearInterval(phaseInt);phaseRunning=false;document.getElementById('timer-play-btn').textContent='▶ 시작';totalElapsed=PHASES.slice(0,i).reduce((a,p)=>a+p.duration*60,0);setPhase(i);}
 setPhase(0);
-
-// ── 결단 카드(Word) ─────────────────────────────────────
-function saveDecisionCard(){
-  const v=document.getElementById('dc-verse').value;
-  const d=document.getElementById('dc-decision').value;
-  const p=document.getElementById('dc-prayer').value;
-  if(!d){alert('결단을 입력해주세요.');return;}
-  const list=JSON.parse(localStorage.getItem('sarangbang_word_decisions')||'[]');
-  list.unshift({date:new Date().toISOString().slice(0,10),verse:v,decision:d,prayer:p});
-  localStorage.setItem('sarangbang_word_decisions',JSON.stringify(list.slice(0,16)));
-  alert('저장됐어요!');renderPastDecisions();
-}
-function copyDecisionCard(){
-  const v=document.getElementById('dc-verse').value;
-  const d=document.getElementById('dc-decision').value;
-  const p=document.getElementById('dc-prayer').value;
-  navigator.clipboard.writeText(`[이번 주 결단]\n본문: ${v}\n결단: ${d}\n기도: ${p}`).then(()=>alert('복사됐어요!'));
-}
-function renderPastDecisions(){
-  const list=JSON.parse(localStorage.getItem('sarangbang_word_decisions')||'[]');
-  if(!list.length){document.getElementById('past-decisions').innerHTML='<div class="empty-state">저장된 결단이 없어요.</div>';return;}
-  document.getElementById('past-decisions').innerHTML=list.map(i=>`<div class="card" style="background:var(--light);margin-bottom:8px"><div style="font-size:11px;color:var(--sub);margin-bottom:4px">${i.date}</div><div style="font-size:13px;font-weight:700;color:var(--primary);margin-bottom:4px">📖 ${i.verse||'(본문 없음)'}</div><div style="font-size:13px;margin-bottom:4px">✊ ${i.decision}</div><div style="font-size:12px;color:var(--sub)">🙏 ${i.prayer||''}</div></div>`).join('');
-}
-renderPastDecisions();
 
 // ── Works: 결단 공유 ───────────────────────────────────
 const D_COLORS=['#2D6A4F','#40916C','#52B788','#1B4332','#74C69D'];
