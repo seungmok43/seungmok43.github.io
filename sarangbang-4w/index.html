@@ -266,15 +266,6 @@ textarea{resize:vertical;min-height:80px}
 .d-colors:nth-child(4n){background:#1B4332}
 
 /* VIP */
-.vip-modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:200;align-items:center;justify-content:center;padding:20px}
-.vip-modal.open{display:flex}
-.vip-modal-box{background:#fff;border-radius:16px;padding:20px;width:100%;max-width:400px;max-height:90vh;overflow-y:auto}
-.vip-cards-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:10px}
-.vip-card{background:#fff;border-radius:12px;border:1.5px solid var(--gray2);padding:14px;position:relative}
-.vip-card-name{font-size:15px;font-weight:700;color:var(--primary);margin-bottom:2px}
-.vip-card-rel{font-size:11px;color:var(--sub);margin-bottom:6px}
-.vip-card-note{font-size:12px;color:var(--text);line-height:1.4;margin-bottom:10px}
-.vip-card-footer{display:flex;align-items:center;justify-content:space-between}
 .vip-count{font-size:11px;color:var(--sub)}
 .vip-del{font-size:13px;cursor:pointer;color:var(--sub);opacity:.7}
 
@@ -948,22 +939,6 @@ html,body{max-width:100%;overflow-x:hidden}
 </div><!-- /panel-3 -->
 
 <!-- VIP 모달 -->
-<div class="vip-modal" id="vip-modal">
-  <div class="vip-modal-box">
-    <h3 style="font-size:15px;font-weight:700;color:var(--primary);margin-bottom:14px">🙏 VIP 추가</h3>
-    <div class="field"><label class="field-label">이름</label><input type="text" id="vip-name-in" placeholder="전도 대상자 이름"/></div>
-    <div class="field"><label class="field-label">관계</label>
-      <select id="vip-rel-in">
-        <option>가족</option><option>친구</option><option>직장동료</option><option>이웃</option><option>기타</option>
-      </select>
-    </div>
-    <div class="field"><label class="field-label">기도 제목</label><textarea id="vip-note-in" placeholder="이 분을 위한 기도 제목을 적어주세요."></textarea></div>
-    <div class="btn-row">
-      <button class="btn btn-primary" onclick="addVip()">추가</button>
-      <button class="btn btn-outline" onclick="closeVipModal()">취소</button>
-    </div>
-  </div>
-</div>
 
 <script>
 /* ★★ 호환 shim — 원본의 치명적 결함 우회 (사업국 2026-08-07)
@@ -2983,26 +2958,6 @@ function delDecision(id){
 let prevDOpen=false;
 function togglePrevD(){prevDOpen=!prevDOpen;document.getElementById('prev-decisions').classList.toggle('show',prevDOpen);}
 loadDecisions();
-
-// ── Works: VIP ─────────────────────────────────────────
-function loadVips(){
-  const list=JSON.parse(localStorage.getItem('sarangbang_vip')||'[]');
-  document.getElementById('vip-cards').innerHTML=list.length?list.map((v,i)=>`<div class="vip-card"><div class="vip-card-name">${v.name}</div><div class="vip-card-rel">${v.relation}</div><div class="vip-card-note">${v.note||''}</div><div class="vip-card-footer"><span class="vip-count">🙏 총 ${v.prayers||0}회 기도</span><span class="vip-del" onclick="delVip(${i})">🗑</span></div><button class="btn btn-accent btn-sm" style="width:100%;margin-top:8px" onclick="prayVip(${i})">기도했어요 🙏</button></div>`).join(''):'<div class="empty-state">VIP를 추가해주세요.</div>';
-}
-function openVipModal(){document.getElementById('vip-modal').classList.add('open');}
-function closeVipModal(){document.getElementById('vip-modal').classList.remove('open');}
-function addVip(){
-  const name=document.getElementById('vip-name-in').value.trim();
-  if(!name)return;
-  const list=JSON.parse(localStorage.getItem('sarangbang_vip')||'[]');
-  list.push({name,relation:document.getElementById('vip-rel-in').value,note:document.getElementById('vip-note-in').value,prayers:0,date:new Date().toISOString().slice(0,10)});
-  localStorage.setItem('sarangbang_vip',JSON.stringify(list));
-  document.getElementById('vip-name-in').value='';document.getElementById('vip-note-in').value='';
-  closeVipModal();loadVips();
-}
-function prayVip(i){const list=JSON.parse(localStorage.getItem('sarangbang_vip')||'[]');list[i].prayers=(list[i].prayers||0)+1;localStorage.setItem('sarangbang_vip',JSON.stringify(list));loadVips();}
-function delVip(i){const list=JSON.parse(localStorage.getItem('sarangbang_vip')||'[]');list.splice(i,1);localStorage.setItem('sarangbang_vip',JSON.stringify(list));loadVips();}
-loadVips();
 
 // ── Works: 웰컴사랑방 ──────────────────────────────────
 document.getElementById('lang-cards').innerHTML=LANG_MISSIONS.map(m=>`<div class="ws-card"><span class="ws-icon">${m.flag}</span><div class="ws-name">${m.name}</div><div class="ws-desc">${m.desc}</div><a class="ws-link" href="tel:051-780-0114">연결 문의 →</a></div>`).join('');
