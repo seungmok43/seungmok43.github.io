@@ -52,12 +52,52 @@ body{font-family:'Noto Sans KR',sans-serif;background:var(--gray);color:var(--te
 #touch-bar{position:fixed;left:0;right:0;bottom:0;z-index:200;background:#fff;
   border-top:1px solid #e8ede8;box-shadow:0 -2px 12px rgba(0,0,0,.07);
   padding:9px 12px calc(9px + env(safe-area-inset-bottom,0px))}
-#touch-bar .tb-t{font-size:12.5px;font-weight:800;color:var(--primary);
-  text-align:center;margin-bottom:6px;line-height:1.45;word-break:keep-all}
-#touch-bar img{width:100%;max-width:560px;display:block;margin:0 auto;border-radius:8px}
+#touch-bar{padding:7px 10px calc(7px + env(safe-area-inset-bottom,0px))}
+#touch-bar img{width:100%;max-width:560px;display:block;margin:0 auto;border-radius:8px;
+  cursor:pointer;-webkit-tap-highlight-color:transparent;transition:transform .12s}
+#touch-bar img:active{transform:scale(.985)}
 body{padding-bottom:0}
 @media (max-width:420px){.hdr-tc{font-size:11px;padding:6px 9px}}
 @media (max-width:360px){.hdr-tc{font-size:10.5px;padding:5px 8px}}
+
+
+/* ── 사랑방 전도축제 안내 (2026-09-03 오너 지시) ── */
+#fsfs{position:fixed;inset:0;z-index:9997;display:none;background:#FDF8F2;flex-direction:column}
+#fsfs.on{display:flex}
+#fsfs-bar{flex:0 0 auto;display:flex;align-items:center;gap:10px;
+  padding:calc(env(safe-area-inset-top,0px) + 10px) 14px 10px;
+  background:linear-gradient(135deg,#B5643C,#D89B6A);color:#fff}
+#fsfs-bar button{background:rgba(255,255,255,.18);color:#fff;border:1px solid rgba(255,255,255,.34);
+  border-radius:20px;padding:9px 16px;font-size:14px;font-weight:700;cursor:pointer;font-family:inherit;
+  -webkit-tap-highlight-color:transparent}
+#fsfs-bar button:active{background:rgba(255,255,255,.32)}
+#fsfs-bar .t{font-size:15px;font-weight:800}
+#fsfs-body{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;
+  padding:0 0 calc(env(safe-area-inset-bottom,0px) + 28px)}
+.fs-hero{width:100%;display:block}
+.fs-lead{padding:20px 20px 4px;text-align:center}
+.fs-slogan{font-size:23px;font-weight:800;color:#A8542F;margin-bottom:10px;letter-spacing:-.4px}
+.fs-lead p{font-size:14.5px;line-height:1.85;color:#4A3B31;word-break:keep-all}
+.fs-when{margin-top:14px;display:inline-block;background:#fff;border:1px solid #E4CDBA;
+  border-radius:22px;padding:7px 16px;font-size:13.5px;font-weight:800;color:#A8542F}
+.fs-when span{font-size:10px;vertical-align:super;margin-left:1px;opacity:.75}
+.fs-sec{margin:24px 20px 10px;font-size:12px;font-weight:800;color:#A8542F;letter-spacing:.6px}
+.fs-step{margin:0 16px 12px;background:#fff;border:1px solid #EEDFD1;border-radius:14px;padding:14px 15px}
+.fs-week{font-size:12.5px;font-weight:800;color:#B5643C;margin-bottom:11px;
+  padding-bottom:8px;border-bottom:1px dashed #EEDFD1}
+.fs-row{display:flex;gap:12px;align-items:flex-start;padding:8px 0}
+.fs-en{flex:0 0 88px;font-size:13px;font-weight:800;color:#A8542F;letter-spacing:.5px;padding-top:1px}
+.fs-row b{font-size:14.5px;color:#3A2E26}
+.fs-d{font-size:12.5px;color:#7A6A5E;line-height:1.65;word-break:keep-all}
+.fs-note{margin:0 16px;background:#fff;border:1px solid #EEDFD1;border-radius:14px;padding:15px}
+.fs-note p{font-size:13.5px;line-height:1.85;color:#4A3B31;word-break:keep-all}
+.fs-note p+p{margin-top:10px}
+.fs-do{margin:0 16px;padding:4px 0 0 0;list-style:none}
+.fs-do li{background:#fff;border:1px solid #EEDFD1;border-radius:12px;padding:12px 14px;margin-bottom:8px;
+  font-size:13.5px;line-height:1.7;color:#4A3B31;word-break:keep-all}
+.fs-verse{margin:22px 20px 0;text-align:center;font-size:13px;line-height:1.9;color:#7A6A5E;word-break:keep-all}
+.fs-verse span{display:block;margin-top:7px;font-size:11.5px;font-weight:800;color:#A8542F}
+@media(min-width:560px){.fs-hero{max-width:560px;margin:0 auto}}
 
 /* ── 사랑방 십계명 (2026-09-03 오너 지시) ── */
 .tc-list{list-style:none;margin:0;padding:0;counter-reset:tc}
@@ -2550,11 +2590,10 @@ function renderTouchBar(w){
   var bar=document.getElementById('touch-bar'); if(!bar)return;
   if(!w || (!w.제목 && !w.요약 && !w.이미지)){ bar.hidden=true; bar.innerHTML=''; syncFixed(); return; }
   var esc2=function(t){var d=document.createElement('div');d.textContent=t==null?'':String(t);return d.innerHTML;};
+  // ★2026-09-03 오너 지시 — 글자는 빼고 이미지만. 누르면 축제 안내가 열린다.
   var html='';
-  if(w.제목||w.요약){
-    html+='<div class="tb-t">'+(w.제목?esc2(w.제목):'')+(w.제목&&w.요약?' · ':'')+(w.요약?esc2(w.요약):'')+'</div>';
-  }
-  if(w.이미지) html+='<img src="'+esc2(w.이미지)+'" alt="'+esc2(w.제목||'안내')+'" loading="lazy">';
+  if(w.이미지) html+='<img src="'+esc2(w.이미지)+'" alt="'+esc2(w.제목||'사랑방 전도축제 안내')+'" '+
+                    'role="button" tabindex="0" onclick="fsOpen()" loading="lazy">';
   bar.innerHTML=html; bar.hidden=false;
   syncFixed();
   var im=bar.querySelector('img');            // ★이미지가 늦게 뜨면 높이가 달라진다
@@ -2570,6 +2609,21 @@ function syncFixed(){
 window.addEventListener('resize',syncFixed);
 window.addEventListener('load',syncFixed);
 setTimeout(syncFixed,300);
+
+
+// ── 사랑방 전도축제 안내 (2026-09-03 오너 지시) ──
+function fsOpen(){
+  document.getElementById('fsfs').classList.add('on');
+  document.getElementById('fsfs-body').scrollTop=0;
+  document.body.style.overflow='hidden';
+}
+function fsClose(){
+  document.getElementById('fsfs').classList.remove('on');
+  document.body.style.overflow='';
+}
+document.addEventListener('keydown',function(e){
+  if(e.key==='Escape'&&document.getElementById('fsfs').classList.contains('on')) fsClose();
+});
 
 // ── 사랑방 십계명 (2026-09-03 오너 지시) ──
 function tcOpen(){
@@ -3592,6 +3646,70 @@ function copyPrayer(){navigator.clipboard.writeText(document.getElementById('pra
 <!-- 푸터: 자료 버전 -->
 <div class="pwa-foot" id="pwa-foot">
   <div>made by 2026 사랑방영역</div>
+</div>
+
+<!-- ══ 사랑방 전도축제 안내 (2026-09-03 오너 지시) ══
+     ⛔출처: 배너 실물(2026-09-01) + 기획안 「기획_사랑방전도축제_터치_20260807」 4판.
+        배너에 없는 날짜·수치는 싣지 않았다. -->
+<div id="fsfs" role="dialog" aria-modal="true" aria-label="사랑방 전도축제 터치">
+  <div id="fsfs-bar">
+    <button onclick="fsClose()">← 돌아가기</button>
+    <span class="t">사랑방전도축제 터치</span>
+  </div>
+  <div id="fsfs-body">
+    <img class="fs-hero" src="./img/touch-banner.jpg" alt="사랑방전도축제 터치 T.O.U.C.H">
+
+    <div class="fs-lead">
+      <div class="fs-slogan">먼저 닿겠습니다</div>
+      <p>하루에도 수없이 화면을 <b>터치</b>하지만, 정작 사람에게 닿은 적은 없습니다.<br>
+         <b>하나님이 언제나 먼저 닿으셨습니다.</b> 그 걸음을 우리가 잇습니다.</p>
+      <div class="fs-when">2026. 9. 13.<span>일</span> — 10. 18.<span>일</span></div>
+    </div>
+
+    <div class="fs-sec">T·O·U·C·H — 다섯 글자가 곧 순서입니다</div>
+
+    <div class="fs-step">
+      <div class="fs-week">기도작정 주간 · 9.13 – 9.26</div>
+      <div class="fs-row"><span class="fs-en">TAKE</span>
+        <div><b>한 사람을 품다</b><br><span class="fs-d">마음에 한 사람을 품고 이름을 적고 기도합니다.</span></div></div>
+      <div class="fs-row"><span class="fs-en">OPEN</span>
+        <div><b>나의 시간과 공간을 열다</b><br><span class="fs-d">초청 날짜와 장소를 적고 기도합니다.</span></div></div>
+    </div>
+
+    <div class="fs-step">
+      <div class="fs-week">만남섬김 주간 · 9.27 – 10.3</div>
+      <div class="fs-row"><span class="fs-en">UNDERSTAND</span>
+        <div><b>그의 필요를 이해하다</b><br><span class="fs-d">얼굴을 마주하고 그의 필요를 듣습니다.</span></div></div>
+    </div>
+
+    <div class="fs-step">
+      <div class="fs-week">초청등록 주간 · 10.4 – 10.18</div>
+      <div class="fs-row"><span class="fs-en">COME</span>
+        <div><b>함께 오다</b><br><span class="fs-d">초대하여 필요를 채우고 복음을 전합니다.</span></div></div>
+      <div class="fs-row"><span class="fs-en">HOME</span>
+        <div><b>주님의 집으로</b><br><span class="fs-d">교회에 등록합니다.</span></div></div>
+    </div>
+
+    <div class="fs-sec">이번 축제가 바꾼 한 가지</div>
+    <div class="fs-note">
+      <p>지난 축제에서 가장 많이 사라진 자리는 <b>「초대하는 순간」</b>이었습니다.
+         마음에 품고 기도까지 했는데, <b>말을 꺼내지 못한 채</b> 축제가 끝났습니다.</p>
+      <p>그래서 순서를 바꿨습니다. <b>접촉이 다 끝난 뒤에 초대하는 것이 아니라,
+         날짜를 먼저 못박고 그 날짜로 초대한 다음 만나 갑니다.</b>
+         자리가 먼저 열려 있어야 초대할 수 있기 때문입니다.</p>
+    </div>
+
+    <div class="fs-sec">목자님께</div>
+    <ul class="fs-do">
+      <li><b>한 사람</b>을 정하십시오. 여럿이 아니라 한 사람입니다.</li>
+      <li><b>날짜를 먼저 정하십시오.</b> 「언제 한번」은 오지 않습니다.</li>
+      <li><b>초대의 말을 꺼내십시오.</b> 여기서 가장 많이 멈춥니다.</li>
+      <li>거절당해도 <b>관계를 닫지 마십시오.</b> 이번이 마지막이 아닙니다.</li>
+      <li>이 앱 <b>Works &gt; VIP를 위한 기도</b>에 함께 드릴 기도문이 있습니다.</li>
+    </ul>
+
+    <div class="fs-verse">“너희가 여기 내 형제 중에 지극히 작은 자 하나에게 한 것이<br>곧 내게 한 것이니라” <span>마태복음 25:40</span></div>
+  </div>
 </div>
 
 <!-- ══ 설문 전체화면 (2026-09-03 오너 지시) ══ -->
