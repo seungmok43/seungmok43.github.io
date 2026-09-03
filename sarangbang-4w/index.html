@@ -33,8 +33,13 @@ body{font-family:'Noto Sans KR',sans-serif;background:var(--gray);color:var(--te
 
 
 /* ── 상단 고정 · 하단 배너 (2026-09-03 오너 지시) ── */
-.site-header{position:sticky;top:0;z-index:120}
-.main-tabs{position:sticky;top:var(--hdr-h,56px);z-index:119}
+/* ★2026-09-03 — 헤더와 탭을 따로 sticky 로 붙이면 서브픽셀 때문에 사이에 실틈이 보인다.
+   한 덩어리(#topbar)로 묶어 통째로 고정하면 틈이 생길 수 없다. */
+#topbar{position:sticky;top:0;z-index:120;background:var(--primary)}
+.site-header{position:static;top:auto;z-index:auto}
+.main-tabs{position:static;top:auto;z-index:auto}
+#topbar .site-header{margin:0}
+#topbar .main-tabs{margin:0}
 .site-header{flex-wrap:nowrap}
 .site-header>div:first-child{min-width:0}          /* ★제목이 버튼을 밀어내지 않게 */
 .site-header h1{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
@@ -51,7 +56,8 @@ body{font-family:'Noto Sans KR',sans-serif;background:var(--gray);color:var(--te
   text-align:center;margin-bottom:6px;line-height:1.45;word-break:keep-all}
 #touch-bar img{width:100%;max-width:560px;display:block;margin:0 auto;border-radius:8px}
 body{padding-bottom:0}
-@media (max-width:420px){.hdr-tc{font-size:11px;padding:6px 10px}.tc-long{display:none}}
+@media (max-width:420px){.hdr-tc{font-size:11px;padding:6px 9px}}
+@media (max-width:360px){.hdr-tc{font-size:10.5px;padding:5px 8px}}
 
 /* ── 사랑방 십계명 (2026-09-03 오너 지시) ── */
 .tc-list{list-style:none;margin:0;padding:0;counter-reset:tc}
@@ -109,7 +115,7 @@ body{padding-bottom:0}
 @media(orientation:landscape){#qfs-body{padding:70px 52px}#qfs-text{font-size:clamp(28px,6.4vw,56px)}}
 
 /* ── 헤더 ── */
-.site-header{background:var(--primary);color:#fff;padding:14px 20px;display:flex;align-items:center;gap:12px;position:sticky;top:0;z-index:100}
+.site-header{background:var(--primary);color:#fff;padding:14px 20px;display:flex;align-items:center;gap:12px}
 .site-header .logo{font-size:11px;opacity:.7;letter-spacing:1px}
 .site-header h1{font-size:17px;font-weight:800}
 .back-btn{margin-left:auto;font-size:12px;color:#fff;opacity:.8;text-decoration:none;border:1px solid rgba(255,255,255,.3);padding:4px 10px;border-radius:20px}
@@ -349,7 +355,11 @@ textarea{resize:vertical;min-height:80px}
 .bottom-nav-pwa{padding-bottom:env(safe-area-inset-bottom,0)}
 
 /* ── 상단 알림·자료 영역 ── */
-.pwa-strip{padding:12px 16px 0;display:flex;flex-direction:column;gap:10px}
+/* ★2026-09-03 — 안내 배너를 숨겨 내용이 없어도 padding 때문에 22px 빈 띠가 남아
+   헤더와 탭 사이에 틈으로 보였다. 내용이 있을 때만 여백을 준다. */
+.pwa-strip{padding:0;display:flex;flex-direction:column;gap:0}
+.pwa-strip:has(> :not([style*="display:none"]):not(:empty)){padding:12px 16px 0;gap:10px}
+.pwa-strip:empty{display:none}
 .pwa-card{border-radius:12px;padding:12px 14px;font-size:13px;line-height:1.6}
 .pwa-card .t{font-weight:800;font-size:13.5px;margin-bottom:3px;display:flex;align-items:center;gap:6px}
 .pwa-card .x{margin-left:auto;background:none;border:none;font-size:15px;opacity:.5;cursor:pointer;padding:0 2px;line-height:1;color:inherit}
@@ -445,13 +455,14 @@ body{max-width:100%;overflow-x:visible}
 </head>
 <body>
 
+<div id="topbar">
 <header class="site-header">
   <div>
     <div class="logo">수영로교회</div>
     <h1>사랑방 4W 온라인 키트</h1>
   </div>
   <!-- ★2026-09-03 오너 지시 — 십계명을 상단으로 -->
-  <button class="hdr-tc" onclick="tcOpen()">📜 <span class="tc-long">사랑방 </span>십계명</button>
+  <button class="hdr-tc" onclick="tcOpen()">📜 사랑방 십계명</button>
 </header>
 
 <!-- ══ PWA 상단 영역: 저장 안내 · 공지 · 이번 주 자료 (사업국 2026-08-07) ══ -->
@@ -488,6 +499,7 @@ body{max-width:100%;overflow-x:visible}
   <div class="main-tab" onclick="switchMain(2)">📖 Word</div>
   <div class="main-tab" onclick="switchMain(3)">🌱 Work</div>
 </div>
+</div><!-- /topbar -->
 
 <!-- ═══════════════════════════════════════
      TAB 1: WELCOME
