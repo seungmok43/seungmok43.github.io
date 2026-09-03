@@ -29,6 +29,19 @@
 body{font-family:'Noto Sans KR',sans-serif;background:var(--gray);color:var(--text);min-height:100vh}
 
 
+/* ── 설문 전체화면 (2026-09-03 오너 지시 — 이중 스크롤 해소) ── */
+#msfs{position:fixed;inset:0;z-index:9998;display:none;background:#fbf4f1;flex-direction:column}
+#msfs.on{display:flex}
+#msfs-bar{flex:0 0 auto;display:flex;align-items:center;gap:10px;
+     padding:calc(env(safe-area-inset-top,0px) + 10px) 14px 10px;
+     background:linear-gradient(135deg,#c4503b,#e08a72);color:#fff}
+#msfs-bar button{background:rgba(255,255,255,.18);color:#fff;border:1px solid rgba(255,255,255,.34);
+     border-radius:20px;padding:9px 16px;font-size:14px;font-weight:700;cursor:pointer;
+     font-family:inherit;-webkit-tap-highlight-color:transparent}
+#msfs-bar button:active{background:rgba(255,255,255,.32)}
+#msfs-bar .t{font-size:15px;font-weight:800}
+#msfs iframe{flex:1;width:100%;border:0;background:#fbf4f1}
+
 /* ── 전체화면 질문 모드 (2026-09-03 오너 지시 · 목자 모바일용) ── */
 #qfs{position:fixed;inset:0;z-index:9999;display:none;background:linear-gradient(160deg,var(--primary),var(--secondary));
      color:#fff;flex-direction:column;-webkit-user-select:none;user-select:none;touch-action:manipulation}
@@ -1001,8 +1014,15 @@ html,body{max-width:100%;overflow-x:hidden}
       </div>
     </div>
     <div style="padding:0 16px 16px">
-      <iframe src="./matching.html" title="긍휼 사역 매칭 설문" loading="lazy"
-              style="width:100%;height:calc(100vh - 250px);min-height:420px;border:1.5px solid #eadfd9;border-radius:12px;background:#fbf4f1"></iframe>
+      <!-- ★2026-09-03 오너 지시 — 칸 안 스크롤이 불편해 전체화면으로 연다 -->
+      <button onclick="msOpen()" style="width:100%;padding:18px;border:0;border-radius:14px;cursor:pointer;
+              background:linear-gradient(135deg,#c4503b,#e08a72);color:#fff;font-family:inherit;
+              font-size:16px;font-weight:800;box-shadow:0 4px 14px rgba(196,80,59,.28)">
+        💚 검사 시작하기
+      </button>
+      <div style="text-align:center;font-size:12px;color:var(--sub);margin-top:10px">
+        25개 문항 · 2~3분이면 됩니다
+      </div>
     </div>
   </div>
 
@@ -2573,6 +2593,21 @@ function copyQ(){navigator.clipboard.writeText(filteredQ[qIdx]?.q||'').then(()=>
 filteredQ=[...QUESTIONS]; showQ();
 
 
+// ── 설문 전체화면 (2026-09-03 오너 지시 — 칸 안 스크롤 해소) ──
+function msOpen(){
+  var box=document.getElementById('msfs'), f=document.getElementById('msfs-frame');
+  if(!f.getAttribute('src')) f.setAttribute('src','./matching.html');  // 처음 열 때만 싣는다
+  box.classList.add('on');
+  document.body.style.overflow='hidden';
+}
+function msClose(){
+  document.getElementById('msfs').classList.remove('on');
+  document.body.style.overflow='';
+}
+document.addEventListener('keydown',function(ev){
+  if(ev.key==='Escape' && document.getElementById('msfs').classList.contains('on')) msClose();
+});
+
 // ── 전체화면 질문 모드 (2026-09-03 오너 지시 · 목자 모바일용) ──
 // ★기존 filterQ/randomQ/nextQ 를 지우지 않고 감싼다.
 var qfsOn=false;
@@ -3597,6 +3632,15 @@ function copyPrayer(){navigator.clipboard.writeText(document.getElementById('pra
     <button onclick="pwaOpen('pwa-data')">데이터 관리</button> ·
     <button onclick="pwaCheckUpdate()">자료 새로고침</button>
   </div>
+</div>
+
+<!-- ══ 설문 전체화면 (2026-09-03 오너 지시) ══ -->
+<div id="msfs" role="dialog" aria-modal="true" aria-label="긍휼 사역 매칭 설문">
+  <div id="msfs-bar">
+    <button onclick="msClose()">← 돌아가기</button>
+    <span class="t">💚 긍휼 사역 매칭</span>
+  </div>
+  <iframe id="msfs-frame" title="긍휼 사역 매칭 설문" loading="lazy"></iframe>
 </div>
 
 <!-- ══ 전체화면 질문 모드 (2026-09-03 오너 지시) ══ -->
