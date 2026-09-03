@@ -3108,59 +3108,7 @@ function copyPrayer(){navigator.clipboard.writeText(document.getElementById('pra
 <nav style="position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px solid #e8ede8;display:flex;padding-bottom:env(safe-area-inset-bottom,0px);z-index:200;box-shadow:0 -4px 20px rgba(0,0,0,.08)">
   <a href="./" style="flex:1;display:flex;flex-direction:column;align-items:center;padding:8px 4px 10px;font-size:10px;font-weight:600;color:#aaa;gap:3px;text-decoration:none"><span style="font-size:22px">🏠</span>홈</a>
   <a href="./" style="flex:1;display:flex;flex-direction:column;align-items:center;padding:8px 4px 10px;font-size:10px;font-weight:600;color:#1B4332;gap:3px;text-decoration:none"><span style="font-size:22px">✨</span>4W 키트</a>
-  <a href="https://script.google.com/macros/s/AKfycbwMJgooqxa044D014lFhZJIV8ypG0-ZBxWwDkfcx8561UPD6HIjJmc_N9IEGLieAYsayw/exec" target="_blank" style="flex:1;display:flex;flex-direction:column;align-items:center;padding:8px 4px 10px;font-size:10px;font-weight:600;color:#aaa;gap:3px;text-decoration:none"><span style="font-size:22px">📋</span>보고서</a>
-  <button onclick="pwaOpen('pwa-install')" style="flex:1;display:flex;flex-direction:column;align-items:center;padding:8px 4px 10px;font-size:10px;font-weight:600;color:#aaa;gap:3px;background:none;border:none;font-family:inherit;cursor:pointer"><span style="font-size:22px">📲</span>설치</button>
 </nav>
-
-<!-- ══ 설치 안내 시트 ══ -->
-<div class="pwa-ov" id="ov-pwa-install" onclick="pwaClose('pwa-install')"></div>
-<div class="pwa-sheet" id="sh-pwa-install" role="dialog" aria-modal="true" aria-label="홈 화면에 설치">
-  <div class="pwa-sheet-h">📲 홈 화면에 설치하기
-    <button class="x" onclick="pwaClose('pwa-install')" aria-label="닫기">✕</button></div>
-  <div class="pwa-sheet-b">
-    <p class="pwa-sec-p" style="margin-bottom:12px">
-      설치하면 <strong>앱처럼 아이콘으로 열리고, 인터넷이 없어도 동작</strong>합니다.
-      설치해도 데이터는 이 폰 안에만 있습니다.
-    </p>
-    <div class="pwa-osrow">
-      <button class="pwa-ostab on" id="ostab-ios" onclick="pwaOsTab('ios')">아이폰 (iOS)</button>
-      <button class="pwa-ostab" id="ostab-and" onclick="pwaOsTab('and')">안드로이드</button>
-    </div>
-
-    <div id="ospanel-ios">
-      <div class="pwa-sec">
-        <div class="pwa-sec-t">아이폰 — 반드시 <u>사파리</u>로 여세요</div>
-        <p class="pwa-sec-p">크롬·카카오톡 안에서 연 화면에서는 <strong>설치 버튼이 나오지 않습니다.</strong>
-          카톡으로 링크를 받았다면 오른쪽 아래 <strong>… → 사파리로 열기</strong>를 먼저 누르세요.</p>
-        <ol class="pwa-steps">
-          <li>사파리로 이 페이지를 엽니다</li>
-          <li>화면 <strong>아래 가운데 공유 버튼</strong>(□에 ↑ 화살표)을 누릅니다</li>
-          <li>목록을 아래로 내려 <strong>「홈 화면에 추가」</strong>를 누릅니다</li>
-          <li>오른쪽 위 <strong>「추가」</strong>를 누르면 끝입니다</li>
-        </ol>
-      </div>
-    </div>
-
-    <div id="ospanel-and" style="display:none">
-      <div class="pwa-sec">
-        <div class="pwa-sec-t">안드로이드 — 크롬으로 여세요</div>
-        <ol class="pwa-steps">
-          <li>크롬으로 이 페이지를 엽니다</li>
-          <li>아래에 <strong>「앱 설치」 안내</strong>가 뜨면 누릅니다</li>
-          <li>안 뜨면 오른쪽 위 <strong>⋮ → 「앱 설치」</strong> 또는 <strong>「홈 화면에 추가」</strong></li>
-          <li><strong>「설치」</strong>를 누르면 끝입니다</li>
-        </ol>
-        <div class="pwa-actions"><button class="pwa-btn solid" id="pwa-install-btn" style="display:none" onclick="pwaNativeInstall()">📲 지금 설치</button></div>
-      </div>
-    </div>
-
-    <div class="pwa-sec">
-      <div class="pwa-sec-t">설치 후</div>
-      <p class="pwa-sec-p">홈 화면 <strong>4W 키트</strong> 아이콘으로 여세요.
-        자료가 새로 올라오면 <strong>다음에 열 때 자동으로 반영</strong>됩니다 — 따로 하실 일은 없습니다.</p>
-    </div>
-  </div>
-</div>
 
 <!-- ══ 데이터 관리 시트 (내보내기·불러오기) ══ -->
 <div class="pwa-ov" id="ov-pwa-data" onclick="pwaClose('pwa-data')"></div>
@@ -3580,7 +3528,8 @@ function copyPrayer(){navigator.clipboard.writeText(document.getElementById('pra
   var deferredPrompt = null;
   window.addEventListener('beforeinstallprompt', function (e) {
     e.preventDefault(); deferredPrompt = e;
-    var b = document.getElementById('pwa-install-btn'); if (b) b.style.display = '';
+    // ★설치 안내 제거(2026-09-03 오너 지시) — 되살릴 땐 이 줄을 복원한다
+    // var b = document.getElementById('pwa-install-btn'); if (b) b.style.display = '';
   });
   window.pwaNativeInstall = function () {
     if (!deferredPrompt) { alert('브라우저 메뉴(⋮)에서 「앱 설치」를 눌러 주세요.'); return; }
@@ -3628,7 +3577,6 @@ function copyPrayer(){navigator.clipboard.writeText(document.getElementById('pra
   <div><span class="v" id="pwa-ver">자료 버전 확인 중…</span></div>
   <div id="pwa-src">—</div>
   <div>
-    <button onclick="pwaOpen('pwa-install')">홈 화면에 설치</button> ·
     <button onclick="pwaOpen('pwa-data')">데이터 관리</button> ·
     <button onclick="pwaCheckUpdate()">자료 새로고침</button>
   </div>
