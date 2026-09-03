@@ -114,16 +114,6 @@ textarea{resize:vertical;min-height:80px}
 .progress-label{font-size:12px;color:var(--sub);text-align:right}
 
 /* ── 날씨 카드 ── */
-.weather-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:14px}
-.weather-card{background:#fff;border:2px solid var(--gray2);border-radius:12px;padding:14px 8px;text-align:center;cursor:pointer;transition:all .2s}
-.weather-card:hover{border-color:var(--mid)}
-.weather-card.selected{border-color:var(--primary);background:var(--light)}
-.weather-card .icon{font-size:28px;display:block;margin-bottom:4px}
-.weather-card .label{font-size:12px;font-weight:600;color:var(--sub)}
-.weather-result{display:none;margin-top:14px}
-.weather-result.show{display:block}
-
-/* ── MBTI 스텝 ── */
 .mbti-step{display:none}
 .mbti-step.active{display:block}
 .step-header{font-size:11px;font-weight:700;color:var(--sub);letter-spacing:1px;margin-bottom:8px}
@@ -303,7 +293,6 @@ textarea{resize:vertical;min-height:80px}
 
 @media(max-width:768px){
   .choice-btns{grid-template-columns:1fr}
-  .weather-grid{grid-template-columns:repeat(3,1fr)}
   .decision-cards{grid-template-columns:repeat(2,1fr)}
   .ws-cards{grid-template-columns:repeat(2,1fr)}
 }
@@ -389,7 +378,6 @@ textarea{resize:vertical;min-height:80px}
   .sub-tabs{padding:12px 12px 0}
   .sub-btn{font-size:11.5px;padding:6px 11px}
   .pwa-strip{padding:10px 12px 0}
-  .weather-grid{grid-template-columns:repeat(2,1fr)}
   .ws-cards,.decision-cards{grid-template-columns:1fr 1fr}
 }
 @media(max-width:390px){
@@ -402,7 +390,6 @@ textarea{resize:vertical;min-height:80px}
 @media(max-width:375px){
   .main-tab{min-width:62px;font-size:11px}
   .sub-btn{font-size:11px;padding:6px 9px}
-  .weather-grid{grid-template-columns:repeat(2,1fr)}
   .decision-cards,.ws-cards{grid-template-columns:1fr}
 }
 /* 가로 스크롤 차단 — 폰에서 화면이 밀리는 것을 막는다 */
@@ -485,7 +472,7 @@ html,body{max-width:100%;overflow-x:hidden}
     </div>
   </div>
 
-  <!-- B: 아이스브레이크 (질문뱅크 + 유형검사 + 마음날씨) -->
+  <!-- B: 아이스브레이크 (질문뱅크 + 유형검사) — ★마음 날씨는 2026-09-03 오너 지시로 제거 -->
   <div class="sub-panel" id="w-1">
 
     <!-- 질문 뱅크 -->
@@ -546,27 +533,6 @@ html,body{max-width:100%;overflow-x:hidden}
             <div id="faith-bars"></div>
             <div id="faith-top-card" class="card" style="background:var(--light);margin-top:10px"></div>
           </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- 마음 날씨 -->
-    <div style="padding:16px">
-      <div style="font-size:12px;font-weight:700;color:var(--sub);letter-spacing:.5px;margin-bottom:8px">☀️ 마음 날씨</div>
-      <div class="card" style="margin-bottom:0">
-        <div class="card-title">오늘 내 마음 날씨는?</div>
-        <div class="weather-grid">
-          <div class="weather-card" onclick="selectWeather(this,'☀️','맑음')"><span class="icon">☀️</span><span class="label">맑음</span></div>
-          <div class="weather-card" onclick="selectWeather(this,'⛅','구름조금')"><span class="icon">⛅</span><span class="label">구름조금</span></div>
-          <div class="weather-card" onclick="selectWeather(this,'🌧','비')"><span class="icon">🌧</span><span class="label">비</span></div>
-          <div class="weather-card" onclick="selectWeather(this,'⛈','폭풍')"><span class="icon">⛈</span><span class="label">폭풍</span></div>
-          <div class="weather-card" onclick="selectWeather(this,'🌫','안개')"><span class="icon">🌫</span><span class="label">안개</span></div>
-          <div class="weather-card" onclick="selectWeather(this,'🌈','비 갠 후')"><span class="icon">🌈</span><span class="label">비 갠 후</span></div>
-        </div>
-        <div class="weather-result" id="weather-result">
-          <p style="font-size:13px;color:var(--sub);margin-bottom:6px">왜냐하면...</p>
-          <input type="text" id="weather-reason" placeholder="한 줄로 나눠주세요"/>
-          <div class="btn-row"><button class="btn btn-primary btn-sm" onclick="copyWeather()">📋 나눔 텍스트 복사</button></div>
         </div>
       </div>
     </div>
@@ -2481,20 +2447,6 @@ function updateCheck(){
   document.getElementById('check-bar').style.width=pct+'%';
   document.getElementById('check-count').textContent=done;
   document.getElementById('check-done-msg').style.display=done===10?'block':'none';
-}
-
-// ── 날씨 ───────────────────────────────────────────────
-let selectedWeather='';
-function selectWeather(el,icon,label){
-  document.querySelectorAll('.weather-card').forEach(c=>c.classList.remove('selected'));
-  el.classList.add('selected');
-  selectedWeather=icon+' '+label;
-  document.getElementById('weather-result').classList.add('show');
-}
-function copyWeather(){
-  const reason=document.getElementById('weather-reason').value;
-  const txt='오늘 내 마음 날씨는 '+selectedWeather+'입니다. 왜냐하면 '+reason;
-  navigator.clipboard.writeText(txt).then(()=>alert('복사됐어요!'));
 }
 
 // ── MBTI ───────────────────────────────────────────────
