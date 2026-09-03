@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<meta name="theme-color" content="#c4503b" />
+<title>긍휼 사역 매칭</title>
+<style>
+  :root{
+    --bg:#fbf4f1;
+    --card:#ffffff;
+    --primary:#c4503b;
+    --primary-d:#a23d2b;
+    --accent:#e8a13c;
+    --text:#33271f;
+    --muted:#9a8a82;
+    --line:#f0e3dd;
+    --yes:#3bb273;
+    --no:#b9b1ab;
+    --shadow:0 8px 24px rgba(196,80,59,.12);
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+  html,body{margin:0;padding:0;}
+  body{
+    font-family:'Apple SD Gothic Neo','Malgun Gothic',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    background:var(--bg);color:var(--text);line-height:1.55;-webkit-font-smoothing:antialiased;
+  }
+  .app{max-width:460px;margin:0 auto;min-height:100vh;display:flex;flex-direction:column;}
+  header{
+    padding:18px 20px 14px;
+    background:linear-gradient(135deg,var(--primary),#e0735a);
+    color:#fff;position:sticky;top:0;z-index:10;
+  }
+  header h1{margin:0;font-size:19px;font-weight:800;letter-spacing:-.3px;}
+  header p{margin:4px 0 0;font-size:12.5px;opacity:.92;}
+  .progress-wrap{height:6px;background:rgba(255,255,255,.28);border-radius:6px;margin-top:12px;overflow:hidden;}
+  .progress-bar{height:100%;width:0;background:var(--accent);border-radius:6px;transition:width .35s ease;}
+  main{flex:1;padding:20px;}
+  .screen{display:none;animation:fade .35s ease;}
+  .screen.active{display:block;}
+  @keyframes fade{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:none;}}
+
+  /* Intro */
+  .hero{background:var(--card);border-radius:20px;padding:26px 22px;box-shadow:var(--shadow);text-align:center;}
+  .hero .emoji{font-size:46px;}
+  .hero h2{font-size:22px;margin:10px 0 6px;font-weight:800;letter-spacing:-.5px;}
+  .hero p{color:var(--muted);font-size:14px;margin:0 0 4px;}
+  .chips{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:18px 0 4px;}
+  .chip{background:#fbeee7;color:var(--primary-d);font-size:12px;padding:6px 12px;border-radius:20px;font-weight:600;}
+  .note{font-size:12px;color:var(--muted);margin-top:16px;}
+  .verse{font-size:13px;color:var(--primary-d);font-style:italic;margin-top:14px;background:#fbeee7;border-radius:12px;padding:12px;}
+  .field{margin-top:16px;}
+  .field label{display:block;font-size:13.5px;font-weight:700;color:#5b4d45;margin-bottom:6px;}
+  .field label i{color:var(--primary);font-style:normal;}
+  .field input{
+    width:100%;border:1.5px solid var(--line);border-radius:12px;padding:14px;font-size:15.5px;
+    background:#fdfafa;color:var(--text);outline:none;transition:.15s;font-family:inherit;
+  }
+  .field input:focus{border-color:var(--primary);background:#fff;}
+  .errmsg{color:#d3321b;font-size:13px;font-weight:700;margin:12px 0 0;min-height:18px;}
+  .saveNote{font-size:12.5px;text-align:center;margin:-2px 0 10px;padding:10px;border-radius:11px;font-weight:700;}
+  .saveNote.ok{background:#e7f7ee;color:#1f8a52;}
+  .saveNote.fail{background:#fdeede;color:#c87012;}
+  .saveNote.send{background:#f0eef9;color:#5b4bc4;}
+
+  /* Question */
+  .qcount{font-size:13px;color:var(--primary);font-weight:800;margin-bottom:8px;}
+  .qcard{background:var(--card);border-radius:18px;padding:30px 22px;box-shadow:var(--shadow);min-height:160px;display:flex;align-items:center;justify-content:center;}
+  .qtext{font-size:19px;font-weight:700;letter-spacing:-.3px;margin:0;text-align:center;line-height:1.5;}
+  .yn{display:flex;gap:12px;margin-top:18px;}
+  .yn button{
+    flex:1;border:none;border-radius:16px;padding:18px 0;font-size:18px;font-weight:800;cursor:pointer;
+    transition:.15s;letter-spacing:-.2px;display:flex;flex-direction:column;align-items:center;gap:3px;
+  }
+  .yn button:active{transform:translateY(2px) scale(.98);}
+  .yn .yes{background:var(--yes);color:#fff;box-shadow:0 6px 16px rgba(59,178,115,.3);}
+  .yn .no{background:#fff;color:var(--no);border:2px solid var(--line);}
+  .yn .ic{font-size:24px;}
+  .backlink{text-align:center;margin-top:16px;}
+  .backlink button{background:none;border:none;color:var(--muted);font-size:13px;cursor:pointer;text-decoration:underline;}
+
+  /* Buttons */
+  .btn{
+    display:block;width:100%;border:none;border-radius:14px;padding:15px;font-size:16px;font-weight:800;
+    background:var(--primary);color:#fff;cursor:pointer;margin-top:14px;letter-spacing:-.2px;
+    box-shadow:0 6px 16px rgba(196,80,59,.32);transition:.15s;text-decoration:none;text-align:center;
+  }
+  .btn:active{transform:translateY(1px);}
+  .btn.ghost{background:#fff;color:var(--primary);box-shadow:none;border:1.5px solid var(--line);}
+  .btn.video{background:#ff0000;box-shadow:0 6px 16px rgba(255,0,0,.28);}
+  .btn.recommend{background:linear-gradient(135deg,#e8a13c,#f0b95e);box-shadow:0 6px 16px rgba(232,161,60,.38);margin-top:18px;}
+  .recoNote{text-align:center;font-size:12px;color:var(--muted);margin:8px 0 0;}
+
+  /* Result */
+  .briefing{background:linear-gradient(135deg,#fff,#fdf6f2);border-radius:20px;padding:24px 22px;box-shadow:var(--shadow);text-align:center;margin-bottom:16px;}
+  .briefing .tEmoji{font-size:50px;}
+  .briefing .tType{font-size:13px;font-weight:800;color:var(--accent);margin-top:6px;letter-spacing:.5px;}
+  .briefing h2{font-size:24px;font-weight:800;margin:2px 0 12px;letter-spacing:-.5px;}
+  .briefing .desc{font-size:14.5px;color:#5b4d45;text-align:left;line-height:1.7;}
+  .briefing .tags{display:flex;flex-wrap:wrap;gap:7px;justify-content:center;margin-top:14px;}
+  .briefing .tags span{background:#fbeee7;color:var(--primary-d);font-size:11.5px;font-weight:700;padding:5px 11px;border-radius:16px;}
+  .second{font-size:13px;color:var(--muted);margin-top:12px;}
+  .second b{color:var(--primary);}
+
+  .sectionTitle{font-size:16px;font-weight:800;margin:22px 4px 12px;display:flex;align-items:center;gap:7px;}
+  .matchHead{background:var(--primary);color:#fff;border-radius:16px 16px 0 0;padding:14px 18px;}
+  .matchHead .area{font-size:11.5px;font-weight:700;opacity:.85;}
+  .matchHead .mt{font-size:17px;font-weight:800;margin-top:2px;}
+
+  .mcard{background:var(--card);border-radius:16px;box-shadow:var(--shadow);margin-bottom:14px;overflow:hidden;border:1px solid var(--line);}
+  .mcard .top{padding:16px 18px 8px;}
+  .mcard .team{font-size:17px;font-weight:800;}
+  .mcard .leader{font-size:12.5px;color:var(--muted);font-weight:600;margin-left:6px;}
+  .mcard .intro{font-size:13.5px;color:#5b4d45;margin:6px 0 0;line-height:1.6;}
+  .mcard .info{padding:4px 18px 16px;}
+  .irow{display:flex;gap:8px;font-size:13px;padding:7px 0;border-top:1px solid var(--line);}
+  .irow .k{flex:none;width:74px;color:var(--primary);font-weight:700;}
+  .irow .v{flex:1;color:#4a3e37;}
+  .badge{display:inline-block;background:#fdeede;color:#c87012;font-size:11px;font-weight:800;padding:3px 9px;border-radius:14px;margin-left:6px;}
+  .vbtn{display:block;margin:0 14px 14px;padding:11px;text-align:center;text-decoration:none;
+    background:#fff0ee;color:#d3321b;font-size:13.5px;font-weight:800;border-radius:11px;border:1.5px solid #f7d6cf;transition:.15s;}
+  .vbtn:active{transform:translateY(1px);background:#ffe3df;}
+
+  footer{text-align:center;font-size:11.5px;color:var(--muted);padding:16px;line-height:1.7;}
+</style>
+</head>
+<body>
+<div class="app">
+  <header>
+    <h1>🤲 긍휼 사역 매칭</h1>
+    <p>나의 성향에 꼭 맞는 긍휼의 섬김 자리를 찾아드려요</p>
+    <div class="progress-wrap"><div class="progress-bar" id="bar"></div></div>
+  </header>
+
+  <main>
+    <!-- INTRO -->
+    <section class="screen active" id="intro">
+      <div class="hero">
+        <div class="emoji">🤲</div>
+        <h2>당신의 손길이<br>필요한 자리가 있습니다</h2>
+        <p>성격유형 검사(TCI · MBTI · 에니어그램 · DISC)에 기반한</p>
+        <p><b>25개의 예 / 아니오 질문</b>으로 나의 섬김 성향을 찾고,</p>
+        <p>가장 잘 어울리는 <b>긍휼 사역</b>과 연결해 드립니다.</p>
+        <div class="chips">
+          <span class="chip">⏱️ 약 2분</span>
+          <span class="chip">🙋 예 / 아니오</span>
+          <span class="chip">🤝 실제 사역 매칭</span>
+        </div>
+        <div class="verse">“너희가 여기 내 형제 중에 지극히 작은 자 하나에게 한 것이<br>곧 내게 한 것이니라” (마 25:40)</div>
+        <p class="note">평소 나의 모습에 솔직하게 답해 주세요. 정답은 없습니다.</p>
+      </div>
+      <button class="btn" onclick="goRegister()">시작하기</button>
+    </section>
+
+    <!-- REGISTER -->
+    <section class="screen" id="register">
+      <div class="hero" style="text-align:left;">
+        <div style="text-align:center;"><div class="emoji">✍️</div>
+        <h2 style="font-size:20px;">먼저 인적사항을<br>입력해 주세요</h2>
+        <p style="text-align:center;">검사 결과와 사역 매칭 내용을<br>담당 부서에서 확인할 수 있도록 기록됩니다.</p></div>
+        <div class="field">
+          <label>이름 <i>*</i></label>
+          <input id="fName" type="text" placeholder="홍길동" autocomplete="name" />
+        </div>
+        <div class="field">
+          <label>소속 (교구 · 부서 · 기관) <i>*</i></label>
+          <input id="fOrg" type="text" placeholder="예: 1교구 / 청년부 / ○○기관" />
+        </div>
+        <div class="field">
+          <label>연락처 <i>*</i></label>
+          <input id="fTel" type="tel" inputmode="numeric" placeholder="010-1234-5678" autocomplete="tel" />
+        </div>
+        <p class="errmsg" id="regErr"></p>
+        <p class="note" style="margin-top:6px;">입력하신 정보는 사역 연결 안내 목적으로만 사용됩니다.</p>
+      </div>
+      <button class="btn" onclick="startTest()">검사 시작하기</button>
+      <button class="btn ghost" onclick="show('intro')">← 돌아가기</button>
+    </section>
+
+    <!-- QUESTION -->
+    <section class="screen" id="quiz">
+      <div class="qcount" id="qcount">질문 1 / 25</div>
+      <div class="qcard"><p class="qtext" id="qtext"></p></div>
+      <div class="yn">
+        <button class="yes" onclick="answer(1)"><span class="ic">⭕</span>예</button>
+        <button class="no" onclick="answer(0)"><span class="ic">❌</span>아니오</button>
+      </div>
+      <div class="backlink"><button id="prevBtn" onclick="prev()">← 이전 질문</button></div>
+    </section>
+
+    <!-- RESULT -->
+    <section class="screen" id="result">
+      <div class="saveNote send" id="saveNote">결과를 저장하는 중…</div>
+      <div class="briefing">
+        <div class="tEmoji" id="rEmoji"></div>
+        <div class="tType">YOUR SERVING TYPE</div>
+        <h2 id="rTitle"></h2>
+        <div class="desc" id="rDesc"></div>
+        <div class="tags" id="rTags"></div>
+        <div class="second" id="rSecond"></div>
+      </div>
+
+      <div class="sectionTitle">🤝 나에게 매칭된 긍휼 사역</div>
+      <div id="matchArea"></div>
+
+      <a class="btn video" id="videoBtn" target="_blank" rel="noopener">▶ 전체 사역 영상 모음 보기</a>
+      <button class="btn ghost" onclick="restart()">다시 진단하기</button>
+      <button class="btn ghost" onclick="share()">결과 공유하기</button>
+      <button class="btn recommend" onclick="recommend()">💌 다른 사람에게 추천하기</button>
+      <p class="recoNote">버튼을 누르면 카카오톡·문자로 바로 보낼 수 있어요</p>
+    </section>
+  </main>
+  <footer>
+    수영로교회 긍휼 사역 · 함께 세우는 섬김 공동체<br>
+    문의는 각 사역 담당 교역자에게 연락해 주세요.
+  </footer>
+</div>
+
+<script>
+// ===== 이 검사 사이트 주소 (추천하기 공유용) =====
+const SITE_URL = "https://prismatic-axolotl-9aca1b.netlify.app";
+
+// ===== 유튜브 사역 소개 영상 (재생목록) =====
+const VIDEO_PLAYLIST = "https://www.youtube.com/playlist?list=PLhOfLX0SoX-GsQWih_6dQvu6fnB-htcah";
+
+// ===== 구글 스프레드시트 저장 (Apps Script 웹앱 URL) =====
+// 아래 따옴표 안에 배포한 Apps Script 웹앱 URL을 붙여넣으세요.
+// 비워두면 저장은 건너뛰고 검사는 정상 동작합니다.
+const SHEET_ENDPOINT = "";
+
+// ===== 6가지 섬김 성향 유형 =====
+const TYPES = {
+  companion:{
+    emoji:"🕊️", title:"따뜻한 동행자", area:"경조·복지 돌봄 사역",
+    tags:["공감(F)","안정형(DISC-S)","에니어 2번","인내","일대일 관계"],
+    desc:"당신은 사람의 마음을 먼저 살피는 <b>따뜻한 동행자</b>입니다. MBTI의 감정(F)·DISC의 안정(S)·에니어그램 2번(돕는 사람)의 결이 느껴지며, 화려함보다 한 사람 곁을 끝까지 지키는 깊은 공감과 인내가 강점입니다. 말기·노년·소외된 이웃에게 ‘함께 있어 줌’ 자체가 위로가 되는 자리에서 가장 빛납니다."
+  },
+  doer:{
+    emoji:"💪", title:"든든한 일꾼", area:"러브부산 현장 사역",
+    tags:["주도(DISC-D)","활동성(TCI)","감각(S)","실천력","현장형"],
+    desc:"당신은 몸으로 사랑을 증명하는 <b>든든한 일꾼</b>입니다. DISC의 주도(D)와 TCI의 높은 활동성, MBTI 감각(S)의 실용성이 어우러져 말보다 손과 발이 먼저 움직입니다. 따뜻한 밥 한 끼, 고쳐진 집 한 채처럼 눈에 보이는 도움을 만들어내는 현장에서 가장 큰 보람을 느낍니다."
+  },
+  counselor:{
+    emoji:"🧠", title:"지혜로운 상담자", area:"상담 사역",
+    tags:["직관·사고(N/T)","신중(DISC-C)","에니어 5번","경청","전문성"],
+    desc:"당신은 깊이 듣고 통찰하는 <b>지혜로운 상담자</b>입니다. MBTI 직관·사고(N/T)와 DISC 신중(C), 에니어그램 5번의 분석력이 어우러져 사람의 말 뒤에 숨은 마음과 원인을 읽어냅니다. 전문성과 경청이 필요한 상담·교육의 자리에서 한 사람의 회복을 도울 때 가장 빛납니다."
+  },
+  expressor:{
+    emoji:"🎨", title:"빛나는 표현가", area:"찬양·예술 섬김",
+    tags:["예술 감수성","감정(F)","표현력","창의","재능 기부"],
+    desc:"당신은 재능으로 하나님을 노래하는 <b>빛나는 표현가</b>입니다. 예술적 감수성과 MBTI 감정(F)·표현력이 어우러져 찬양·음악·연기·손재주로 마음을 움직입니다. 슬픔의 자리에 위로의 선율을, 무대에 기쁨을 더하는 사역에서 당신의 은사가 가장 환하게 드러납니다."
+  },
+  leader:{
+    emoji:"🎉", title:"활기찬 인도자", area:"복지 프로그램 사역",
+    tags:["외향(E)","사교(DISC-I)","에니어 7번","기획·진행","활력"],
+    desc:"당신은 사람을 모으고 분위기를 이끄는 <b>활기찬 인도자</b>입니다. MBTI 외향(E)·DISC 사교(I)·에니어그램 7번의 활력이 느껴지며, 프로그램을 기획하고 진행하며 공동체에 생기를 불어넣습니다. 여러 사람이 함께 어우러지는 프로그램·교육 사역에서 가장 큰 시너지를 냅니다."
+  },
+  specialist:{
+    emoji:"🌱", title:"한결같은 섬김이", area:"장애인·아동 사역",
+    tags:["인내(TCI)","판단(J)","에니어 6번","충성","세심함"],
+    desc:"당신은 한 자리를 끝까지 지키는 <b>한결같은 섬김이</b>입니다. TCI의 높은 인내와 MBTI 판단(J)의 성실함, 에니어그램 6번의 충성이 어우러져 더디고 반복되는 섬김도 묵묵히 감당합니다. 특별한 돌봄이 필요한 장애인·아동 사역처럼 오랜 신뢰가 핵심인 자리에서 가장 귀하게 쓰입니다."
+  }
+};
+
+// ===== 유형별 매칭 긍휼 사역 (엑셀 데이터) =====
+const MINISTRIES = {
+  companion:[
+    {team:"호스피스",leader:"장민서",intro:"말기암 환자를 영적으로 돌보며 함께 예배하는 사역",content:"호스피스 병동에서 맛사지와 기도로 함께함",time:"월 1-3시 / 화 10-12시 / 수 12-2시 / 금 1-3시",date:"매주 (11/10·17, 11·18, 12·19, 14·21)",place:"인창요양·동래성모·부산보훈병원",need:"각 병원 2명",gender:"",video:"https://youtu.be/qrQA6CfraAo"},
+    {team:"재가봉사",leader:"김순희",intro:"장애·독거 어르신을 방문해 영적으로 돌보는 사역",content:"가정 방문 예배, 상담, 청소, 말벗",time:"오전 11시 - 오후 4시",date:"11/19(수), 11/26(수)",place:"반송",need:"10명",gender:"",pastor:"강명일",video:"https://youtu.be/ZpNxXylXT0g"},
+    {team:"양로원",leader:"김성태",intro:"매달 넷째 주일 양로원 어르신과 함께하는 예배 사역",content:"예배 및 예배 보조",time:"12시 ~ 16:30",date:"11/23(주일)",place:"동래양로원",need:"10명",gender:"제한 없음",pastor:"권말선",video:"https://youtu.be/Ix8vOhudESA"},
+    {team:"요양원",leader:"김영수",intro:"매주일 요양병원에서 드리는 예배 사역",content:"매주일 예배 섬김",time:"오후 1시 15분 - 4시",date:"11/9·16(주일)",place:"자매·그리스도·우리행복요양병원",need:"3-5명",gender:"",pastor:"백영애",video:"https://youtu.be/mrRFdVYDSEc"},
+    {team:"프렌즈",leader:"배성은",intro:"학생과 부모를 만나 영적으로 돌보는 사역",content:"월 2회 예배, 심방",time:"오후 3시 - 6시",date:"11/8(토)",place:"본당 새가족실",need:"5명",gender:"",video:"https://youtu.be/TE80oq1nd8k"},
+    {team:"마더플러스",leader:"김미리",intro:"미혼모 시설을 방문해 예배하고 자녀를 돌보는 사역",content:"예배 참석 및 가정별 선물",time:"목요일 오후 5시 30분~",date:"매주 목요일",place:"대연동 사랑샘·다비다/은애 모자원",need:"각 2명",gender:"여성",pastor:"박정권",video:"https://youtu.be/4hC3_WYKTbg"}
+  ],
+  doer:[
+    {team:"무료급식",leader:"오상호",intro:"노숙인을 위한 주 1회 무료급식 사역",content:"무료급식소 식사 준비 및 배식",time:"오후 4시 - 6시",date:"11/13(목), 11/20(목)",place:"부산희망드림센터",need:"10명",gender:"",video:"https://youtu.be/I8jfUgT7alc"},
+    {team:"위드하우스",leader:"이호일",intro:"주거취약계층의 주거환경을 개선하는 사역",content:"집수리 및 주거 생활환경 정리",time:"오전 10시~",date:"11/20(목)",place:"부산연탄은행",need:"10명",gender:"",video:"https://youtu.be/cVhKWPPaOas"},
+    {team:"기획행정",leader:"박홍배",intro:"부산 지역사회와 연계해 돕는 사역들을 기획·운영하는 팀",content:"러브부산 사역 기획 및 행정 운영",time:"상시",date:"상시",place:"교회",need:"-",gender:"",video:"https://youtu.be/AgIvXH_9GMc"},
+    {team:"위드유 미니스트리",leader:"김정기",intro:"지역사회와 함께 돕는 손길로 세워가는 사역",content:"러브부산 연계 돌봄 및 봉사 협력",time:"행사별 상이",date:"행사별 상이",place:"교회 및 지역사회",need:"-",gender:"",video:"https://youtu.be/t_3iuAWpDkw"},
+    {team:"긴급재해",leader:"남동아",intro:"긴급재해 발생 시 파송되어 지원하는 손길",content:"재해 현장 파송 및 구호 지원",time:"수시 (재해 발생 시)",date:"수시",place:"재해 현장",need:"-",gender:""},
+    {team:"나눔봉사팀",leader:"배혜란",intro:"러브부산 주관 모든 행사에 함께하는 봉사팀",content:"에스라이더·지역살림 등 행사 봉사 협력",time:"행사별 상이",date:"행사별 상이",place:"교회 및 행사장",need:"-",gender:""}
+  ],
+  counselor:[
+    {team:"심리상담센터",leader:"문은수",intro:"수영로 심리상담센터를 통한 전문 상담 사역",content:"내담자 심리 상담 진행",time:"센터 운영 시간",date:"상시",place:"수영로 심리상담센터",need:"-",gender:"",pastor:"조대운",video:"https://youtu.be/O_fps2AcdHg"},
+    {team:"상담 아카데미",leader:"공진민",intro:"상담사 양성을 위한 교육과정",content:"상담사 양성 교육 수강 및 실습",time:"과정별 상이",date:"상시 모집",place:"교회",need:"-",gender:"",video:"https://youtu.be/dreS-ff2id4"},
+    {team:"독서치유",leader:"도유선",intro:"지정 도서를 읽고 상담을 진행하는 상담사 양성 과정",content:"독서 기반 상담 진행 및 양성",time:"과정별 상이",date:"상시",place:"교회",need:"-",gender:"",video:"https://youtu.be/x1pGEVNlnyw"},
+    {team:"생활법률 상담",leader:"정희장",intro:"긴급한 법률 문제를 돕는 상담 사역",content:"매주 주일 긴급 법률 상담",time:"주일",date:"매주 주일",place:"교회",need:"-",gender:"",video:"https://youtu.be/bVpTaprdA9A"},
+    {team:"정신건강",leader:"김병철",intro:"정신건강 회복을 돕는 상담 사역",content:"정신건강 상담 진행",time:"상담 일정별",date:"상시",place:"교회",need:"-",gender:""}
+  ],
+  expressor:[
+    {team:"경조팀 & 백합성가대",leader:"김승춘·서금임·이은혜·오명옥",intro:"장례 집례·운구와 함께 찬양으로 위로를 전하는 사역",content:"장례 집례·운구, 장례 예배 찬양 섬김",time:"수시 (장례 발생 시)",date:"수시",place:"장례식장·화장장",need:"-",gender:"",pastor:"박정권",video:"https://youtu.be/UDl9rD_DQqM"},
+    {team:"엘미소 오케스트라",leader:"김무환",intro:"발달장애인 오케스트라 연주 사역",content:"연주 연습 및 공연",time:"화 19:00 - 20:30",date:"매주 화요일",place:"본당 지하 1층 사랑부실",need:"-",gender:"",video:"https://youtu.be/Mp2WitTXr2E"},
+    {team:"이미용 봉사",leader:"최지표",intro:"어르신·이웃을 위한 미용 봉사 사역",content:"미용 / 미용 보조",time:"13:30 - 16:00",date:"둘째·넷째 주일 (11/9)",place:"비전센터",need:"5명",gender:"",pastor:"권말선",video:"https://youtu.be/6ifPZ5eLYgY"}
+  ],
+  leader:[
+    {team:"원더풀 시니어 대학",leader:"유영준",intro:"어르신 대상 예배·소그룹·문화체육·여행 등 종합 프로그램",content:"예배·활동·식사 보조, 말벗",time:"09:00 - 15:00",date:"11/13(목), 11/20(목)",place:"수영로교회(평강홀·식당)",need:"각 30명",gender:"제한 없음",pastor:"김지중",video:"https://youtu.be/SpbF5uzeXU8"},
+    {team:"대외협력",leader:"-",intro:"지역사회·기관과 연계하여 긍휼 사역의 폭을 넓혀가는 사역",content:"외부 기관 협력 및 연계 사역 진행",time:"상시",date:"상시",place:"교회 및 협력 기관",need:"-",gender:"",video:"https://youtu.be/lRE9JeXAgrY"},
+    {team:"청년자립멘토단",leader:"-",intro:"자립준비청년 곁에서 멘토로 동행하며 홀로서기를 돕는 사역",content:"청년 멘토링·만남·생활 지원",time:"프로그램별 상이",date:"상시",place:"교회 및 외부",need:"-",gender:"",video:"https://youtu.be/3O7msb4Jick"},
+    {team:"토요학교",leader:"김귀혜",intro:"발달장애인 여가문화 프로그램(나들이·만들기·꽃꽂이)",content:"프로그램 진행 보조",time:"14:00 - 16:00",date:"11/15(토)",place:"외부 및 교회",need:"6명",gender:"",pastor:"백소양",video:"https://youtu.be/DEojmdfH3wQ"},
+    {team:"담쟁이스쿨",leader:"이윤숙",intro:"미혼모 원데이클래스 진행 보조 및 아이 돌봄",content:"미혼모 섬김 및 아이들 케어",time:"11:30 - 15:00",date:"11/8(토)",place:"엘레브 2층",need:"5명",gender:"",video:"https://youtu.be/v3olyjZSEXg"},
+    {team:"교회내구제",leader:"이정후",intro:"학생·부모에게 복음을 전하는 가정 복음화 사역",content:"부모 초청 잔치, 홈커밍",time:"오후 1시 - 6시",date:"11/22(토)",place:"교육관 7층",need:"10명",gender:"",video:"https://youtu.be/8w3YvB7mizQ"},
+    {team:"기대나무",leader:"최광용",intro:"자립준비청년의 홀로서기를 돕는 총체적 사역",content:"상담·멘토링·생일섬김·경험 프로그램",time:"프로그램별 상이",date:"상시",place:"교회 및 외부",need:"-",gender:"",pastor:"박정권",video:"https://youtu.be/8BHBma33MOg"}
+  ],
+  specialist:[
+    {team:"농아부",leader:"이근우",intro:"농인들을 위한 예배 및 소그룹 공동체",content:"농인 예배 및 소그룹 섬김",time:"주일",date:"매주 주일",place:"교회",need:"-",gender:"",pastor:"박정권",video:"https://youtu.be/xXj3g8-pWFA"},
+    {team:"수어교실",leader:"최순옥",intro:"수어를 배우고 농인과 소통하는 사역",content:"수어교실 진행, 종강예배·간식 지원",time:"19:00 - 21:00",date:"11/20(목)",place:"교회",need:"10명",gender:"",pastor:"박정권",video:"https://youtu.be/WNKLANPafNQ"},
+    {team:"사랑부 (1·2·3부)",leader:"김무환·주신유·서영주",intro:"발달장애인 주일학교 예배·공과 (장년·청년·아동부)",content:"예배 및 공과지도 보조",time:"1부 09:00 / 2부 11:00 / 3부 13:00",date:"매주 주일",place:"본당 지하 1층 사랑부실",need:"각 10명",gender:"",pastor:"박상연",video:"https://youtu.be/Uq5p20ADwWA"},
+    {team:"더드림 (연극)",leader:"임남희",intro:"발달장애인 연극팀 사역",content:"연극 연습 및 공연",time:"토 11:00 - 12:30",date:"매주 토요일",place:"본당 지하 1층 기도청소부실",need:"-",gender:""},
+    {team:"보육원",leader:"박영신",intro:"보육시설 아동과 예배 후 식사·교제하는 사역",content:"예배, 식사, 교제, 간식 섬김",time:"기관별 상이 (오후)",date:"11/9·15·16 등",place:"은혜의집·에바다·NK아이빌 등",need:"기관별 5명",gender:"남녀",pastor:"박상연",video:"https://youtu.be/Brk8wS3DhD4"},
+    {team:"장애인사역 연구소",leader:"이지은",intro:"발달장애인 신앙교육자료 연구·제작 사역",content:"교육자료 연구 및 공과지도 보조",time:"13:00 - 14:20",date:"11/16(주일)",place:"본당 지하 1층 사랑부실",need:"10명",gender:"",video:"https://youtu.be/qN0HRwG3HCY"}
+  ]
+};
+
+// ===== 25 예/아니오 질문 ('예' 응답 시 가점 유형) =====
+const QUESTIONS = [
+  {t:"처음 만난 사람에게도 먼저 다가가 말을 건네는 편이다.", g:["leader","expressor"]},
+  {t:"누군가의 힘든 이야기를 끝까지 들어주는 것이 어렵지 않다.", g:["companion","counselor"]},
+  {t:"생각보다 몸이 먼저 움직이는 ‘행동파’라는 말을 듣는다.", g:["doer"]},
+  {t:"사람들 앞에서 찬양하거나 무대에 서는 것이 즐겁다.", g:["expressor"]},
+  {t:"같은 일을 오래, 꾸준히 반복하는 끈기가 있다.", g:["specialist","companion"]},
+  {t:"문제가 생기면 감정보다 원인을 차분히 분석하려 한다.", g:["counselor"]},
+  {t:"여러 사람을 모아 프로그램을 이끄는 일에 신이 난다.", g:["leader"]},
+  {t:"땀 흘리는 육체적인 봉사도 기꺼이 한다.", g:["doer"]},
+  {t:"상대의 표정만 봐도 마음 상태를 잘 알아챈다.", g:["companion","counselor"]},
+  {t:"손으로 무언가를 만들거나 다루는 재주가 있다.", g:["doer","expressor"]},
+  {t:"말없이 곁을 지키는 것만으로도 큰 위로가 된다고 믿는다.", g:["companion"]},
+  {t:"계획에 없던 즉흥적인 상황도 즐기는 편이다.", g:["leader","doer"]},
+  {t:"약하고 소외된 사람을 보면 마음이 쓰여 지나치지 못한다.", g:["companion","specialist"]},
+  {t:"한 분야의 전문성과 깊은 지식을 갖추는 것을 중요하게 여긴다.", g:["counselor"]},
+  {t:"음악·미술·연기 같은 예술 활동에 마음이 끌린다.", g:["expressor"]},
+  {t:"한 대상을 정해 끝까지 헌신하며 섬기고 싶다.", g:["specialist","companion"]},
+  {t:"모임의 분위기를 띄우고 사람들을 즐겁게 하는 편이다.", g:["leader","expressor"]},
+  {t:"일의 성과보다 한 사람과의 깊은 관계가 더 소중하다.", g:["companion","counselor"]},
+  {t:"정해진 일정에 따라 규칙적으로 움직이는 것이 편하다.", g:["specialist"]},
+  {t:"위기 상황에서 빠르게 판단하고 먼저 행동한다.", g:["doer","leader"]},
+  {t:"말보다 글·자료로 정리하고 연구하는 것을 잘한다.", g:["counselor","specialist"]},
+  {t:"의사소통이 어려운 사람과도 인내심 있게 함께할 수 있다.", g:["specialist"]},
+  {t:"누군가를 가르치거나 코칭할 때 큰 보람을 느낀다.", g:["counselor","leader"]},
+  {t:"따뜻한 식사, 깨끗한 환경 같은 실질적인 도움을 주는 게 좋다.", g:["doer"]},
+  {t:"여럿이 어울리기보다 한두 사람과 조용히 함께하는 게 좋다.", g:["companion","counselor","specialist"]}
+];
+
+// 유형별 만점(정규화용) 계산
+const MAX = {};
+Object.keys(TYPES).forEach(k=>MAX[k]=0);
+QUESTIONS.forEach(q=>q.g.forEach(k=>MAX[k]++));
+
+// ===== 상태 =====
+let idx=0;
+let userInfo={name:"",org:"",tel:""};
+const answers=new Array(QUESTIONS.length).fill(-1);
+const $=id=>document.getElementById(id);
+function show(id){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));$(id).classList.add('active');window.scrollTo(0,0);}
+
+function goRegister(){
+  $('regErr').textContent='';
+  show('register');
+}
+
+function startTest(){
+  const name=$('fName').value.trim();
+  const org=$('fOrg').value.trim();
+  const tel=$('fTel').value.trim();
+  if(!name){ $('regErr').textContent='이름을 입력해 주세요.'; $('fName').focus(); return; }
+  if(!org){ $('regErr').textContent='소속(교구·부서·기관)을 입력해 주세요.'; $('fOrg').focus(); return; }
+  if(!tel){ $('regErr').textContent='연락처를 입력해 주세요.'; $('fTel').focus(); return; }
+  userInfo={name,org,tel};
+  start();
+}
+
+function start(){idx=0;answers.fill(-1);render();show('quiz');}
+
+function render(){
+  const q=QUESTIONS[idx];
+  $('qcount').textContent=`질문 ${idx+1} / ${QUESTIONS.length}`;
+  $('qtext').textContent=q.t;
+  $('bar').style.width=(idx/QUESTIONS.length*100)+'%';
+  $('prevBtn').style.visibility=idx===0?'hidden':'visible';
+}
+
+function answer(v){
+  answers[idx]=v;
+  if(idx===QUESTIONS.length-1){finish();return;}
+  idx++;render();
+}
+function prev(){if(idx>0){idx--;render();}}
+
+function finish(){
+  $('bar').style.width='100%';
+  const score={};Object.keys(TYPES).forEach(k=>score[k]=0);
+  QUESTIONS.forEach((q,i)=>{if(answers[i]===1)q.g.forEach(k=>score[k]++);});
+  const ranked=Object.keys(TYPES).map(k=>({k,pct:MAX[k]?score[k]/MAX[k]:0}))
+                .sort((a,b)=>b.pct-a.pct);
+  const top=ranked[0].k, second=ranked[1].k;
+  const T=TYPES[top];
+
+  // 1. 브리핑
+  $('rEmoji').textContent=T.emoji;
+  $('rTitle').textContent=T.title;
+  $('rDesc').innerHTML=T.desc;
+  $('rTags').innerHTML=T.tags.map(t=>`<span>${t}</span>`).join('');
+  $('rSecond').innerHTML=`두 번째로 가까운 성향은 <b>${TYPES[second].emoji} ${TYPES[second].title}</b>입니다. 함께 살펴보세요.`;
+
+  // 2~3. 매칭 사역 + 상세
+  const area=$('matchArea');
+  area.innerHTML=`<div class="matchHead"><div class="area">${T.area}</div><div class="mt">${T.emoji} ${T.title}에게 어울리는 섬김</div></div>`;
+  MINISTRIES[top].forEach(m=>{
+    const rows=[];
+    rows.push(['봉사 내용', m.content]);
+    rows.push(['봉사 시간', m.time]);
+    rows.push(['봉사 날짜', m.date]);
+    rows.push(['봉사 장소', m.place]);
+    if(m.need && m.need!=='-') rows.push(['필요 인원', m.need]);
+    if(m.gender) rows.push(['성별', m.gender]);
+    if(m.pastor) rows.push(['담당 교역자', m.pastor]);
+    const info=rows.filter(r=>r[1]).map(r=>`<div class="irow"><div class="k">${r[0]}</div><div class="v">${r[1]}</div></div>`).join('');
+    const vurl=m.video||VIDEO_PLAYLIST;
+    const vlabel=m.video?'▶ 사역 소개 영상 보기':'▶ 사역 영상 모음 보기';
+    const card=document.createElement('div');
+    card.className='mcard';
+    const leaderTag=(m.leader && m.leader!=='-')?`<span class="leader">팀장 ${m.leader}</span>`:'';
+    card.innerHTML=`
+      <div class="top">
+        <div class="team">${m.team}${leaderTag}</div>
+        <p class="intro">${m.intro}</p>
+      </div>
+      <div class="info">${info}</div>
+      <a class="vbtn" href="${vurl}" target="_blank" rel="noopener">${vlabel}</a>`;
+    area.appendChild(card);
+  });
+
+  // 4. 영상
+  $('videoBtn').href=VIDEO_PLAYLIST;
+
+  window._result=`${T.emoji} ${T.title}`;
+  show('result');
+
+  // 5. 구글 스프레드시트 저장
+  const matchedTeams=MINISTRIES[top].map(m=>m.team).join(', ');
+  const answerStr=answers.map(a=>a===1?'Y':a===0?'N':'-').join('');
+  saveResult({
+    timestamp:new Date().toLocaleString('ko-KR'),
+    name:userInfo.name,
+    org:userInfo.org,
+    tel:userInfo.tel,
+    type:T.title,
+    typeArea:T.area,
+    secondType:TYPES[second].title,
+    scores:ranked.map(r=>`${TYPES[r.k].title} ${Math.round(r.pct*100)}%`).join(' / '),
+    matchedTeams:matchedTeams,
+    answers:answerStr
+  });
+}
+
+// ===== 구글 스프레드시트 전송 =====
+function saveResult(data){
+  const note=$('saveNote');
+  if(!SHEET_ENDPOINT){
+    note.className='saveNote ok';
+    note.innerHTML=`✅ <b>${data.name}</b>님, 검사가 완료되었습니다.`;
+    return;
+  }
+  note.className='saveNote send';
+  note.textContent='결과를 저장하는 중…';
+  fetch(SHEET_ENDPOINT,{
+    method:'POST',
+    mode:'no-cors',
+    headers:{'Content-Type':'text/plain;charset=utf-8'},
+    body:JSON.stringify(data)
+  }).then(()=>{
+    note.className='saveNote ok';
+    note.innerHTML=`✅ <b>${data.name}</b>님의 결과가 저장되었습니다.`;
+  }).catch(()=>{
+    note.className='saveNote fail';
+    note.innerHTML='⚠️ 저장에 실패했습니다. 결과는 화면에서 확인하실 수 있어요.';
+  });
+}
+
+function restart(){
+  answers.fill(-1);idx=0;$('bar').style.width='0%';
+  $('fName').value='';$('fOrg').value='';$('fTel').value='';
+  userInfo={name:"",org:"",tel:""};
+  show('intro');
+}
+
+function share(){
+  const txt=`🤲 긍휼 사역 매칭 결과\n나의 섬김 성향: ${window._result}\n나에게 꼭 맞는 긍휼의 섬김 자리를 찾아보세요!\n👉 ${SITE_URL}`;
+  if(navigator.share){navigator.share({title:'긍휼 사역 매칭',text:txt,url:SITE_URL}).catch(()=>{});}
+  else if(navigator.clipboard){navigator.clipboard.writeText(txt);alert('결과가 복사되었습니다 📋');}
+  else{alert(txt);}
+}
+
+// ===== 다른 사람에게 추천하기 (카카오톡·문자 공유) =====
+function recommend(){
+  const msg=`🤲 나의 긍휼 사역 성향을 찾아보세요!\n간단한 예/아니오 검사로 나에게 꼭 맞는 섬김의 자리를 추천해 드려요.\n\n👉 ${SITE_URL}`;
+  if(navigator.share){
+    // 모바일: 공유창에서 카카오톡·문자 등을 바로 선택
+    navigator.share({title:'긍휼 사역 매칭 검사',text:msg,url:SITE_URL}).catch(()=>{});
+  }else if(navigator.clipboard){
+    navigator.clipboard.writeText(msg).then(()=>{
+      alert('추천 메시지가 복사되었습니다 📋\n카카오톡·문자 창에 붙여넣어 보내세요!');
+    }).catch(()=>prompt('아래 메시지를 복사해 보내세요',msg));
+  }else{
+    prompt('아래 메시지를 복사해 보내세요',msg);
+  }
+}
+</script>
+</body>
+</html>
