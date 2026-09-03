@@ -30,6 +30,16 @@ body{font-family:'Noto Sans KR',sans-serif;background:var(--gray);color:var(--te
 
 
 
+
+/* ── 사랑방 십계명 (2026-09-03 오너 지시) ── */
+.tc-list{list-style:none;margin:0;padding:0;counter-reset:tc}
+.tc-list li{display:flex;gap:11px;align-items:flex-start;padding:11px 2px;
+  border-bottom:1px solid var(--gray2);font-size:14.5px;line-height:1.62;word-break:keep-all}
+.tc-list li:last-child{border-bottom:0}
+.tc-list .n{flex:0 0 25px;height:25px;border-radius:50%;background:var(--primary);color:#fff;
+  font-size:12.5px;font-weight:800;display:flex;align-items:center;justify-content:center;margin-top:1px}
+.tc-list .x{flex:1;color:var(--text);font-weight:500}
+
 /* ── 초청 기도문 (2026-09-03 오너 지시) ── */
 .ip-card{background:linear-gradient(160deg,#F1F8F3,#E4F2E8);border:1px solid #C7E3D2;
   border-radius:14px;padding:18px 16px;margin-bottom:10px}
@@ -331,6 +341,7 @@ textarea{resize:vertical;min-height:80px}
 .pwa-week{background:#fff;border:1px solid var(--gray2);color:var(--text)}
 .pwa-week .meta{font-size:11px;color:var(--sub);margin-bottom:4px}
 .pwa-week .lead{font-weight:600;margin:2px 0}
+.pwa-week-img{width:100%;border-radius:10px;margin-top:10px;display:block}
 .pwa-week .guide{margin-top:6px;padding-top:6px;border-top:1px dashed var(--gray2);color:var(--sub);font-size:12.5px}
 .pwa-badge-conf{display:inline-block;background:#9B2226;color:#fff;font-size:10px;font-weight:700;border-radius:4px;padding:1px 5px;margin-left:5px;vertical-align:middle}
 
@@ -2488,6 +2499,22 @@ filteredQ=[...QUESTIONS]; showQ();
 
 
 
+
+// ── 사랑방 십계명 (2026-09-03 오너 지시) ──
+function tcOpen(){
+  document.getElementById('ov-tc').classList.add('on');
+  document.getElementById('sh-tc').classList.add('on');
+  document.body.style.overflow='hidden';
+}
+function tcClose(){
+  document.getElementById('ov-tc').classList.remove('on');
+  document.getElementById('sh-tc').classList.remove('on');
+  document.body.style.overflow='';
+}
+document.addEventListener('keydown',function(e){
+  if(e.key==='Escape'&&document.getElementById('sh-tc').classList.contains('on')) tcClose();
+});
+
 // ── 사랑방 초청 기도문 (2026-09-03 오너 지시 — 명단 대신 함께 드리는 기도) ──
 const INVITE_PRAYERS = [
  {t:'마음을 여시도록', v:'“사람의 마음에는 많은 계획이 있어도 오직 여호와의 뜻만이 완전히 서리라” (잠 19:21)',
@@ -3015,10 +3042,33 @@ function genPrayer(){
 }
 function copyPrayer(){navigator.clipboard.writeText(document.getElementById('prayer-result').textContent).then(()=>alert('복사됐어요!'));}
 </script>
-<nav style="position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px solid #e8ede8;display:flex;padding-bottom:env(safe-area-inset-bottom,0px);z-index:200;box-shadow:0 -4px 20px rgba(0,0,0,.08)">
-  <a href="./" style="flex:1;display:flex;flex-direction:column;align-items:center;padding:8px 4px 10px;font-size:10px;font-weight:600;color:#aaa;gap:3px;text-decoration:none"><span style="font-size:22px">🏠</span>홈</a>
-  <a href="./" style="flex:1;display:flex;flex-direction:column;align-items:center;padding:8px 4px 10px;font-size:10px;font-weight:600;color:#1B4332;gap:3px;text-decoration:none"><span style="font-size:22px">✨</span>4W 키트</a>
+<nav style="position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px solid #e8ede8;display:flex;padding-bottom:env(safe-area-inset-bottom,0px);z-index:200;box-shadow:0 -2px 10px rgba(0,0,0,.05)">
+  <!-- ★2026-09-03 오너 지시 — 홈·4W키트는 같은 화면이라 뺐다. 십계명만 남긴다. -->
+  <button onclick="tcOpen()" style="flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;padding:9px 4px 11px;border:0;background:none;font-family:inherit;font-size:11px;font-weight:700;color:#1B4332;cursor:pointer">
+    <span style="font-size:19px;line-height:1">📜</span>사랑방 십계명
+  </button>
 </nav>
+
+<!-- ══ 사랑방 십계명 (2026-09-03 오너 지시) ══ -->
+<div class="pwa-ov" id="ov-tc" onclick="tcClose()"></div>
+<div class="pwa-sheet" id="sh-tc" role="dialog" aria-modal="true" aria-label="사랑방 십계명">
+  <div class="pwa-sheet-h">📜 사랑방 십계명
+    <button class="x" onclick="tcClose()" aria-label="닫기">✕</button></div>
+  <div class="pwa-sheet-b">
+    <ol class="tc-list">
+    <li><span class="n">1</span><span class="x">하나님을 최우선 순위에 두고 말씀에 온전히 순종한다.</span></li>
+    <li><span class="n">2</span><span class="x">서로의 말씀을 경청하고, 서로 배려하고 존중한다.</span></li>
+    <li><span class="n">3</span><span class="x">양육과 훈련을 통해 영적 성장을 이뤄간다.</span></li>
+    <li><span class="n">4</span><span class="x">1사랑방 1사역을 통해 세상과 영혼을 섬긴다.</span></li>
+    <li><span class="n">5</span><span class="x">VIP를 통해 항상 기도하며 복음전도에 힘쓴다.</span></li>
+    <li><span class="n">6</span><span class="x">분가를 통해 끊임 없이 영적 재생산을 이뤄간다.</span></li>
+    <li><span class="n">7</span><span class="x">금전거래를 하지 않는다.</span></li>
+    <li><span class="n">8</span><span class="x">사랑방 안에서 물건을 사고 팔지 않는다.</span></li>
+    <li><span class="n">9</span><span class="x">정치적인 이야기나 토론을 하지 않는다.</span></li>
+    <li><span class="n">10</span><span class="x">서로 나눴던 대화 내용은 절대 비밀을 보장한다.</span></li>
+    </ol>
+  </div>
+</div>
 
 <!-- ══ 데이터 관리 시트 (내보내기·불러오기) ══ -->
 <div class="pwa-ov" id="ov-pwa-data" onclick="pwaClose('pwa-data')"></div>
@@ -3322,7 +3372,7 @@ function copyPrayer(){navigator.clipboard.writeText(document.getElementById('pra
     var ws = document.getElementById('pwa-week-slot');
     var w = currentWeek(c && c.주차자료);
     if (ws) {
-      if (w && (w.제목 || w.요약 || w.목자안내 || w.본문)) {
+      if (w && (w.제목 || w.요약 || w.목자안내 || w.본문 || w.이미지)) {
         ws.innerHTML = '<div class="pwa-card pwa-week">' +
           '<div class="meta">' + esc(w.주차 || '') + (w.기간 ? ' · ' + esc(w.기간) : '') +
             (w.대외비 ? '<span class="pwa-badge-conf">대외비</span>' : '') + '</div>' +
@@ -3330,6 +3380,7 @@ function copyPrayer(){navigator.clipboard.writeText(document.getElementById('pra
           (w.본문 ? '<div class="lead">본문 · ' + esc(w.본문) + '</div>' : '') +
           (w.요약 ? '<div>' + esc(w.요약) + '</div>' : '') +
           (w.목자안내 ? '<div class="guide">🧑‍🌾 목자님께 · ' + esc(w.목자안내) + '</div>' : '') +
+          (w.이미지 ? '<img class="pwa-week-img" src="' + esc(w.이미지) + '" alt="' + esc(w.제목 || '안내 이미지') + '" loading="lazy">' : '') +
           '</div>';
       } else ws.innerHTML = '';
     }

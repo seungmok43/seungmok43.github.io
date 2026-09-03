@@ -15,7 +15,7 @@
  * ⚠ APP_VERSION 을 올리면 옛 캐시가 정리된다. 앱 코드를 고칠 때마다 올릴 것.
  */
 
-const APP_VERSION  = 'v1.2.0';   // 2026-08-31 빈 UI 16개 채움(결단·스탬프·파송기도문)
+const APP_VERSION  = '2026-09-03.1';   // 2026-08-31 빈 UI 16개 채움(결단·스탬프·파송기도문)
 const SHELL_CACHE   = `sarangbang-4w-shell-${APP_VERSION}`;
 const CONTENT_CACHE = 'sarangbang-4w-content';   // 버전 고정 — 자료는 코드 버전과 무관
 
@@ -25,6 +25,7 @@ const SHELL_ASSETS = [
   './index.html',
   './matching.html',
   './manifest.json',
+  './img/touch-banner.jpg',
   './icons/icon-192.png',
   './icons/icon-512.png',
   './icons/maskable-192.png',
