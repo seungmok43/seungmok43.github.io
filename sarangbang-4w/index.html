@@ -89,6 +89,21 @@ body{padding-bottom:0}
 .fs-en{flex:0 0 88px;font-size:13px;font-weight:800;color:#A8542F;letter-spacing:.5px;padding-top:1px}
 .fs-row b{font-size:14.5px;color:#3A2E26}
 .fs-d{font-size:12.5px;color:#7A6A5E;line-height:1.65;word-break:keep-all}
+/* 현재 미사용 — 2026-09-04 「이번 축제가 바꾼 한 가지」 절 제거로 사용처 0. 되살리면 다시 쓰인다 */
+/* ══ 기획안 슬라이드 23장 (2026-09-04 주인님 지시) ══
+   원본 1900px·8.6MB → 가로 1400px 재압축. webp 우선 + jpg 대체(구형 브라우저).
+   캐러셀을 쓰지 않는다 — 다이얼로그 안 가로 스와이프가 세로 스크롤과 충돌한다. */
+.fs-slides{margin:0 16px 4px}
+.fs-slides figure{margin:0 0 10px}
+.fs-slides img{width:100%;display:block;border:1px solid #EEDFD1;border-radius:12px;
+  background:#fff;cursor:zoom-in}
+.fs-slides figcaption{font-size:11.5px;color:#9A8A7C;text-align:right;margin-top:3px}
+#slz{position:fixed;inset:0;z-index:12000;background:rgba(26,20,16,.94);display:none;
+  align-items:center;justify-content:center;padding:8px}
+#slz.on{display:flex}
+#slz img{max-width:100%;max-height:100%;object-fit:contain;cursor:zoom-out}
+#slz .x{position:absolute;top:10px;right:12px;background:rgba(255,255,255,.92);border:0;
+  border-radius:999px;width:38px;height:38px;font-size:19px;line-height:1;cursor:pointer}
 .fs-note{margin:0 16px;background:#fff;border:1px solid #EEDFD1;border-radius:14px;padding:15px}
 .fs-note p{font-size:13.5px;line-height:1.85;color:#4A3B31;word-break:keep-all}
 .fs-note p+p{margin-top:10px}
@@ -2611,17 +2626,62 @@ window.addEventListener('load',syncFixed);
 setTimeout(syncFixed,300);
 
 
+// ── 기획안 슬라이드 23장 (2026-09-04 주인님 지시) ──
+// ★content.json 에 넣지 않는다: 주차자료는 「주별 공지」 스키마다. 23장은 규칙적 파일명이라
+//   여기서 루프로 만든다 — 마크업과 이 코드가 한 자리에 있어야 어긋나지 않는다(9/3 사고 규율).
+var SLIDE_N = 23;
+function renderSlides(){
+  var box = document.getElementById('fs-slides');
+  if(!box) return;                       // ★마크업이 없으면 조용히 넘어간다(최상위 TypeError 방지)
+  if(box.dataset.done === '1') return;   // 두 번 그리지 않는다
+  var h = '';
+  for(var i=1; i<=SLIDE_N; i++){
+    var n = (i<10?'0':'') + i;
+    h += '<figure>'
+       + '<picture>'
+       +   '<source srcset="./img/slides/s'+n+'.webp" type="image/webp">'
+       +   '<img src="./img/slides/s'+n+'.jpg" alt="기획안 슬라이드 '+i+'" loading="lazy" '
+       +        'decoding="async" onclick="slzOpen(this)">'
+       + '</picture>'
+       + '<figcaption>'+i+' / '+SLIDE_N+'</figcaption>'
+       + '</figure>';
+  }
+  box.innerHTML = h;
+  box.dataset.done = '1';
+}
+function slzOpen(img){
+  var z = document.getElementById('slz'), zi = document.getElementById('slz-img');
+  if(!z || !zi || !img) return;
+  zi.src = img.currentSrc || img.src;
+  zi.alt = img.alt || '';
+  z.classList.add('on');
+}
+function slzClose(){
+  var z = document.getElementById('slz'), zi = document.getElementById('slz-img');
+  if(!z) return;
+  z.classList.remove('on');
+  if(zi) zi.src = '';                    // 큰 이미지를 메모리에 붙들지 않는다
+}
+document.addEventListener('click', function(e){
+  var z = document.getElementById('slz');
+  if(z && z.classList.contains('on') && e.target === z) slzClose();  // 배경을 누르면 닫힘
+});
+
 // ── 사랑방 전도축제 안내 (2026-09-03 오너 지시) ──
 function fsOpen(){
   document.getElementById('fsfs').classList.add('on');
   document.getElementById('fsfs-body').scrollTop=0;
   document.body.style.overflow='hidden';
+  renderSlides();                        // ★열 때 그린다 — 안 열면 이미지 요청 0
 }
 function fsClose(){
   document.getElementById('fsfs').classList.remove('on');
   document.body.style.overflow='';
 }
 document.addEventListener('keydown',function(e){
+  // ★닫힘 우선순위: 확대가 열려 있으면 확대만 닫는다(전도축제 화면은 그대로 남는다)
+  var z = document.getElementById('slz');
+  if(e.key==='Escape' && z && z.classList.contains('on')){ slzClose(); return; }
   if(e.key==='Escape'&&document.getElementById('fsfs').classList.contains('on')) fsClose();
 });
 
@@ -3690,14 +3750,8 @@ function copyPrayer(){navigator.clipboard.writeText(document.getElementById('pra
         <div><b>주님의 집으로</b><br><span class="fs-d">교회에 등록합니다.</span></div></div>
     </div>
 
-    <div class="fs-sec">이번 축제가 바꾼 한 가지</div>
-    <div class="fs-note">
-      <p>지난 축제에서 가장 많이 사라진 자리는 <b>「초대하는 순간」</b>이었습니다.
-         마음에 품고 기도까지 했는데, <b>말을 꺼내지 못한 채</b> 축제가 끝났습니다.</p>
-      <p>그래서 순서를 바꿨습니다. <b>접촉이 다 끝난 뒤에 초대하는 것이 아니라,
-         날짜를 먼저 못박고 그 날짜로 초대한 다음 만나 갑니다.</b>
-         자리가 먼저 열려 있어야 초대할 수 있기 때문입니다.</p>
-    </div>
+    <!-- 2026-09-04 주인님 지시로 본문 삭제 · 제목이 가리킬 내용이 없어져 절 전체 제거
+         (「이번 축제가 바꾼 한 가지」 fs-sec + fs-note 2문단). fs-note CSS 는 92행에 남겨 둠 -->
 
     <div class="fs-sec">목자님께</div>
     <ul class="fs-do">
@@ -3708,8 +3762,17 @@ function copyPrayer(){navigator.clipboard.writeText(document.getElementById('pra
       <li>이 앱 <b>Works &gt; VIP를 위한 기도</b>에 함께 드릴 기도문이 있습니다.</li>
     </ul>
 
+    <div class="fs-sec">기획안 슬라이드</div>
+    <div class="fs-slides" id="fs-slides"><!-- renderSlides() 가 채운다 --></div>
+
     <div class="fs-verse">“너희가 여기 내 형제 중에 지극히 작은 자 하나에게 한 것이<br>곧 내게 한 것이니라” <span>마태복음 25:40</span></div>
   </div>
+</div>
+
+<!-- ══ 슬라이드 확대 (2026-09-04) · #fsfs 밖에 둔다 — 안에 두면 다이얼로그 스크롤에 갇힌다 ══ -->
+<div id="slz" role="dialog" aria-modal="true" aria-label="슬라이드 확대">
+  <button class="x" onclick="slzClose()" aria-label="닫기">✕</button>
+  <img id="slz-img" src="" alt="">
 </div>
 
 <!-- ══ 설문 전체화면 (2026-09-03 오너 지시) ══ -->
