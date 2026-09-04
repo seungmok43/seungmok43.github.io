@@ -2629,21 +2629,25 @@ setTimeout(syncFixed,300);
 // ── 기획안 슬라이드 23장 (2026-09-04 주인님 지시) ──
 // ★content.json 에 넣지 않는다: 주차자료는 「주별 공지」 스키마다. 23장은 규칙적 파일명이라
 //   여기서 루프로 만든다 — 마크업과 이 코드가 한 자리에 있어야 어긋나지 않는다(9/3 사고 규율).
-var SLIDE_N = 23;
+// ★2026-09-04 주인님 지시 — 20장 제외. 원본에서 11장과 **바이트 동일한 중복**이었다
+//   (s11.jpg/s20.jpg 해시 e78c6bff… · s11.webp/s20.webp 해시 0396b434… master 실측).
+//   ⛔파일은 지우지 않는다 — 목록에서만 뺀다. 되살리려면 20을 다시 넣으면 된다.
+var SLIDE_LIST = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,21,22,23];
 function renderSlides(){
   var box = document.getElementById('fs-slides');
   if(!box) return;                       // ★마크업이 없으면 조용히 넘어간다(최상위 TypeError 방지)
   if(box.dataset.done === '1') return;   // 두 번 그리지 않는다
   var h = '';
-  for(var i=1; i<=SLIDE_N; i++){
-    var n = (i<10?'0':'') + i;
+  for(var k=0; k<SLIDE_LIST.length; k++){
+    var i = k+1;                         // ★화면 번호는 자리 순서다(파일 번호가 아니다)
+    var n = (SLIDE_LIST[k]<10?'0':'') + SLIDE_LIST[k];
     h += '<figure>'
        + '<picture>'
        +   '<source srcset="./img/slides/s'+n+'.webp" type="image/webp">'
        +   '<img src="./img/slides/s'+n+'.jpg" alt="기획안 슬라이드 '+i+'" loading="lazy" '
        +        'decoding="async" onclick="slzOpen(this)">'
        + '</picture>'
-       + '<figcaption>'+i+' / '+SLIDE_N+'</figcaption>'
+       + '<figcaption>'+i+' / '+SLIDE_LIST.length+'</figcaption>'
        + '</figure>';
   }
   box.innerHTML = h;
