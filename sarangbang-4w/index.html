@@ -2632,7 +2632,7 @@ setTimeout(syncFixed,300);
 // ★2026-09-04 주인님 지시 — 20장 제외. 원본에서 11장과 **바이트 동일한 중복**이었다
 //   (s11.jpg/s20.jpg 해시 e78c6bff… · s11.webp/s20.webp 해시 0396b434… master 실측).
 //   ⛔파일은 지우지 않는다 — 목록에서만 뺀다. 되살리려면 20을 다시 넣으면 된다.
-var SLIDE_LIST = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,21,22,23];
+var SLIDE_LIST = [1,2,3,4,5,6,7,8,10,18,19,21,22,23];
 function renderSlides(){
   var box = document.getElementById('fs-slides');
   if(!box) return;                       // ★마크업이 없으면 조용히 넘어간다(최상위 TypeError 방지)
